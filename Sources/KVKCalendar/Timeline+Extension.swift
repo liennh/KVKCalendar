@@ -303,7 +303,7 @@ extension TimelineView {
         return line
     }
     
-    func getEventView(style: Style, event: Event, frame: CGRect, date: Date? = nil) -> EventViewGeneral {
+    func getEventView(style: StyleKVK, event: Event, frame: CGRect, date: Date? = nil) -> EventViewGeneral {
         if let pageView = dataSource?.willDisplayEventView(event, frame: frame, date: date) {
             return pageView
         } else {
@@ -691,7 +691,7 @@ extension TimelineView: CalendarSettingProtocol {
         currentLineView.reloadFrame(frame)
     }
     
-    func updateStyle(_ style: Style) {
+    func updateStyle(_ style: StyleKVK) {
         self.style = style
     }
 }

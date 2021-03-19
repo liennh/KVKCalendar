@@ -25,8 +25,8 @@ final class ViewController: UIViewController {
         return button
     }()
     
-    private var style: Style = {
-        var style = Style()
+    private var style: StyleKVK = {
+        var style = StyleKVK()
         if UIDevice.current.userInterfaceIdiom == .phone {
             style.timeline.widthTime = 40
             style.timeline.currentLineHourWidth = 45
@@ -206,7 +206,7 @@ extension ViewController: CalendarDataSource {
     func willDisplayEventView(_ event: Event, frame: CGRect, date: Date?) -> EventViewGeneral? {
         return nil
 //        guard event.ID == "2" else { return nil }
-//        
+//
 //        return CustomViewEvent(style: style, event: event, frame: frame)
     }
     
@@ -368,7 +368,7 @@ extension UIColor {
 }
 
 final class CustomViewEvent: EventViewGeneral {
-    override init(style: Style, event: Event, frame: CGRect) {
+    override init(style: StyleKVK, event: Event, frame: CGRect) {
         super.init(style: style, event: event, frame: frame)
         
         let imageView = UIImageView(image: UIImage(named: "ic_stub"))

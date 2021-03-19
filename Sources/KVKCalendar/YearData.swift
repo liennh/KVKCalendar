@@ -15,7 +15,7 @@ final class YearData {
     }
     
     var date: Date
-    var style: Style
+    var style: StyleKVK
     let sections: [YearSection]
     let rowsInPage = 3
     let columnsInPage = 4
@@ -27,7 +27,7 @@ final class YearData {
         return columnsInPage * rowsInPage
     }
     
-    init(data: CalendarData, date: Date, style: Style) {
+    init(data: CalendarData, date: Date, style: StyleKVK) {
         self.date = date
         self.style = style
         

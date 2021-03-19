@@ -10,7 +10,7 @@ import UIKit
 final class ListView: UIView, CalendarSettingProtocol {
     
     struct Parameters {
-        let style: Style
+        let style: StyleKVK
         let data: ListViewData
         weak var dataSource: DisplayDataSource?
         weak var delegate: DisplayDelegate?

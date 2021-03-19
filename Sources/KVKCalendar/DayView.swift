@@ -16,7 +16,7 @@ final class DayView: UIView {
     private let tagEventViewer = -10
     
     struct Parameters {
-        var style: Style
+        var style: StyleKVK
         var data: DayData
     }
     
@@ -320,7 +320,7 @@ extension DayView: CalendarSettingProtocol {
         timelinePages.reloadCacheControllers()
     }
     
-    func updateStyle(_ style: Style) {
+    func updateStyle(_ style: StyleKVK) {
         self.parameters.style = style
         scrollHeaderDay.updateStyle(style)
         timelinePages.timelineView?.updateStyle(style)

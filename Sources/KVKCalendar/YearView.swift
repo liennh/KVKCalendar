@@ -132,7 +132,7 @@ extension YearView: CalendarSettingProtocol {
         collectionView?.reloadData()
     }
     
-    func updateStyle(_ style: Style) {
+    func updateStyle(_ style: StyleKVK) {
         self.data.style = style
         setUI()
         setDate(data.date)

@@ -10,7 +10,7 @@ import UIKit
 final class WeekView: UIView {
     private var visibleDates: [Date?] = []
     private var data: WeekData
-    private var style: Style
+    private var style: StyleKVK
     
     weak var delegate: DisplayDelegate?
     weak var dataSource: DisplayDataSource?
@@ -99,7 +99,7 @@ final class WeekView: UIView {
         return label
     }()
     
-    init(data: WeekData, frame: CGRect, style: Style) {
+    init(data: WeekData, frame: CGRect, style: StyleKVK) {
         self.style = style
         self.data = data
         super.init(frame: frame)
@@ -211,7 +211,7 @@ extension WeekView: CalendarSettingProtocol {
         timelinePages.reloadCacheControllers()
     }
     
-    func updateStyle(_ style: Style) {
+    func updateStyle(_ style: StyleKVK) {
         self.style = style
         scrollHeaderDay.updateStyle(style)
         timelinePages.timelineView?.updateStyle(style)

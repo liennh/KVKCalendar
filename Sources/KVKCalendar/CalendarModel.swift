@@ -238,7 +238,7 @@ public protocol EventProtocol {
 
 protocol CalendarSettingProtocol: AnyObject {
     func reloadFrame(_ frame: CGRect)
-    func updateStyle(_ style: Style)
+    func updateStyle(_ style: StyleKVK)
     func reloadData(_ events: [Event])
     func setDate(_ date: Date)
     func setUI()
@@ -246,7 +246,7 @@ protocol CalendarSettingProtocol: AnyObject {
 
 extension CalendarSettingProtocol {
     func setUI() {}
-    func updateStyle(_ style: Style) {}
+    func updateStyle(_ style: StyleKVK) {}
     func reloadData(_ events: [Event]) {}
     func setDate(_ date: Date) {}
 }

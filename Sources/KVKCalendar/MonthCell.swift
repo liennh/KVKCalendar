@@ -51,7 +51,7 @@ final class MonthCell: UICollectionViewCell {
         }
     }
     
-    var style = Style() {
+    var style = StyleKVK() {
         didSet {
             monthStyle = style.month
             allDayStyle = style.allDay

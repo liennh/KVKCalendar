@@ -21,7 +21,7 @@ open class EventViewGeneral: UIView, CalendarTimer {
     
     public var event: Event
     public var color: UIColor
-    public var style: Style
+    public var style: StyleKVK
     public var isSelected: Bool = false
     public var stateEvent: EventViewState = .none
     
@@ -31,7 +31,7 @@ open class EventViewGeneral: UIView, CalendarTimer {
         return gesture
     }()
     
-    public init(style: Style, event: Event, frame: CGRect) {
+    public init(style: StyleKVK, event: Event, frame: CGRect) {
         self.style = style
         self.event = event
         self.color = Event.Color(event.color?.value ?? event.backgroundColor).value
@@ -45,7 +45,7 @@ open class EventViewGeneral: UIView, CalendarTimer {
     required public init?(coder: NSCoder) {
         let event = Event(ID: "0")
         self.event = event
-        self.style = Style()
+        self.style = StyleKVK()
         self.color = event.backgroundColor
         self.states = style.event.states
         super.init(coder: coder)

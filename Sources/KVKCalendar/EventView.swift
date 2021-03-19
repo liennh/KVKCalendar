@@ -27,7 +27,7 @@ final class EventView: EventViewGeneral {
         return image
     }()
     
-    init(event: Event, style: Style, frame: CGRect) {
+    init(event: Event, style: StyleKVK, frame: CGRect) {
         super.init(style: style, event: event, frame: frame)
         
         var textFrame = frame

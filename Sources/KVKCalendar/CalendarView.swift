@@ -21,7 +21,7 @@ public final class CalendarView: UIView {
     
     let eventStore = EKEventStore()
     var type = CalendarType.day
-    var style: Style
+    var style: StyleKVK
     
     private(set) var calendarData: CalendarData
     private var weekData: WeekData
@@ -83,7 +83,7 @@ public final class CalendarView: UIView {
         return list
     }()
     
-    public init(frame: CGRect, date: Date = Date(), style: Style = Style(), years: Int = 4) {
+    public init(frame: CGRect, date: Date = Date(), style: StyleKVK = StyleKVK(), years: Int = 4) {
         self.style = style.checkStyle
         self.calendarData = CalendarData(date: date, years: years, style: style)
         self.dayData = DayData(data: calendarData, timeSystem: style.timeSystem, startDay: style.startWeekDay)

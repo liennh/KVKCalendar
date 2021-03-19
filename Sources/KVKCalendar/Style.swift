@@ -9,7 +9,7 @@ import UIKit
 
 private let gainsboro: UIColor = UIColor(red: 220 / 255, green: 220 / 255, blue: 220 / 255, alpha: 1)
 
-public struct Style {
+public struct StyleKVK {
     public var event = EventStyle()
     public var timeline = TimelineStyle()
     public var week = WeekStyle()
@@ -385,8 +385,8 @@ public struct ListViewStyle {
     public var backgroundColor: UIColor = .white
 }
 
-extension Style {
-    var checkStyle: Style {
+extension StyleKVK {
+    var checkStyle: StyleKVK {
         guard followInSystemTheme else { return self }
         
         var newStyle = self

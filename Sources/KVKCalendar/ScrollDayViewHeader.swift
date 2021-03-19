@@ -15,7 +15,7 @@ final class ScrollDayHeaderView: UIView {
     
     private let days: [Day]
     var date: Date
-    private var style: Style
+    private var style: StyleKVK
     private var collectionView: UICollectionView!
     private var isAnimate: Bool = false
     private let type: CalendarType
@@ -51,7 +51,7 @@ final class ScrollDayHeaderView: UIView {
         }
     }
     
-    init(frame: CGRect, days: [Day], date: Date, type: CalendarType, style: Style) {
+    init(frame: CGRect, days: [Day], date: Date, type: CalendarType, style: StyleKVK) {
         self.days = days
         self.date = date
         self.type = type
@@ -285,7 +285,7 @@ extension ScrollDayHeaderView: CalendarSettingProtocol {
         collectionView.reloadData()
     }
     
-    func updateStyle(_ style: Style) {
+    func updateStyle(_ style: StyleKVK) {
         self.style = style
     }
     

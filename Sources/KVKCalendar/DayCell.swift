@@ -38,7 +38,7 @@ class DayCell: UICollectionViewCell {
         return view
     }()
     
-    var style = Style() {
+    var style = StyleKVK() {
         didSet {
             titleLabel.font = style.headerScroll.fontNameDay
             titleLabel.textColor = style.headerScroll.colorNameDay

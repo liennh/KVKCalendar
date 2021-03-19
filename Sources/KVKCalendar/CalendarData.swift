@@ -8,14 +8,14 @@
 import Foundation
 
 struct CalendarData {
-    private let style: Style
+    private let style: StyleKVK
     
     let boxCount = 42
     let date: Date
     var months = [Month]()
     var yearsCount = [Int]()
     
-    init(date: Date, years: Int, style: Style) {
+    init(date: Date, years: Int, style: StyleKVK) {
         self.date = date
         self.style = style
         

@@ -34,7 +34,7 @@ final class ResizeEventView: UIView {
     private lazy var topView = createPanView(type: .top)
     private lazy var bottomView = createPanView(type: .bottom)
     private let mainHeightOffset: CGFloat = 30
-    private let style: Style
+    private let style: StyleKVK
     
     var haveNewSize: (needSave: Bool, frame: CGRect) {
         guard originalFrameEventView.height != eventView.frame.height else {
@@ -68,7 +68,7 @@ final class ResizeEventView: UIView {
         return view
     }
     
-    init(view: UIView, event: Event, frame: CGRect, style: Style) {
+    init(view: UIView, event: Event, frame: CGRect, style: StyleKVK) {
         self.event = event
         self.originalFrameEventView = frame
         self.style = style

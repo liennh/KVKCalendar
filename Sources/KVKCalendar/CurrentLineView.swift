@@ -9,7 +9,7 @@ import UIKit
 
 final class CurrentLineView: UIView {
     
-    private let style: Style
+    private let style: StyleKVK
     private let timeHourSystem: TimeHourSystem
 
     private lazy var timeLabel: TimelineLabel = {
@@ -50,7 +50,7 @@ final class CurrentLineView: UIView {
     
     var date: Date?
     
-    init(style: Style, frame: CGRect, timeHourSystem: TimeHourSystem) {
+    init(style: StyleKVK, frame: CGRect, timeHourSystem: TimeHourSystem) {
         self.style = style
         self.timeHourSystem = timeHourSystem
         super.init(frame: frame)
@@ -68,7 +68,7 @@ final class CurrentLineView: UIView {
 }
 
 extension CurrentLineView: CalendarSettingProtocol {
-    func updateStyle(_ style: Style) {
+    func updateStyle(_ style: StyleKVK) {
         
     }
     

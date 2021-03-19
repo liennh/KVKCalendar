@@ -9,7 +9,7 @@ import UIKit
 
 final class MonthView: UIView {
     private var monthData: MonthData
-    private var style: Style
+    private var style: StyleKVK
     private var collectionView: UICollectionView?
     private var eventPreview: UIView?
     
@@ -40,7 +40,7 @@ final class MonthView: UIView {
         return layout
     }()
     
-    init(data: MonthData, frame: CGRect, style: Style) {
+    init(data: MonthData, frame: CGRect, style: StyleKVK) {
         self.monthData = data
         self.style = style
         super.init(frame: frame)
@@ -180,7 +180,7 @@ extension MonthView: CalendarSettingProtocol {
         collectionView?.reloadData()
     }
     
-    func updateStyle(_ style: Style) {
+    func updateStyle(_ style: StyleKVK) {
         self.style = style
         headerView.updateStyle(style)
         setUI()

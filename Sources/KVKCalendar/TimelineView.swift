@@ -14,7 +14,7 @@ final class TimelineView: UIView, EventDateProtocol {
     
     var deselectEvent: ((Event) -> Void)?
     
-    var style: Style
+    var style: StyleKVK
     var eventPreview: UIView?
     var eventResizePreview: ResizeEventView?
     var eventPreviewSize = CGSize(width: 150, height: 150)
@@ -69,7 +69,7 @@ final class TimelineView: UIView, EventDateProtocol {
         return scroll
     }()
     
-    init(type: CalendarType, timeHourSystem: TimeHourSystem, style: Style, frame: CGRect) {
+    init(type: CalendarType, timeHourSystem: TimeHourSystem, style: StyleKVK, frame: CGRect) {
         self.type = type
         self.timeHourSystem = timeHourSystem
         self.hours = timeHourSystem.hours
