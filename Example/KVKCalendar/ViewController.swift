@@ -33,6 +33,7 @@ final class ViewController: UIViewController {
             style.timeline.offsetTimeX = 2
             style.timeline.offsetLineLeft = 2
             style.headerScroll.titleDateAlignment = .center
+            style.headerScroll.isHiddenSubview = true
             style.headerScroll.isAnimateTitleDate = true
             style.headerScroll.heightHeaderWeek = 70
             style.event.isEnableVisualSelect = false
@@ -44,6 +45,7 @@ final class ViewController: UIViewController {
         }
         style.timeline.offsetTimeY = 25
         style.startWeekDay = .sunday
+        
         style.timeSystem = TimeHourSystem.current ?? .twelve
         if #available(iOS 13.0, *) {
             style.event.iconFile = UIImage(systemName: "paperclip")
@@ -84,12 +86,12 @@ final class ViewController: UIViewController {
         navigationItem.titleView = segmentedControl
         navigationItem.rightBarButtonItem = todayButton
                 
-        loadEvents { (events) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-                self?.events = events
-                self?.calendarView.reloadData()
-            }
-        }
+//        loadEvents { (events) in
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+//                self?.events = events
+//                self?.calendarView.reloadData()
+//            }
+//        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -112,10 +114,10 @@ final class ViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        loadEvents { [weak self] (events) in
-            self?.events = events
-            self?.calendarView.reloadData()
-        }
+//        loadEvents { [weak self] (events) in
+//            self?.events = events
+//            self?.calendarView.reloadData()
+//        }
     }
 }
 
@@ -171,7 +173,7 @@ extension ViewController: CalendarDelegate {
     func didAddNewEvent(_ event: Event, _ date: Date?) {
         var newEvent = event
         
-        guard let start = date, let end = Calendar.current.date(byAdding: .minute, value: 30, to: start) else { return }
+        guard let start = date, let end = Calendar.current.date(byAdding: .minute, value: 60, to: start) else { return }
 
         let startTime = timeFormatter(date: start)
         let endTime = timeFormatter(date: end)
@@ -202,32 +204,36 @@ extension ViewController: CalendarDataSource {
     }
     
     func willDisplayEventView(_ event: Event, frame: CGRect, date: Date?) -> EventViewGeneral? {
-        guard event.ID == "2" else { return nil }
-        
-        return CustomViewEvent(style: style, event: event, frame: frame)
+        return nil
+//        guard event.ID == "2" else { return nil }
+//        
+//        return CustomViewEvent(style: style, event: event, frame: frame)
     }
     
     func dequeueCell<T>(date: Date?, type: CalendarType, view: T, indexPath: IndexPath) -> KVKCalendarCellProtocol? where T: UIScrollView {
         switch type {
         case .year where date?.month == Date().month:
-            let cell = (view as? UICollectionView)?.dequeueCell(indexPath: indexPath) { (cell: CustomDayCell) in
-                cell.imageView.image = UIImage(named: "ic_stub")
-            }
-            return cell
+//            let cell = (view as? UICollectionView)?.dequeueCell(indexPath: indexPath) { (cell: CustomDayCell) in
+//                cell.imageView.image = UIImage(named: "ic_stub")
+//            }
+//            return cell
+            return nil
         case .day, .week, .month:
-            guard date?.day == Date().day else { return nil }
-            
-            let cell = (view as? UICollectionView)?.dequeueCell(indexPath: indexPath) { (cell: CustomDayCell) in
-                cell.imageView.image = UIImage(named: "ic_stub")
-            }
-            return cell
+//            guard date?.day == Date().day else { return nil }
+//
+//            let cell = (view as? UICollectionView)?.dequeueCell(indexPath: indexPath) { (cell: CustomDayCell) in
+//                cell.imageView.image = UIImage(named: "ic_stub")
+//            }
+//            return cell
+            return nil
         case .list:
-            guard date?.day == 14 else { return nil }
-            
-            let cell = (view as? UITableView)?.dequeueCell { (cell) in
-                cell.backgroundColor = .systemRed
-            }
-            return cell
+//            guard date?.day == 14 else { return nil }
+//
+//            let cell = (view as? UITableView)?.dequeueCell { (cell) in
+//                cell.backgroundColor = .systemRed
+//            }
+//            return cell
+            return nil
         default:
             return nil
         }

@@ -19,7 +19,7 @@ extension TimelineView: UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        addStubInvisibleEvents()
+       // addStubInvisibleEvents()
     }
     
     func addStubInvisibleEvents() {
@@ -339,7 +339,7 @@ extension TimelineView {
                 break
             }
             
-            newEvent.end = style.calendar.date(byAdding: .minute, value: 15, to: newEvent.start) ?? Date()
+            newEvent.end = style.calendar.date(byAdding: .minute, value: 60, to: newEvent.start) ?? Date()
             delegate?.didAddNewEvent(newEvent, minute: minute, hour: hour, point: point)
         default:
             break
