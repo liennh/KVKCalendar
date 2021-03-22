@@ -211,7 +211,7 @@ extension ViewController: CalendarDataSource {
 //        return CustomViewEvent(style: style, event: event, frame: frame)
     }
     
-    func dequeueCell<T>(date: Date?, type: CalendarType, view: T, indexPath: IndexPath) -> KVKCalendarCellProtocol? where T: UIScrollView {
+    func dequeueCell<T>(date: Date?, type: CalendarType, view: T, indexPath: IndexPath, events: [Event]) -> KVKCalendarCellProtocol? where T: UIScrollView {
         switch type {
         case .year where date?.month == Date().month:
 //            let cell = (view as? UICollectionView)?.dequeueCell(indexPath: indexPath) { (cell: CustomDayCell) in
@@ -219,13 +219,15 @@ extension ViewController: CalendarDataSource {
 //            }
 //            return cell
             return nil
-        case .day, .week, .month:
+        case .day, .week:
 //            guard date?.day == Date().day else { return nil }
 //
 //            let cell = (view as? UICollectionView)?.dequeueCell(indexPath: indexPath) { (cell: CustomDayCell) in
 //                cell.imageView.image = UIImage(named: "ic_stub")
 //            }
 //            return cell
+            return nil
+        case .month:
             return nil
         case .list:
 //            guard date?.day == 14 else { return nil }
