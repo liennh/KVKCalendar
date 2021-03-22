@@ -247,8 +247,9 @@ extension MonthView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = getIndexForDirection(style.month.scrollDirection, indexPath: indexPath)
         guard let day = monthData.getDay(indexPath: index) else { return UICollectionViewCell() }
-        
-        if let cell = dataSource?.dequeueCell(date: day.date, type: .month, view: collectionView, indexPath: index, events: day.events) as? UICollectionViewCell, day.type != .empty {
+        if let cell = dataSource?.dequeueNibCell(date: day.date, type: .month, view: collectionView, indexPath: index, events: day.events) as? UICollectionViewCell, day.type != .empty {
+            return cell
+        } else if let cell = dataSource?.dequeueCell(date: day.date, type: .month, view: collectionView, indexPath: index, events: day.events) as? UICollectionViewCell, day.type != .empty {
             return cell
         } else {
             return collectionView.dequeueCell(indexPath: index) { (cell: MonthCell) in

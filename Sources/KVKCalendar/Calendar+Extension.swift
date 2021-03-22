@@ -209,6 +209,21 @@ public extension UICollectionView {
         return cell
     }
     
+    func dequeueNibCell<T: UICollectionViewCell>(id: String = T.identifier, indexPath: IndexPath, configure: (T) -> Void) -> T {
+        self.register(UINib(nibName: T.identifier, bundle: nil), forCellWithReuseIdentifier: T.identifier)
+        
+        let cell: T
+        if let dequeued = dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as? T {
+            cell = dequeued
+        } else {
+            cell = T(frame: .zero)
+        }
+        
+        configure(cell)
+        return cell
+    }
+    
+    
     func dequeueView<T: UICollectionReusableView>(id: String = T.identifier, kind: String = UICollectionView.elementKindSectionHeader, indexPath: IndexPath, configure: (T) -> Void) -> T {
         registerView(T.self, kind: kind)
         

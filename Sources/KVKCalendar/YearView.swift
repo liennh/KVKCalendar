@@ -162,8 +162,9 @@ extension YearView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = getIndexForDirection(data.style.year.scrollDirection, indexPath: indexPath)
         let month = data.sections[index.section].months[index.row]
-        
-        if let cell = dataSource?.dequeueCell(date: month.date, type: .year, view: collectionView, indexPath: index, events: []) as? UICollectionViewCell {
+        if let cell = dataSource?.dequeueNibCell(date: month.date, type: .year, view: collectionView, indexPath: index, events: []) as? UICollectionViewCell {
+            return cell
+        } else if let cell = dataSource?.dequeueCell(date: month.date, type: .year, view: collectionView, indexPath: index, events: []) as? UICollectionViewCell {
             return cell
         } else {
             return collectionView.dequeueCell(indexPath: index) { (cell: YearCell) in

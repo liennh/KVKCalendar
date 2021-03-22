@@ -305,8 +305,9 @@ extension ScrollDayHeaderView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let day = days[indexPath.row]
-        
-        if let cell = dataSource?.dequeueCell(date: day.date, type: type, view: collectionView, indexPath: indexPath, events: day.events) as? UICollectionViewCell {
+        if let cell = dataSource?.dequeueNibCell(date: day.date, type: type, view: collectionView, indexPath: indexPath, events: day.events) as? UICollectionViewCell {
+            return cell
+        } else if let cell = dataSource?.dequeueCell(date: day.date, type: type, view: collectionView, indexPath: indexPath, events: day.events) as? UICollectionViewCell {
             return cell
         } else {
             switch UIDevice.current.userInterfaceIdiom {
