@@ -9,11 +9,13 @@ import UIKit
 
 struct CrossEvent: Hashable {
     let eventTime: EventTime
+    var index: Int
     var count: Int
     
-    init(eventTime: EventTime, count: Int = 1) {
+    init(eventTime: EventTime, count: Int = 1, index: Int = 0) {
         self.eventTime = eventTime
         self.count = count
+        self.index = index
     }
     
     static func == (lhs: CrossEvent, rhs: CrossEvent) -> Bool {

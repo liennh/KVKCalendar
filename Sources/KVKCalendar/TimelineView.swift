@@ -100,13 +100,44 @@ final class TimelineView: UIView, EventDateProtocol {
         stopTimer()
     }
     
+    private func calculateSectionEvent(_ events: [Event]) -> [[Event]] {
+        var groupsOfEvents = [[Event]]()
+        var overlappingEvents = [Event]()
+        for event in events {
+            if overlappingEvents.isEmpty {
+              overlappingEvents.append(event)
+              continue
+            }
+            
+            if (overlappingEvents.first!.start...overlappingEvents.last!.end).overlaps(event.start...event.end) && overlappingEvents.last!.end != event.start {
+                overlappingEvents.append(event)
+                continue
+            }
+            groupsOfEvents.append(overlappingEvents)
+            overlappingEvents = [event]
+        }
+        groupsOfEvents.append(overlappingEvents)
+        return groupsOfEvents
+    }
+    
+    
     private func calculateCrossEvents(_ events: [Event]) -> [TimeInterval: CrossEvent] {
         var eventsTemp = events
         var crossEvents = [TimeInterval: CrossEvent]()
         
+        var indexSection = 0
+        var sectionDate: ClosedRange<Date>?
+        
         while let event = eventsTemp.first {
             let start = event.start.timeIntervalSince1970
             let end = event.end.timeIntervalSince1970
+            
+            if sectionDate == nil {
+                sectionDate = event.start...event.end
+            }
+            
+            
+            
             var crossEventNew = CrossEvent(eventTime: EventTime(start: start, end: end))
             
             let endCalculated: TimeInterval = crossEventNew.eventTime.end - TimeInterval(style.timeline.offsetEvent)
@@ -329,72 +360,131 @@ final class TimelineView: UIView, EventDateProtocol {
             
             // count event cross in one hour
             let crossEvents = calculateCrossEvents(sortedEventsByDate)
+            
+            let groupSections = calculateSectionEvent(sortedEventsByDate)
             var pagesCached = [EventViewGeneral]()
             
             if !sortedEventsByDate.isEmpty {
                 // create event
-                var newFrame = CGRect(x: 0, y: 0, width: 0, height: heightPage)
-                sortedEventsByDate.forEach { (event) in
-                    timeLabels.forEach({ (time) in
-                        // calculate position 'y'
-                        if event.start.hour.hashValue == time.valueHash, event.start.day == date?.day {
-                            if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
-                                newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: newTime)
-                            } else {
-                                newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: time)
-                            }
-                        } else if let firstTimeLabel = getTimelineLabel(hour: startHour), event.start.day != date?.day {
-                            newFrame.origin.y = calculatePointYByMinute(startHour, time: firstTimeLabel)
-                        }
-                        
-                        // calculate 'height' event
-                        if let defaultHeight = event.style?.defaultHeight {
-                            newFrame.size.height = defaultHeight
-                        } else if let globalDefaultHeight = style.event.defaultHeight {
-                            newFrame.size.height = globalDefaultHeight
-                        } else if event.end.hour.hashValue == time.valueHash, event.end.day == date?.day {
-                            var timeTemp = time
-                            if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
-                                timeTemp = newTime
-                            }
-                            let summHeight = (CGFloat(timeTemp.tag) * (style.timeline.offsetTimeY + timeTemp.frame.height)) - newFrame.origin.y + (timeTemp.frame.height / 2)
-                            if 0...59 ~= event.end.minute {
-                                let minutePercent = 59.0 / CGFloat(event.end.minute)
-                                let newY = (style.timeline.offsetTimeY + timeTemp.frame.height) / minutePercent
-                                newFrame.size.height = summHeight + newY - style.timeline.offsetEvent
-                            } else {
-                                newFrame.size.height = summHeight - style.timeline.offsetEvent
-                            }
-                        } else if event.end.day != date?.day {
-                            newFrame.size.height = (CGFloat(time.tag) * (style.timeline.offsetTimeY + time.frame.height)) - newFrame.origin.y + (time.frame.height / 2)
-                        }
-                    })
-                    
-                    // calculate 'width' and position 'x'
-                    var newWidth = widthPage
-                    var newPointX = pointX
-                    if let crossEvent = crossEvents[event.start.timeIntervalSince1970] {
-                        newWidth /= CGFloat(crossEvent.count)
-                        newWidth -= style.timeline.offsetEvent
-                        newFrame.size.width = newWidth
-                        
-                        if crossEvent.count > 1, !pagesCached.isEmpty {
-                            for page in pagesCached {
-                                while page.frame.intersects(CGRect(x: newPointX, y: newFrame.origin.y, width: newFrame.width, height: newFrame.height)) {
-                                    newPointX += (page.frame.width + style.timeline.offsetEvent).rounded()
-                                }
-                            }
-                        }
+                groupSections.forEach { (events) in
+                    let countEvents = events.count
+                    if countEvents == 0 {
+                        return
                     }
-                    
-                    newFrame.origin.x = newPointX
-                    
-                    let page = getEventView(style: style, event: event, frame: newFrame, date: date)
-                    page.delegate = self
-                    page.dataSource = self
-                    scrollView.addSubview(page)
-                    pagesCached.append(page)
+                    let widthEvent = widthPage/CGFloat(events.count)
+                   
+                    for indexEvent in 0..<countEvents {
+                        let event = events[indexEvent]
+                        var newFrame = CGRect(x: 0, y: 0, width: 0, height: heightPage)
+                        let originX = widthEvent*CGFloat(indexEvent) + pointX
+                        newFrame.origin.x = originX
+                        newFrame.size.width = widthEvent
+                        timeLabels.forEach({ (time) in
+                            // calculate position 'y'
+                            if event.start.hour.hashValue == time.valueHash, event.start.day == date?.day {
+                                if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
+                                    newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: newTime)
+                                } else {
+                                    newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: time)
+                                }
+                            } else if let firstTimeLabel = getTimelineLabel(hour: startHour), event.start.day != date?.day {
+                                newFrame.origin.y = calculatePointYByMinute(startHour, time: firstTimeLabel)
+                            }
+                            
+                            // calculate 'height' event
+                            if let defaultHeight = event.style?.defaultHeight {
+                                newFrame.size.height = defaultHeight
+                            } else if let globalDefaultHeight = style.event.defaultHeight {
+                                newFrame.size.height = globalDefaultHeight
+                            } else if event.end.hour.hashValue == time.valueHash, event.end.day == date?.day {
+                                var timeTemp = time
+                                if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
+                                    timeTemp = newTime
+                                }
+                                let summHeight = (CGFloat(timeTemp.tag) * (style.timeline.offsetTimeY + timeTemp.frame.height)) - newFrame.origin.y + (timeTemp.frame.height / 2)
+                                if 0...59 ~= event.end.minute {
+                                    let minutePercent = 59.0 / CGFloat(event.end.minute)
+                                    let newY = (style.timeline.offsetTimeY + timeTemp.frame.height) / minutePercent
+                                    newFrame.size.height = summHeight + newY - style.timeline.offsetEvent
+                                } else {
+                                    newFrame.size.height = summHeight - style.timeline.offsetEvent
+                                }
+                            } else if event.end.day != date?.day {
+                                newFrame.size.height = (CGFloat(time.tag) * (style.timeline.offsetTimeY + time.frame.height)) - newFrame.origin.y + (time.frame.height / 2)
+                            }
+                        })
+                        let page = getEventView(style: style, event: event, frame: newFrame, date: date)
+                        page.delegate = self
+                        page.dataSource = self
+                        scrollView.addSubview(page)
+                        pagesCached.append(page)
+                    }
                 }
+                
+                
+                
+//                var newFrame = CGRect(x: 0, y: 0, width: 0, height: heightPage)
+//                sortedEventsByDate.forEach { (event) in
+//                    timeLabels.forEach({ (time) in
+//                        // calculate position 'y'
+//                        if event.start.hour.hashValue == time.valueHash, event.start.day == date?.day {
+//                            if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
+//                                newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: newTime)
+//                            } else {
+//                                newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: time)
+//                            }
+//                        } else if let firstTimeLabel = getTimelineLabel(hour: startHour), event.start.day != date?.day {
+//                            newFrame.origin.y = calculatePointYByMinute(startHour, time: firstTimeLabel)
+//                        }
+//
+//                        // calculate 'height' event
+//                        if let defaultHeight = event.style?.defaultHeight {
+//                            newFrame.size.height = defaultHeight
+//                        } else if let globalDefaultHeight = style.event.defaultHeight {
+//                            newFrame.size.height = globalDefaultHeight
+//                        } else if event.end.hour.hashValue == time.valueHash, event.end.day == date?.day {
+//                            var timeTemp = time
+//                            if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
+//                                timeTemp = newTime
+//                            }
+//                            let summHeight = (CGFloat(timeTemp.tag) * (style.timeline.offsetTimeY + timeTemp.frame.height)) - newFrame.origin.y + (timeTemp.frame.height / 2)
+//                            if 0...59 ~= event.end.minute {
+//                                let minutePercent = 59.0 / CGFloat(event.end.minute)
+//                                let newY = (style.timeline.offsetTimeY + timeTemp.frame.height) / minutePercent
+//                                newFrame.size.height = summHeight + newY - style.timeline.offsetEvent
+//                            } else {
+//                                newFrame.size.height = summHeight - style.timeline.offsetEvent
+//                            }
+//                        } else if event.end.day != date?.day {
+//                            newFrame.size.height = (CGFloat(time.tag) * (style.timeline.offsetTimeY + time.frame.height)) - newFrame.origin.y + (time.frame.height / 2)
+//                        }
+//                    })
+//
+//                    // calculate 'width' and position 'x'
+//                    var newWidth = widthPage
+//                    var newPointX = pointX
+//                    if let crossEvent = crossEvents[event.start.timeIntervalSince1970] {
+//                        newWidth /= CGFloat(crossEvent.count)
+//                        newWidth -= style.timeline.offsetEvent
+//                        newFrame.size.width = newWidth
+//
+//                        if crossEvent.count > 1, !pagesCached.isEmpty {
+//                            for page in pagesCached {
+//                                while page.frame.intersects(CGRect(x: newPointX, y: newFrame.origin.y, width: newFrame.width, height: newFrame.height)) {
+//                                    newPointX += (page.frame.width + style.timeline.offsetEvent).rounded()
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                    newFrame.origin.x = newPointX
+//
+//                    let page = getEventView(style: style, event: event, frame: newFrame, date: date)
+//                    page.delegate = self
+//                    page.dataSource = self
+//                    scrollView.addSubview(page)
+//                    pagesCached.append(page)
+//                }
             }
             
             if !style.timeline.isHiddenStubEvent, let day = date?.day {

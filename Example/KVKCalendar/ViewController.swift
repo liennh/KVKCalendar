@@ -36,6 +36,7 @@ final class ViewController: UIViewController {
             style.headerScroll.isHiddenSubview = true
             style.headerScroll.isAnimateTitleDate = true
             style.headerScroll.heightHeaderWeek = 70
+            style.timeline.isHiddenStubEvent = true
             style.event.isEnableVisualSelect = false
             style.month.isHiddenTitle = true
             style.month.weekDayAlignment = .center
