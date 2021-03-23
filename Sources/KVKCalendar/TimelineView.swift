@@ -109,14 +109,33 @@ final class TimelineView: UIView, EventDateProtocol {
               continue
             }
             
-            if (overlappingEvents.first!.start...overlappingEvents.last!.end).overlaps(event.start...event.end) && overlappingEvents.last!.end != event.start {
+            let start = overlappingEvents.first!.start
+            let longEvent = overlappingEvents.sorted { (event1, event2) -> Bool in
+                return event1.end < event2.end
+            }.last
+            
+            if (start...longEvent!.end).overlaps(event.start...event.end) && longEvent!.end != event.start {
                 overlappingEvents.append(event)
                 continue
             }
-            groupsOfEvents.append(overlappingEvents)
+            if style.timeline.isSortCreatAt {
+                groupsOfEvents.append(overlappingEvents.sorted(by: { (event1, event2) -> Bool in
+                    event1.createAt < event2.createAt
+                }))
+            } else {
+                groupsOfEvents.append(overlappingEvents)
+            }
+           
             overlappingEvents = [event]
         }
-        groupsOfEvents.append(overlappingEvents)
+        if style.timeline.isSortCreatAt {
+            groupsOfEvents.append(overlappingEvents.sorted(by: { (event1, event2) -> Bool in
+                event1.createAt < event2.createAt
+            }))
+        } else {
+            groupsOfEvents.append(overlappingEvents)
+        }
+ 
         return groupsOfEvents
     }
     

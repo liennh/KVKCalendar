@@ -135,6 +135,7 @@ public struct TimelineStyle {
     public var shadowColumnAlpha: CGFloat = 0.1
     public var minimumPressDuration: TimeInterval = 0.5
     public var isHiddenStubEvent: Bool = false
+    public var isSortCreatAt: Bool = true
     public var isEnabledCreateNewEvent: Bool = true
     public var maxLimitChachedPages: UInt = 10
     
