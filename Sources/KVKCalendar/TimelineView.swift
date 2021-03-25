@@ -405,22 +405,23 @@ final class TimelineView: UIView, EventDateProtocol {
                         newFrame.size.width = widthEvent
                         timeLabels.forEach({ (time) in
                             // calculate position 'y'
-                            if event.start.hour.hashValue == time.valueHash, event.start.day == date?.day {
+                            if event.start.hour.hashValue == time.valueHash, compareStartDate(date, with: event) {
                                 if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
                                     newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: newTime)
                                 } else {
                                     newFrame.origin.y = calculatePointYByMinute(event.start.minute, time: time)
                                 }
-                            } else if let firstTimeLabel = getTimelineLabel(hour: startHour), event.start.day != date?.day {
-                                newFrame.origin.y = calculatePointYByMinute(startHour, time: firstTimeLabel)
                             }
-                            
+//                            else if let firstTimeLabel = getTimelineLabel(hour: startHour), !compareStartDate(date, with: event) {
+//                                newFrame.origin.y = calculatePointYByMinute(startHour, time: firstTimeLabel)
+//                            }
+//                            
                             // calculate 'height' event
                             if let defaultHeight = event.style?.defaultHeight {
                                 newFrame.size.height = defaultHeight
                             } else if let globalDefaultHeight = style.event.defaultHeight {
                                 newFrame.size.height = globalDefaultHeight
-                            } else if event.end.hour.hashValue == time.valueHash, event.end.day == date?.day {
+                            } else if event.end.hour.hashValue == time.valueHash, compareEndDate(date, with: event) {
                                 var timeTemp = time
                                 if time.tag == midnight, let newTime = timeLabels.first(where: { $0.tag == 0 }) {
                                     timeTemp = newTime
@@ -433,7 +434,7 @@ final class TimelineView: UIView, EventDateProtocol {
                                 } else {
                                     newFrame.size.height = summHeight - style.timeline.offsetEvent
                                 }
-                            } else if event.end.day != date?.day {
+                            } else if !compareEndDate(date, with: event) {
                                 newFrame.size.height = (CGFloat(time.tag) * (style.timeline.offsetTimeY + time.frame.height)) - newFrame.origin.y + (time.frame.height / 2)
                             }
                         })
