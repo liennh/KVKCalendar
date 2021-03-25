@@ -103,7 +103,7 @@ final class ScrollDayHeaderView: UIView {
         
         collectionView = createCollectionView(frame: newFrame, isScrollEnabled: style.headerScroll.isScrollEnabled)
         addSubview(collectionView)
-        lineView.frame = CGRect(x: 0, y: self.frame.height-1, width: frame.size.width, height: 1)
+        lineView.frame = CGRect(x: 0, y: self.frame.height-0.5, width: frame.size.width, height: 0.5)
         addSubview(lineView)
     }
     
@@ -292,7 +292,7 @@ extension ScrollDayHeaderView: CalendarSettingProtocol {
         }
         collectionView.reloadData()
         
-        lineView.frame = CGRect(x: 0, y: self.frame.height-1, width: frame.size.width, height: 1)
+        lineView.frame = CGRect(x: 0, y: self.frame.height-0.5, width: frame.size.width, height: 0.5)
         addSubview(lineView)
     }
     
