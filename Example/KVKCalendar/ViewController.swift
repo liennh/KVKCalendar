@@ -39,6 +39,7 @@ final class ViewController: UIViewController {
             style.timeline.isHiddenStubEvent = true
             style.event.isEnableVisualSelect = false
             style.month.isHiddenTitle = true
+            style.month.isHiddenTitleDate = true
             style.month.weekDayAlignment = .center
         } else {
             style.timeline.widthEventViewer = 350

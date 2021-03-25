@@ -42,6 +42,12 @@ final class ScrollDayHeaderView: UIView {
         return layout
     }()
     
+    private var lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     private var subviewFrameForDevice: CGRect {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -97,6 +103,8 @@ final class ScrollDayHeaderView: UIView {
         
         collectionView = createCollectionView(frame: newFrame, isScrollEnabled: style.headerScroll.isScrollEnabled)
         addSubview(collectionView)
+        lineView.frame = CGRect(x: 0, y: self.frame.height-1, width: frame.size.width, height: 1)
+        addSubview(lineView)
     }
     
     func scrollHeaderByTransform(_ transform: CGAffineTransform) {
@@ -283,6 +291,9 @@ extension ScrollDayHeaderView: CalendarSettingProtocol {
             self.lastContentOffset = self.collectionView.contentOffset.x
         }
         collectionView.reloadData()
+        
+        lineView.frame = CGRect(x: 0, y: self.frame.height-1, width: frame.size.width, height: 1)
+        addSubview(lineView)
     }
     
     func updateStyle(_ style: StyleKVK) {
