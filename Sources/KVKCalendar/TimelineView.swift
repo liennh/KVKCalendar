@@ -19,7 +19,7 @@ final class TimelineView: UIView, EventDateProtocol {
     var eventResizePreview: ResizeEventView?
     var eventPreviewSize = CGSize(width: 150, height: 150)
     var isResizeEnableMode = false
-    
+    var isFirst: Bool = true
     private(set) var tagCurrentHourLine = -10
     private(set) var tagEventPagePreview = -20
     private(set) var tagVerticalLine = -30
@@ -273,8 +273,8 @@ final class TimelineView: UIView, EventDateProtocol {
     }
     
     private func scrollToCurrentTime(_ startHour: Int) {
-        guard style.timeline.scrollLineHourMode.scrollForDates(dates) else { return }
-        
+        guard isFirst, style.timeline.scrollLineHourMode.scrollForDates(dates) else { return }
+        isFirst = false
         let date = Date().convertTimeZone(TimeZone.current, to: style.timezone)
         guard let time = getTimelineLabel(hour: date.hour)else {
             scrollView.setContentOffset(.zero, animated: true)
@@ -302,8 +302,10 @@ final class TimelineView: UIView, EventDateProtocol {
         
         // filter events
         let recurringEvents = events.filter({ $0.recurringType != .none })
+        let startDays = dates.first??.startOfDay ?? Date()
+        let endDays = dates.last??.endOfDay ?? Date()
         let allEventsForDates = events.filter { (event) -> Bool in
-            return dates.contains(where: { compareStartDate($0, with: event) || compareEndDate($0, with: event) || (checkMultipleDate($0, with: event) && type == .day) })
+            return (startDays...endDays).overlaps(event.start...event.end)
         }
         let filteredEvents = allEventsForDates.filter({ !$0.isAllDay })
         let filteredAllDayEvents = events.filter({ $0.isAllDay })
@@ -350,8 +352,11 @@ final class TimelineView: UIView, EventDateProtocol {
             let verticalLine = createVerticalLine(pointX: pointX, date: date)
             scrollView.addSubview(verticalLine)
             
-            let eventsByDate = filteredEvents.filter({ compareStartDate(date, with: $0) || compareEndDate(date, with: $0) || checkMultipleDate(date, with: $0) })
-            let allDayEvents = filteredAllDayEvents.filter({ compareStartDate(date, with: $0) || compareEndDate(date, with: $0) })
+            let startOfDay = date?.startOfDay ?? Date()
+            let endOfDay = date?.endOfDay ?? Date()
+            
+            let eventsByDate = filteredEvents.filter({ (startOfDay...endOfDay).overlaps($0.start...$0.end) })
+            let allDayEvents = filteredAllDayEvents.filter({ (startOfDay...endOfDay).overlaps($0.start...$0.end) })
             
             let recurringEventByDate: [Event]
             if !recurringEvents.isEmpty, let dt = date {
