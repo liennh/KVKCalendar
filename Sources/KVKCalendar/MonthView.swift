@@ -219,11 +219,10 @@ extension MonthView: CalendarSettingProtocol {
     private func getIndexForDirection(_ direction: UICollectionView.ScrollDirection, indexPath: IndexPath) -> IndexPath {
         switch direction {
         case .horizontal:
-            let a = indexPath.item / monthData.itemsInPage
-            let b = indexPath.item / monthData.rowsInPage - a * monthData.columnsInPage
-            let c = indexPath.item % monthData.rowsInPage
-            let newIdx = (c * monthData.columnsInPage + b) + a * monthData.itemsInPage
-            return IndexPath(row: newIdx, section: indexPath.section)
+             let row = (indexPath.item) % monthData.rowsInPage
+             let colum = (indexPath.item - row)/monthData.rowsInPage
+             let newIndex = row * monthData.columnsInPage + colum
+             return IndexPath(row: newIndex, section: indexPath.section)
         default:
             return indexPath
         }
@@ -238,7 +237,7 @@ extension MonthView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch style.month.scrollDirection {
         case .horizontal:
-            return monthData.rowsInPage * monthData.columns
+            return monthData.rowsInPage * monthData.columnsInPage
         default:
             return monthData.data.months[section].days.count
         }
@@ -246,7 +245,12 @@ extension MonthView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = getIndexForDirection(style.month.scrollDirection, indexPath: indexPath)
-        guard let day = monthData.getDay(indexPath: index) else { return UICollectionViewCell() }
+        guard let day = monthData.getDay(indexPath: index) else {
+            return collectionView.dequeueCell(indexPath: index) { (cell: MonthCell) in
+                cell.layer.borderWidth = style.month.widthSeparator
+                cell.layer.borderColor = style.month.colorSeparator.cgColor
+            }
+        }
         if let cell = dataSource?.dequeueNibCell(date: day.date, type: .month, view: collectionView, indexPath: index, events: day.events) as? UICollectionViewCell, day.type != .empty {
             return cell
         } else if let cell = dataSource?.dequeueCell(date: day.date, type: .month, view: collectionView, indexPath: index, events: day.events) as? UICollectionViewCell, day.type != .empty {
@@ -353,7 +357,7 @@ extension MonthView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
         switch style.month.scrollDirection {
         case .horizontal:
             width = collectionView.frame.width / 7
-            height = collectionView.frame.height / 6
+            height = (collectionView.frame.height / 6) - 0.2
         case .vertical:
             if collectionView.frame.width > 0 {
                 width = collectionView.frame.width / 7 - 0.2
