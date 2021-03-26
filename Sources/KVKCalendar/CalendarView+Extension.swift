@@ -35,8 +35,10 @@ extension CalendarView {
         
         switch type {
         case .day:
+            dayView.scrollHeaderDay.collectionView.reloadData()
             dayView.reloadData(events)
         case .week:
+            dayView.scrollHeaderDay.collectionView.reloadData()
             weekView.reloadData(events)
         case .month:
             monthView.reloadData(events)

@@ -16,7 +16,7 @@ final class ScrollDayHeaderView: UIView {
     private let days: [Day]
     var date: Date
     private var style: StyleKVK
-    private var collectionView: UICollectionView!
+    public var collectionView: UICollectionView!
     private var isAnimate: Bool = false
     private let type: CalendarType
     private let calendar: Calendar
