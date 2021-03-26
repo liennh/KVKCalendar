@@ -88,7 +88,11 @@ open class EventViewGeneral: UIView, CalendarTimer {
     }
     
     @objc public func editEvent(gesture: UILongPressGestureRecognizer) {
+        guard event.canEdit else {
+            return
+        }
         let location = gesture.location(in: self)
+        
         
         switch gesture.state {
         case .began:

@@ -116,6 +116,7 @@ public struct Event {
     @available(swift, deprecated: 0.4.6, obsoleted: 0.4.7, renamed: "data")
     public var eventData: Any? = nil
     public var data: Any? = nil
+    public var canEdit: Bool = true
     
     public var recurringType: Event.RecurringType = .none
     
