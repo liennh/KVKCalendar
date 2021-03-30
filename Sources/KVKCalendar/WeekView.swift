@@ -282,7 +282,7 @@ extension WeekView: TimelineDelegate {
         delegate?.didAddNewEvent(event, newDate)
     }
     
-    func didChangeEvent(_ event: Event, minute: Int, hour: Int, point: CGPoint, newDay: Int?) {
+    func didChangeEvent(_ event: Event, minute: Int, hour: Int, point: CGPoint, newDay: Int?, month: Int?, year: Int?) {
         var day = event.start.day
         if let newDayEvent = newDay {
             day = newDayEvent
@@ -291,8 +291,8 @@ extension WeekView: TimelineDelegate {
         }
         
         var startComponents = DateComponents()
-        startComponents.year = event.start.year
-        startComponents.month = event.start.month
+        startComponents.year = year ?? event.start.year
+        startComponents.month = month ?? event.start.month
         startComponents.day = day
         startComponents.hour = hour
         startComponents.minute = minute
@@ -301,8 +301,19 @@ extension WeekView: TimelineDelegate {
         let hourOffset = event.end.hour - event.start.hour
         let minuteOffset = event.end.minute - event.start.minute
         var endComponents = DateComponents()
-        endComponents.year = event.end.year
-        endComponents.month = event.end.month
+        endComponents.year = year ?? event.start.year
+        endComponents.month = month ?? event.start.month
+        
+        if event.end.month != event.start.month {
+            let offset = event.end.month - event.start.month
+            endComponents.month =  endComponents.month ?? event.start.month + offset
+        }
+        
+        if event.end.year != event.start.year {
+            let offset = event.end.year - event.start.year
+            endComponents.year =  endComponents.year ?? event.start.year + offset
+        }
+        
         if event.end.day != event.start.day {
             let offset = event.end.day - event.start.day
             endComponents.day = day + offset

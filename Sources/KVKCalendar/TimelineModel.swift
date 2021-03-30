@@ -48,7 +48,7 @@ protocol TimelineDelegate: AnyObject {
     func nextDate()
     func previousDate()
     func swipeX(transform: CGAffineTransform, stop: Bool)
-    func didChangeEvent(_ event: Event, minute: Int, hour: Int, point: CGPoint, newDay: Int?)
+    func didChangeEvent(_ event: Event, minute: Int, hour: Int, point: CGPoint, newDay: Int?, month: Int?, year: Int?)
     func didAddNewEvent(_ event: Event, minute: Int, hour: Int, point: CGPoint)
     func didResizeEvent(_ event: Event, startTime: ResizeTime, endTime: ResizeTime)
 }
