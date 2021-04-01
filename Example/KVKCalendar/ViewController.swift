@@ -40,6 +40,7 @@ final class ViewController: UIViewController {
             style.event.isEnableVisualSelect = false
             style.month.isHiddenTitle = true
             style.month.isHiddenTitleDate = true
+            style.month.isAutoSelectDateScrolling = true
             style.month.weekDayAlignment = .center
         } else {
             style.timeline.widthEventViewer = 350
@@ -48,7 +49,7 @@ final class ViewController: UIViewController {
         style.timeline.offsetTimeY = 25
         style.startWeekDay = .sunday
         
-        style.timeSystem = TimeHourSystem.current ?? .twelve
+        style.timeSystem = .twentyFour
         if #available(iOS 13.0, *) {
             style.event.iconFile = UIImage(systemName: "paperclip")
         }
@@ -229,10 +230,11 @@ extension ViewController: CalendarDataSource {
 //            return cell
             return nil
         case .month:
-            let cell = (view as? UICollectionView)?.dequeueNibCell(indexPath: indexPath, configure: { (cell: MonthNibCollectionViewCell) in
-                
-            })
-            return cell
+//            let cell = (view as? UICollectionView)?.dequeueNibCell(indexPath: indexPath, configure: { (cell: MonthNibCollectionViewCell) in
+//
+//            })
+//            return cell
+            return nil
             
         case .list:
 //            guard date?.day == 14 else { return nil }
