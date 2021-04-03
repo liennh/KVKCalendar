@@ -280,7 +280,7 @@ public struct YearStyle {
     }()
     public var weekdayFormatter: DateFormatter = {
         let format = DateFormatter()
-        format.dateFormat = "EEE"
+        format.dateFormat = "EE"
         return format
     }()
     public var colorCurrentDate: UIColor = .white
