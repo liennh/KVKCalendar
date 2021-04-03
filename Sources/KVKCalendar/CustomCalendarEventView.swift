@@ -9,7 +9,7 @@ import Foundation
 
 open class CustomCalendarEventView: EventViewGeneral {
     
-    let lbTitle: UILabel = {
+    public let lbTitle: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 0
@@ -19,7 +19,7 @@ open class CustomCalendarEventView: EventViewGeneral {
         return label
     }()
     
-    let textView: UITextView = {
+    public let textView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .clear
         textView.isScrollEnabled = false
@@ -30,12 +30,12 @@ open class CustomCalendarEventView: EventViewGeneral {
         return textView
     }()
     
-    let ivDots: UIImageView = {
+    public let ivDots: UIImageView = {
         let viewDots = UIImageView()
         return viewDots
     }()
     
-    override init(style: StyleKVK, event: Event, frame: CGRect) {
+    public override init(style: StyleKVK, event: Event, frame: CGRect) {
         super.init(style: style, event: event, frame: frame)
         backgroundColor = event.backgroundColor.withAlphaComponent(0.7)
         self.clipsToBounds = true
@@ -62,5 +62,6 @@ open class CustomCalendarEventView: EventViewGeneral {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 
 }
