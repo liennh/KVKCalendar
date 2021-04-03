@@ -281,8 +281,9 @@ extension ViewController: CalendarDataSource {
     }
     
     func willDisplayEventViewer(date: Date, frame: CGRect) -> UIView? {
-        eventViewer.frame = frame
-        return eventViewer
+        return nil
+//        eventViewer.frame = frame
+//        return eventViewer
     }
 }
 

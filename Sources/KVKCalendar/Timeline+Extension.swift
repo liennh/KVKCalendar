@@ -527,6 +527,12 @@ extension TimelineView: EventDelegate {
             eventView.isUserInteractionEnabled = false
             viewTmp = eventView
             viewTmp.frame = viewFrame
+        } else if let viewEvent = view as? CustomCalendarEventView {
+            let eventView = CustomCalendarEventView(style: style, event: event, frame: frame)
+            eventView.ivDots.image = viewEvent.ivDots.image
+            eventView.isUserInteractionEnabled = false
+            viewTmp = eventView
+            viewTmp.frame = viewFrame
         } else {
             viewTmp = view.snapshotView(afterScreenUpdates: false) ?? view
             viewTmp.frame = viewFrame
@@ -559,7 +565,7 @@ extension TimelineView: EventDelegate {
         eventPreview = nil
         
         if view is EventView {
-            eventPreviewSize = CGSize(width: 150, height: 150)
+            eventPreviewSize = CGSize(width: 150, height: 40)
             eventPreview = EventView(event: event,
                                      style: style,
                                      frame: CGRect(origin: CGPoint(x: location.x - eventPreviewXOffset, y: location.y - eventPreviewYOffset),

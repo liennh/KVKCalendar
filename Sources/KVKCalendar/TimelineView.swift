@@ -17,7 +17,7 @@ final class TimelineView: UIView, EventDateProtocol {
     var style: StyleKVK
     var eventPreview: UIView?
     var eventResizePreview: ResizeEventView?
-    var eventPreviewSize = CGSize(width: 150, height: 150)
+    var eventPreviewSize = CGSize(width: 150, height: 40)
     var isResizeEnableMode = false
     var isFirst: Bool = true
     private(set) var tagCurrentHourLine = -10
