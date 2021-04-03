@@ -7,159 +7,159 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		039DBEBA9DBEC27BC9CC0E0E64D8E0F1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C12DDE8C694F5EAE4DCA3C5ABF45C2 /* Date+Extension.swift */; };
-		0994FFD97BE772178FBD3F135AA5255C /* EventViewGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924F44665CE9931525E1DDCAE1528C20 /* EventViewGeneral.swift */; };
-		09CAF424D1A4FD4B9FBCB85D1FDB1F0E /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEFB62CDF67CC0E16C3A884F1DD5A92 /* EventView.swift */; };
-		0AA613F595BF57BC6CF5B63E1DA0F31C /* KVKCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A9256FEBD74D5CD12784E82C592808B /* KVKCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DCE935431505BA2024E5E218AEE869E /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2EB1E0E191D6E063EB84FE8F69887C /* ListView.swift */; };
-		0FB542A0D7F7E13C96F374C62F1120B3 /* YearHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD583DD1362817FC0C076C2BD05EFFEF /* YearHeaderView.swift */; };
-		150BDB4BC8B70F6119C80D54D6FD0347 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80A6E712A274C8991D5F26EA2E34A59 /* ListViewCell.swift */; };
-		17B97139898B1CE05B2505DBC30FFC65 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3A26A4581F2BD9FBA6548A2CF518A5 /* TimelineView.swift */; };
-		17BEAAC59928F37A39C7E34B5D385C0B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1EFA39EACC49AC87CDD4DC127B85B /* CalendarView.swift */; };
-		1854C4D2AAD2F8BFB7D5D885FC47C049 /* Timeline+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C36C28E583BC72A6335399BA7D538 /* Timeline+Extension.swift */; };
-		18E5875BD7D392E12CFD936351479DAE /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33229F7143326A36E5454B4CD8D88959 /* Style.swift */; };
-		238A1F9D92A410F08F3775423AEDC423 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C43A385CAEAB40679E977A7DD01D1F /* WeekView.swift */; };
-		270E16D6FC2FE18948F6E2B10DF7DF02 /* ListViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680BCD917ECF76AB806C6A47376868B /* ListViewHeader.swift */; };
-		2D982E68A819D66622F6BD0FE6B13C2B /* StubStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06B9CF4650E81EA8DC557AE26BA59 /* StubStackView.swift */; };
+		0832C3F2B4042AAADC3B63F7166EDE23 /* KVKCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F0EEA9FD732C262A455CA9D2B61FF4 /* KVKCalendar-dummy.m */; };
+		0881CFF594B3D3E7E622C7AA0ACE0218 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3913F788DF00C854F3F84D0EDA896230 /* MonthView.swift */; };
+		0A3F3383CEEEC49BBF89A3F7183E8239 /* WeekData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3620805746EEC2DCDD89E615AD89E /* WeekData.swift */; };
+		14F859D5E4D39DA3CFFFD0EAB1B8E913 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D432C91803BA08151491D4D827D067 /* ListView.swift */; };
+		1E2D5D04523B5EC93AACCFEDE4AE3AD0 /* CustomCalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F396EBFFF3843CF4F7B46653420BD0 /* CustomCalendarEventView.swift */; };
+		2239E3DEF97E7B2531D45CE4B2E6A5ED /* AllDayEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2665814A007BB6B88FA844B890E4B /* AllDayEventView.swift */; };
+		25DCB3D75984D1A644A10F4461DC5759 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D1A4E66465D85A6A4DBEA15B8A934 /* CalendarModel.swift */; };
+		2DF2C4BE342F7F372080D31B467EAA25 /* Calendar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB28398DB7D65665074982712E838A /* Calendar+Extension.swift */; };
 		2E3AC81207B1BD2791B3A8AA6C63CE3A /* Pods-KVKCalendar_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9624963DF6186D58BC646C877E68CDF /* Pods-KVKCalendar_Tests-dummy.m */; };
 		2F399DF87FAC3EDFEE89FCA84E5CE502 /* Pods-KVKCalendar_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD4CF4EEDB02B4E9F95EA39A25AC57AD /* Pods-KVKCalendar_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D65BBEE7F2C06C93A06751E3EA70FD9 /* YearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7922F1FF5F9F47C465C052D105EF0E47 /* YearCell.swift */; };
-		3FE8D0253ABE9B61C42F2322700FAFA0 /* TimelineContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DE8C41F2288BC883CEE2330603A683 /* TimelineContainerVC.swift */; };
-		43A71B0C2D67DDAE6C0D4152B2977C07 /* StubEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7692433655FAF139DE62DFA36F5714C2 /* StubEventView.swift */; };
-		48CD9B169BA2927973AAD803B9AF95B4 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79464A33D7791E1D9884CC4A2D618C2 /* MonthView.swift */; };
-		50DA4CC293A9226D0714437AACC4D56E /* TimelineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAE15B2BFBD550E89125280BB60FF03 /* TimelineLabel.swift */; };
-		558493614AF9D59CC110094756FC5841 /* ScrollDayViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6BD3D738505E04F385039678777590 /* ScrollDayViewHeader.swift */; };
-		5613615B4F4903F1D68D9012D241FEDD /* ResizeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F113E4975793648F12FDC38102325 /* ResizeEventView.swift */; };
-		57BF1D35A352DADF2DAF529D7499F7E5 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2FEDB8B803BCED77D12A798EF2E282 /* DayCell.swift */; };
-		59D9B65426185653007B0EF8 /* CustomCalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D9B65326185653007B0EF8 /* CustomCalendarEventView.swift */; };
+		32502A1B646B8FC7DBC0F95A23322DD6 /* Timeline+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C181EC96462BA0BAF7800D93E4E5AD /* Timeline+Extension.swift */; };
+		3BCF889FF7EC5649C9EE0E44922C0C0E /* DayPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB4718B4229DC92E64BF2B93693BD0 /* DayPadCell.swift */; };
+		4546D6EC5B460D9D0BCB3D501934DC74 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A3231A79E41DA09914180F11687F82 /* UIKit.framework */; };
+		48EFA136D6EA3D60B41169D363337BB1 /* VerticalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB739461DD5AC4554D9E68AF213DC293 /* VerticalLineView.swift */; };
+		56D99D4A01415E2FA77685655D51DB59 /* DayPhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CCC324DC946C2621AE0CBD7D59B393 /* DayPhoneCell.swift */; };
+		56EC20685D85DD05948A38589661E5BC /* KVKCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB133C803618A564BDC35D0B44835FE /* KVKCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C773F39D01DB524FFC97733AB1A3B44 /* ListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98824AE4E62557EAEB8611F3C2D10A4 /* ListViewData.swift */; };
+		5FAEB3CAD27818E37DF4A88B4C93A874 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF89EA9535C92F9B289952D1C20A26 /* DayView.swift */; };
+		60CEEE3413AC94FD4B35159C49D0D9F1 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85CCC4AACB54EFD5A7506CFDBF83B4 /* ListViewCell.swift */; };
+		63069510B95EA0DC58300C4F511B6ABA /* StubEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6142540A8FE73450AB45FF3522BAE29 /* StubEventView.swift */; };
+		640B02CF01D703E52D929A2B8C75EFAD /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A453B056FE96DF9F9596CDE83B97 /* DayData.swift */; };
+		648DB758DFEB21D6EF88DF14CCF231F2 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E748FB7AA3634975243182681C3B4D /* CalendarData.swift */; };
+		65E88323589F3795244A440490ED93F5 /* YearHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C968981E6ED0D3B66A268B6C3EA829 /* YearHeaderView.swift */; };
 		669A4F907EC931B839E03B9367706EBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B907F9B2E7D0EE7E7174FFA2429E0E9 /* Foundation.framework */; };
-		675B181B34C4766A6B9FCAEE27E99777 /* ShadowDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3F3C241A7A9D06CEE389D078C4101 /* ShadowDayView.swift */; };
-		67FF774F81829D25627A95523D121DCB /* AllDayEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DFD3FBB832D6E4D23F25335FFBEF0 /* AllDayEventView.swift */; };
-		681E095B5B26C2C43F3712DE60C0EE04 /* KVKCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4156390BBF62FCCDDD0E7939667888E7 /* KVKCalendar-dummy.m */; };
-		6F0D7E0034E08D9E007E126E021CEAFB /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96098C6CF6C1BA70E1197BA7471FC51F /* MonthCell.swift */; };
-		71F3B422C4D8488E7E4ADD2E2A52C94D /* CalendarView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95889043D19F567D2F068D3DF793D13 /* CalendarView+Extension.swift */; };
-		7AB5F896D779959653E7AD5286432B46 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB364C8715A22990F1D7C8B6FDE7F94F /* EventKit.framework */; };
-		7B2B45BE5BD852E6BC3AAA9621F088CF /* DayPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6179D20EE3F4E1B968A8E83351B79D /* DayPadCell.swift */; };
-		7E5134C9C2E7CDE8C290E0F8640157A1 /* MonthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313894D26574F72BECD3DCB3780EC5D7 /* MonthData.swift */; };
-		80F2D7EF1FD9A18404BA24798C596B10 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A296C8DC2AC32446F7C661A876C043A /* CalendarData.swift */; };
-		814FE555E71ACBDB821BF342A253E1F6 /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1E92CB910DC79807F44B49CE9CFC /* WeekHeaderView.swift */; };
-		876A6638692F4F9BB514AABF621BC0C6 /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABA57A741ED998EDFDB563FD27D8EA /* DayData.swift */; };
-		9863CFB5A37B87FC740E7E77C86AA146 /* EventViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E186138F32B212B6BD0C18701928E448 /* EventViewList.swift */; };
-		9BEF9E81BF5DC17136FD762AC5A2BADA /* TimelinePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE0CA36DC0ABE75584606BE749F957 /* TimelinePageView.swift */; };
-		9ED826389916FA59E1F17001B1AAEC6E /* Calendar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBFA56F9C790AF87352E834A0D6D95D /* Calendar+Extension.swift */; };
-		A6389BA2A93A24D40BB15DDD11991ADE /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68932F57BDD715B5D6BEEF06CC1FCD6 /* DayView.swift */; };
-		AB96EF6BCB31ECE9776304B14095F45F /* VerticalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9F168F53433DE04559DB38434F9A3 /* VerticalLineView.swift */; };
+		69D66595CA3E4E59FEF9F2902DAD9160 /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C42A406F9C4B2058638FB59C40D4D /* MonthCell.swift */; };
+		6DC1709FDE8D32DB51762420A26DF5EA /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB379D8E6FDFC52CD9B41E4F419C8B /* EventView.swift */; };
+		7139F974941C957D045B9A3F8EE6D992 /* ResizeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F4B6028F9944244D0B16FC5D36A1A /* ResizeEventView.swift */; };
+		722F5E2010DB40B9741B505EDEE44EF2 /* TimelineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33A59E23C16923A8FB80BEE0648EB3 /* TimelineModel.swift */; };
+		7235231FC8CFA8407C6A684D8A477107 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CF52E41E7E6C4E72E9CFF3967FD8A /* Style.swift */; };
+		7896EFCB5225BF3E2BB3A78BCC003110 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251A7C48BD73737EBD2F2758315A44D /* WeekView.swift */; };
+		794CFA7766835E4885AF9EBB89A90697 /* YearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED53BCCBDE361669D1FE3049BC46791 /* YearCell.swift */; };
+		7E7D028121FE0914C26286CE1F50433C /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836C3998F129AB7D52352ECB559D5E9 /* WeekHeaderView.swift */; };
+		81265DDABD9C0F9157A8CC42F3B22126 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B907F9B2E7D0EE7E7174FFA2429E0E9 /* Foundation.framework */; };
+		85BE6E91B8FFB848DDD342FA00805CCD /* CalendarView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C3ADA2F8B90D3AB9DD3C270CBE99A /* CalendarView+Extension.swift */; };
+		87E7462B96467C45E1DD4358DC797EE9 /* TimelinePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A8956A02AB3683B92D15C2F6A0BFD /* TimelinePageView.swift */; };
+		896501F7DF305FCF28006853ECEC4A60 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCCE9E84C6FFAC855591AD54E39BBF /* TimelineView.swift */; };
+		976FB63A1F758E1CC219EBA75B4FE6DC /* TimelineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1D58001744636E36C8E136A2091232 /* TimelineLabel.swift */; };
+		97864ACA96F0C151C5F5B4080307BA28 /* ShadowDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DCB2B5A22402C986AE76B6A6C3FEFA /* ShadowDayView.swift */; };
+		9B89F18F9A650BBA2D0B7410A0B9F25D /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ADC9B2E59A4826A58F57C519230A09 /* DayCell.swift */; };
+		9F24D293D63142D8CC678327E443FC41 /* CurrentLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59379CF3B2686B7877D4FA4EC222E49E /* CurrentLineView.swift */; };
+		A2481D8E53409C985FBA9E46A3665D46 /* MonthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8883BE830F22D5A4E3BBEA8E7D07C /* MonthData.swift */; };
+		ABF3979BBE21772E29D338A06FF8C982 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB364C8715A22990F1D7C8B6FDE7F94F /* EventKit.framework */; };
 		AC5EC59350B748CF19754D772408407E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B907F9B2E7D0EE7E7174FFA2429E0E9 /* Foundation.framework */; };
 		B45BCEFC6AFF9BE9BEE5CC6408B4919B /* Pods-KVKCalendar_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A76D757EA13402410F2D5EE506F35E2 /* Pods-KVKCalendar_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9DBC73772DE7129AC943058E32A2D23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B907F9B2E7D0EE7E7174FFA2429E0E9 /* Foundation.framework */; };
-		BAA9431D27091AB5ECD2706A2953F615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A3231A79E41DA09914180F11687F82 /* UIKit.framework */; };
-		BD9CD31D8BF663EAF9D3DD37FD330D42 /* DayPhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD144A2432F96A11EBF7681230A39D4F /* DayPhoneCell.swift */; };
+		BAADE89C157A45AD8ACD12178F25DEF1 /* ScrollDayViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4082734D59C50EA47933C83ABA5BBAA /* ScrollDayViewHeader.swift */; };
+		BC955A5ED4A88871FAFFE2E20246B99D /* EventViewGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424FD4D2A75DB49AAE58DA065F3119A /* EventViewGeneral.swift */; };
+		BD87DA65A9F8E78734A3DB1D7C661FE7 /* EventViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D789EBBA86CA7EF826E8C6266F862D /* EventViewList.swift */; };
 		BE21797086E29F4E63485C7FCBA72B5F /* Pods-KVKCalendar_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 180CF1A52144134563BE8DB99390C65C /* Pods-KVKCalendar_Example-dummy.m */; };
-		DA496EFA5CE30E9399F0D977821FB24A /* ListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1EDD0FEBE17BD65FDC346B3E3AEFE /* ListViewData.swift */; };
-		DE29FAA9F97EB2995F905ABC8B0B5944 /* CurrentLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED99FB8A745CDF19E67E51BEDB31728 /* CurrentLineView.swift */; };
-		E1C90EFE7122604D8AF4C22238583017 /* TimelineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D43029377B53F28149D55BC77B66C /* TimelineModel.swift */; };
-		E7166AB631A1F363BEC98DB2BB114360 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDFB44C1E4A1CAC17F5959155FCA80 /* CalendarModel.swift */; };
-		EDAD25FEDDE7ECB0288B2FDA7EF54719 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F271F45FF8032AA5566305568867892 /* YearView.swift */; };
-		F6719C1224AF8A99C6B0A1AB7BAD7120 /* WeekData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97ACC5DCAE8C90FAB8DC57B176151933 /* WeekData.swift */; };
-		F6A5BCF15DC6BAF6EDCE414F28B21D84 /* YearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE95869F11EF6CB11860ABC3888D57 /* YearData.swift */; };
+		BEC4D16492F88B68F65E20CCF70A08AA /* YearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88345F6BC8A0F2C9862C01965F1637 /* YearData.swift */; };
+		C661B26444002D3F026C5281F1BF9184 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FECC39ED28DBF3E4E52402C5F076B7 /* YearView.swift */; };
+		D9BD44059DFBF6464DD669CCC9F76FB7 /* ListViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA8E22B175743C8702D1C07E4133AE /* ListViewHeader.swift */; };
+		EC9B2DF38F5C619657708350A9A86268 /* TimelineContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862DA1FCE88C4A84457A48CA8A1ABADD /* TimelineContainerVC.swift */; };
+		F558DFE3714924041F54A324C6F03128 /* StubStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D73F8EF170246186233A2EE756153 /* StubStackView.swift */; };
+		FAE9A73ABBC1CE17CCF32D9B2153E313 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51659970ABB7957A5AC5593D4EE5DC42 /* Date+Extension.swift */; };
+		FF1C17C0789BAA23D32BBB43568319E7 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6563277B1E13D94BDE9CB98D99E916 /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		58BD99E2C5A8BEDD87A9EC47103F608D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 162FE0796A33CBA1CBE1F7C70ABD1E35;
-			remoteInfo = "Pods-KVKCalendar_Example";
-		};
-		682FB71E96BA9E0C176473701F94C8F7 /* PBXContainerItemProxy */ = {
+		B8205DF424154ECC53490BBA1E403AC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7C8627CB6D8E7BCF51A7504F548575BC;
 			remoteInfo = KVKCalendar;
 		};
+		FC7D364D87A4C8139FAA3C123F180016 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 162FE0796A33CBA1CBE1F7C70ABD1E35;
+			remoteInfo = "Pods-KVKCalendar_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05D39769BF1FB04597237FDE1A915CED /* KVKCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KVKCalendar.release.xcconfig; sourceTree = "<group>"; };
-		0AC1EFA39EACC49AC87CDD4DC127B85B /* CalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = Sources/KVKCalendar/CalendarView.swift; sourceTree = "<group>"; };
+		0B4A8956A02AB3683B92D15C2F6A0BFD /* TimelinePageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelinePageView.swift; path = Sources/KVKCalendar/TimelinePageView.swift; sourceTree = "<group>"; };
 		0D5C6CD6E167ED79AFEAB813B7295C15 /* Pods-KVKCalendar_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KVKCalendar_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0EBA107C32E7332EC64016619D0A9E5A /* Pods-KVKCalendar_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVKCalendar_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		101E3B4C5CDBC2588321448AF74769C4 /* KVKCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KVKCalendar.modulemap; sourceTree = "<group>"; };
 		12F5CFBE1740990EA60539FD6F1ABACA /* Pods-KVKCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVKCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		180CF1A52144134563BE8DB99390C65C /* Pods-KVKCalendar_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVKCalendar_Example-dummy.m"; sourceTree = "<group>"; };
 		19A3231A79E41DA09914180F11687F82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		1D3A26A4581F2BD9FBA6548A2CF518A5 /* TimelineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineView.swift; path = Sources/KVKCalendar/TimelineView.swift; sourceTree = "<group>"; };
-		1EAE15B2BFBD550E89125280BB60FF03 /* TimelineLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineLabel.swift; path = Sources/KVKCalendar/TimelineLabel.swift; sourceTree = "<group>"; };
-		1F271F45FF8032AA5566305568867892 /* YearView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearView.swift; path = Sources/KVKCalendar/YearView.swift; sourceTree = "<group>"; };
-		214D43029377B53F28149D55BC77B66C /* TimelineModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineModel.swift; path = Sources/KVKCalendar/TimelineModel.swift; sourceTree = "<group>"; };
-		25C43A385CAEAB40679E977A7DD01D1F /* WeekView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekView.swift; path = Sources/KVKCalendar/WeekView.swift; sourceTree = "<group>"; };
-		25CB0CD38A02BD277418888E705D8F56 /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		1C8D1A4E66465D85A6A4DBEA15B8A934 /* CalendarModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarModel.swift; path = Sources/KVKCalendar/CalendarModel.swift; sourceTree = "<group>"; };
+		229F21CD7108E8238C0A880C96DEAFA5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		27FB28398DB7D65665074982712E838A /* Calendar+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Calendar+Extension.swift"; path = "Sources/KVKCalendar/Calendar+Extension.swift"; sourceTree = "<group>"; };
 		29A7A927EF315C03DC8A5A35B295581E /* Pods-KVKCalendar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVKCalendar_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2A43CC9A55A1355D902BB930F560976E /* Pods-KVKCalendar_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVKCalendar_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		2C2EB1E0E191D6E063EB84FE8F69887C /* ListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListView.swift; path = Sources/KVKCalendar/ListView.swift; sourceTree = "<group>"; };
-		2EFE95869F11EF6CB11860ABC3888D57 /* YearData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearData.swift; path = Sources/KVKCalendar/YearData.swift; sourceTree = "<group>"; };
-		313894D26574F72BECD3DCB3780EC5D7 /* MonthData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MonthData.swift; path = Sources/KVKCalendar/MonthData.swift; sourceTree = "<group>"; };
-		31E06B9CF4650E81EA8DC557AE26BA59 /* StubStackView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StubStackView.swift; path = Sources/KVKCalendar/StubStackView.swift; sourceTree = "<group>"; };
-		33229F7143326A36E5454B4CD8D88959 /* Style.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Style.swift; path = Sources/KVKCalendar/Style.swift; sourceTree = "<group>"; };
+		2D7F4B6028F9944244D0B16FC5D36A1A /* ResizeEventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResizeEventView.swift; path = Sources/KVKCalendar/ResizeEventView.swift; sourceTree = "<group>"; };
+		2D85CCC4AACB54EFD5A7506CFDBF83B4 /* ListViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewCell.swift; path = Sources/KVKCalendar/ListViewCell.swift; sourceTree = "<group>"; };
+		2EB76FAACEDC41B50527F2AEA0004493 /* KVKCalendar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KVKCalendar-Info.plist"; sourceTree = "<group>"; };
+		2F509306C6D705C92D3925545559C74C /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.md; sourceTree = "<group>"; };
+		3681462634288ACD7480003796CE8D22 /* KVKCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KVKCalendar.debug.xcconfig; sourceTree = "<group>"; };
+		3913F788DF00C854F3F84D0EDA896230 /* MonthView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MonthView.swift; path = Sources/KVKCalendar/MonthView.swift; sourceTree = "<group>"; };
+		397D73F8EF170246186233A2EE756153 /* StubStackView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StubStackView.swift; path = Sources/KVKCalendar/StubStackView.swift; sourceTree = "<group>"; };
 		3B907F9B2E7D0EE7E7174FFA2429E0E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3CDA0C5341B1E6651DEDB95FB2826E5A /* KVKCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVKCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4156390BBF62FCCDDD0E7939667888E7 /* KVKCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVKCalendar-dummy.m"; sourceTree = "<group>"; };
+		3CDA0C5341B1E6651DEDB95FB2826E5A /* KVKCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KVKCalendar.framework; path = KVKCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED53BCCBDE361669D1FE3049BC46791 /* YearCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearCell.swift; path = Sources/KVKCalendar/YearCell.swift; sourceTree = "<group>"; };
+		40FECC39ED28DBF3E4E52402C5F076B7 /* YearView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearView.swift; path = Sources/KVKCalendar/YearView.swift; sourceTree = "<group>"; };
 		428F951C8D0EB8E5F799E12F31F17467 /* Pods-KVKCalendar_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KVKCalendar_Example.modulemap"; sourceTree = "<group>"; };
-		59D9B65326185653007B0EF8 /* CustomCalendarEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarEventView.swift; sourceTree = "<group>"; };
+		456C42A406F9C4B2058638FB59C40D4D /* MonthCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MonthCell.swift; path = Sources/KVKCalendar/MonthCell.swift; sourceTree = "<group>"; };
+		51659970ABB7957A5AC5593D4EE5DC42 /* Date+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Extension.swift"; path = "Sources/KVKCalendar/Date+Extension.swift"; sourceTree = "<group>"; };
+		548C3ADA2F8B90D3AB9DD3C270CBE99A /* CalendarView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CalendarView+Extension.swift"; path = "Sources/KVKCalendar/CalendarView+Extension.swift"; sourceTree = "<group>"; };
+		54DCB2B5A22402C986AE76B6A6C3FEFA /* ShadowDayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShadowDayView.swift; path = Sources/KVKCalendar/ShadowDayView.swift; sourceTree = "<group>"; };
+		59379CF3B2686B7877D4FA4EC222E49E /* CurrentLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrentLineView.swift; path = Sources/KVKCalendar/CurrentLineView.swift; sourceTree = "<group>"; };
 		5A76D757EA13402410F2D5EE506F35E2 /* Pods-KVKCalendar_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KVKCalendar_Example-umbrella.h"; sourceTree = "<group>"; };
-		5CEFB62CDF67CC0E16C3A884F1DD5A92 /* EventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventView.swift; path = Sources/KVKCalendar/EventView.swift; sourceTree = "<group>"; };
+		5CDCCE9E84C6FFAC855591AD54E39BBF /* TimelineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineView.swift; path = Sources/KVKCalendar/TimelineView.swift; sourceTree = "<group>"; };
 		5D57E3692B5C6DBD83EA4FC136EA6458 /* Pods-KVKCalendar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVKCalendar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		63EE0CA36DC0ABE75584606BE749F957 /* TimelinePageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelinePageView.swift; path = Sources/KVKCalendar/TimelinePageView.swift; sourceTree = "<group>"; };
-		64D1C17C35447AD5A4424552446C810B /* KVKCalendar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = KVKCalendar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5D8BD4D9DF9BCB967CFEE158844BF691 /* KVKCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVKCalendar-prefix.pch"; sourceTree = "<group>"; };
+		60D432C91803BA08151491D4D827D067 /* ListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListView.swift; path = Sources/KVKCalendar/ListView.swift; sourceTree = "<group>"; };
+		64F396EBFFF3843CF4F7B46653420BD0 /* CustomCalendarEventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomCalendarEventView.swift; path = Sources/KVKCalendar/CustomCalendarEventView.swift; sourceTree = "<group>"; };
+		65C181EC96462BA0BAF7800D93E4E5AD /* Timeline+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Timeline+Extension.swift"; path = "Sources/KVKCalendar/Timeline+Extension.swift"; sourceTree = "<group>"; };
 		672C2662F5C15E3430FB95B6E8DAE827 /* Pods-KVKCalendar_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KVKCalendar_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		68F3F3C241A7A9D06CEE389D078C4101 /* ShadowDayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShadowDayView.swift; path = Sources/KVKCalendar/ShadowDayView.swift; sourceTree = "<group>"; };
-		6B6179D20EE3F4E1B968A8E83351B79D /* DayPadCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayPadCell.swift; path = Sources/KVKCalendar/DayPadCell.swift; sourceTree = "<group>"; };
-		6C2473E1B4D437BDB11755000CFA2D5F /* Pods_KVKCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVKCalendar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7692433655FAF139DE62DFA36F5714C2 /* StubEventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StubEventView.swift; path = Sources/KVKCalendar/StubEventView.swift; sourceTree = "<group>"; };
-		778DFD3FBB832D6E4D23F25335FFBEF0 /* AllDayEventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AllDayEventView.swift; path = Sources/KVKCalendar/AllDayEventView.swift; sourceTree = "<group>"; };
-		7922F1FF5F9F47C465C052D105EF0E47 /* YearCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearCell.swift; path = Sources/KVKCalendar/YearCell.swift; sourceTree = "<group>"; };
-		7ED99FB8A745CDF19E67E51BEDB31728 /* CurrentLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrentLineView.swift; path = Sources/KVKCalendar/CurrentLineView.swift; sourceTree = "<group>"; };
-		835D1E92CB910DC79807F44B49CE9CFC /* WeekHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekHeaderView.swift; path = Sources/KVKCalendar/WeekHeaderView.swift; sourceTree = "<group>"; };
-		8A21B7E9E63B94DA85E963CD1CAEA9B5 /* KVKCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVKCalendar-prefix.pch"; sourceTree = "<group>"; };
-		8A296C8DC2AC32446F7C661A876C043A /* CalendarData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarData.swift; path = Sources/KVKCalendar/CalendarData.swift; sourceTree = "<group>"; };
-		8F26B406F0308685880FE9C3D6D186DC /* KVKCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KVKCalendar.debug.xcconfig; sourceTree = "<group>"; };
-		924F44665CE9931525E1DDCAE1528C20 /* EventViewGeneral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventViewGeneral.swift; path = Sources/KVKCalendar/EventViewGeneral.swift; sourceTree = "<group>"; };
-		96098C6CF6C1BA70E1197BA7471FC51F /* MonthCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MonthCell.swift; path = Sources/KVKCalendar/MonthCell.swift; sourceTree = "<group>"; };
-		97ACC5DCAE8C90FAB8DC57B176151933 /* WeekData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekData.swift; path = Sources/KVKCalendar/WeekData.swift; sourceTree = "<group>"; };
-		9A9256FEBD74D5CD12784E82C592808B /* KVKCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVKCalendar-umbrella.h"; sourceTree = "<group>"; };
-		9C6BD3D738505E04F385039678777590 /* ScrollDayViewHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollDayViewHeader.swift; path = Sources/KVKCalendar/ScrollDayViewHeader.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DDDFB44C1E4A1CAC17F5959155FCA80 /* CalendarModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarModel.swift; path = Sources/KVKCalendar/CalendarModel.swift; sourceTree = "<group>"; };
-		A041F8C0C72AA971369C6848FF758D74 /* Pods_KVKCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVKCalendar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09F113E4975793648F12FDC38102325 /* ResizeEventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResizeEventView.swift; path = Sources/KVKCalendar/ResizeEventView.swift; sourceTree = "<group>"; };
-		A95889043D19F567D2F068D3DF793D13 /* CalendarView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CalendarView+Extension.swift"; path = "Sources/KVKCalendar/CalendarView+Extension.swift"; sourceTree = "<group>"; };
+		68BF89EA9535C92F9B289952D1C20A26 /* DayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayView.swift; path = Sources/KVKCalendar/DayView.swift; sourceTree = "<group>"; };
+		6C2473E1B4D437BDB11755000CFA2D5F /* Pods_KVKCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KVKCalendar_Example.framework; path = "Pods-KVKCalendar_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75F0EEA9FD732C262A455CA9D2B61FF4 /* KVKCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVKCalendar-dummy.m"; sourceTree = "<group>"; };
+		76E748FB7AA3634975243182681C3B4D /* CalendarData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarData.swift; path = Sources/KVKCalendar/CalendarData.swift; sourceTree = "<group>"; };
+		7836C3998F129AB7D52352ECB559D5E9 /* WeekHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekHeaderView.swift; path = Sources/KVKCalendar/WeekHeaderView.swift; sourceTree = "<group>"; };
+		785991DA17FD50CF7A8752BECB6EAE41 /* KVKCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KVKCalendar.modulemap; sourceTree = "<group>"; };
+		7BB8AA7DA28D7332372E429A6C05A563 /* KVKCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KVKCalendar.release.xcconfig; sourceTree = "<group>"; };
+		80D789EBBA86CA7EF826E8C6266F862D /* EventViewList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventViewList.swift; path = Sources/KVKCalendar/EventViewList.swift; sourceTree = "<group>"; };
+		8424FD4D2A75DB49AAE58DA065F3119A /* EventViewGeneral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventViewGeneral.swift; path = Sources/KVKCalendar/EventViewGeneral.swift; sourceTree = "<group>"; };
+		862DA1FCE88C4A84457A48CA8A1ABADD /* TimelineContainerVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineContainerVC.swift; path = Sources/KVKCalendar/TimelineContainerVC.swift; sourceTree = "<group>"; };
+		8B6563277B1E13D94BDE9CB98D99E916 /* CalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = Sources/KVKCalendar/CalendarView.swift; sourceTree = "<group>"; };
+		9251A7C48BD73737EBD2F2758315A44D /* WeekView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekView.swift; path = Sources/KVKCalendar/WeekView.swift; sourceTree = "<group>"; };
+		9BB133C803618A564BDC35D0B44835FE /* KVKCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVKCalendar-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A041F8C0C72AA971369C6848FF758D74 /* Pods_KVKCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KVKCalendar_Tests.framework; path = "Pods-KVKCalendar_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2ADC9B2E59A4826A58F57C519230A09 /* DayCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayCell.swift; path = Sources/KVKCalendar/DayCell.swift; sourceTree = "<group>"; };
+		A6142540A8FE73450AB45FF3522BAE29 /* StubEventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StubEventView.swift; path = Sources/KVKCalendar/StubEventView.swift; sourceTree = "<group>"; };
 		A9624963DF6186D58BC646C877E68CDF /* Pods-KVKCalendar_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVKCalendar_Tests-dummy.m"; sourceTree = "<group>"; };
 		AB364C8715A22990F1D7C8B6FDE7F94F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
-		AD144A2432F96A11EBF7681230A39D4F /* DayPhoneCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayPhoneCell.swift; path = Sources/KVKCalendar/DayPhoneCell.swift; sourceTree = "<group>"; };
-		AD583DD1362817FC0C076C2BD05EFFEF /* YearHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearHeaderView.swift; path = Sources/KVKCalendar/YearHeaderView.swift; sourceTree = "<group>"; };
-		B680BCD917ECF76AB806C6A47376868B /* ListViewHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewHeader.swift; path = Sources/KVKCalendar/ListViewHeader.swift; sourceTree = "<group>"; };
-		C3178112F6DC9E787B37268E14F9F5F8 /* KVKCalendar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KVKCalendar-Info.plist"; sourceTree = "<group>"; };
-		C3ABA57A741ED998EDFDB563FD27D8EA /* DayData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayData.swift; path = Sources/KVKCalendar/DayData.swift; sourceTree = "<group>"; };
+		AB739461DD5AC4554D9E68AF213DC293 /* VerticalLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalLineView.swift; path = Sources/KVKCalendar/VerticalLineView.swift; sourceTree = "<group>"; };
+		AEC8883BE830F22D5A4E3BBEA8E7D07C /* MonthData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MonthData.swift; path = Sources/KVKCalendar/MonthData.swift; sourceTree = "<group>"; };
+		B3C968981E6ED0D3B66A268B6C3EA829 /* YearHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearHeaderView.swift; path = Sources/KVKCalendar/YearHeaderView.swift; sourceTree = "<group>"; };
+		B4A6A453B056FE96DF9F9596CDE83B97 /* DayData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayData.swift; path = Sources/KVKCalendar/DayData.swift; sourceTree = "<group>"; };
+		BA88345F6BC8A0F2C9862C01965F1637 /* YearData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YearData.swift; path = Sources/KVKCalendar/YearData.swift; sourceTree = "<group>"; };
+		BC33A59E23C16923A8FB80BEE0648EB3 /* TimelineModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineModel.swift; path = Sources/KVKCalendar/TimelineModel.swift; sourceTree = "<group>"; };
+		C22CF52E41E7E6C4E72E9CFF3967FD8A /* Style.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Style.swift; path = Sources/KVKCalendar/Style.swift; sourceTree = "<group>"; };
 		C4A71CD930D1E85DE3B21533770AFA2A /* Pods-KVKCalendar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVKCalendar_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C79464A33D7791E1D9884CC4A2D618C2 /* MonthView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MonthView.swift; path = Sources/KVKCalendar/MonthView.swift; sourceTree = "<group>"; };
-		C80A6E712A274C8991D5F26EA2E34A59 /* ListViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewCell.swift; path = Sources/KVKCalendar/ListViewCell.swift; sourceTree = "<group>"; };
-		CD2FEDB8B803BCED77D12A798EF2E282 /* DayCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayCell.swift; path = Sources/KVKCalendar/DayCell.swift; sourceTree = "<group>"; };
-		D587287A66438FCBB624B9B7FE8628DA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D5B9F168F53433DE04559DB38434F9A3 /* VerticalLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalLineView.swift; path = Sources/KVKCalendar/VerticalLineView.swift; sourceTree = "<group>"; };
-		DAB1EDD0FEBE17BD65FDC346B3E3AEFE /* ListViewData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewData.swift; path = Sources/KVKCalendar/ListViewData.swift; sourceTree = "<group>"; };
+		CECB4718B4229DC92E64BF2B93693BD0 /* DayPadCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayPadCell.swift; path = Sources/KVKCalendar/DayPadCell.swift; sourceTree = "<group>"; };
+		D4082734D59C50EA47933C83ABA5BBAA /* ScrollDayViewHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollDayViewHeader.swift; path = Sources/KVKCalendar/ScrollDayViewHeader.swift; sourceTree = "<group>"; };
 		DB1BC5C3805D22768EE113F9EB04C457 /* Pods-KVKCalendar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KVKCalendar_Tests.modulemap"; sourceTree = "<group>"; };
-		DCBFA56F9C790AF87352E834A0D6D95D /* Calendar+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Calendar+Extension.swift"; path = "Sources/KVKCalendar/Calendar+Extension.swift"; sourceTree = "<group>"; };
+		DB9C1BC865C783CBBEC8BF154A21A11D /* KVKCalendar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KVKCalendar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DCE513D76C4400F5E460C49B2F838C2E /* Pods-KVKCalendar_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVKCalendar_Example-Info.plist"; sourceTree = "<group>"; };
 		DD4CF4EEDB02B4E9F95EA39A25AC57AD /* Pods-KVKCalendar_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KVKCalendar_Tests-umbrella.h"; sourceTree = "<group>"; };
-		E0C12DDE8C694F5EAE4DCA3C5ABF45C2 /* Date+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Extension.swift"; path = "Sources/KVKCalendar/Date+Extension.swift"; sourceTree = "<group>"; };
-		E186138F32B212B6BD0C18701928E448 /* EventViewList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventViewList.swift; path = Sources/KVKCalendar/EventViewList.swift; sourceTree = "<group>"; };
+		DFBB379D8E6FDFC52CD9B41E4F419C8B /* EventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventView.swift; path = Sources/KVKCalendar/EventView.swift; sourceTree = "<group>"; };
+		E1CCC324DC946C2621AE0CBD7D59B393 /* DayPhoneCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayPhoneCell.swift; path = Sources/KVKCalendar/DayPhoneCell.swift; sourceTree = "<group>"; };
+		E3EA8E22B175743C8702D1C07E4133AE /* ListViewHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewHeader.swift; path = Sources/KVKCalendar/ListViewHeader.swift; sourceTree = "<group>"; };
 		E59D00A75DBE423A0CE5B67793E5470B /* Pods-KVKCalendar_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVKCalendar_Tests-Info.plist"; sourceTree = "<group>"; };
-		E83C36C28E583BC72A6335399BA7D538 /* Timeline+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Timeline+Extension.swift"; path = "Sources/KVKCalendar/Timeline+Extension.swift"; sourceTree = "<group>"; };
-		F5DE8C41F2288BC883CEE2330603A683 /* TimelineContainerVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineContainerVC.swift; path = Sources/KVKCalendar/TimelineContainerVC.swift; sourceTree = "<group>"; };
-		F68932F57BDD715B5D6BEEF06CC1FCD6 /* DayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayView.swift; path = Sources/KVKCalendar/DayView.swift; sourceTree = "<group>"; };
+		F98824AE4E62557EAEB8611F3C2D10A4 /* ListViewData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewData.swift; path = Sources/KVKCalendar/ListViewData.swift; sourceTree = "<group>"; };
 		F9A5FE2DD23FBAFCC63D57A554B1036E /* Pods-KVKCalendar_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVKCalendar_Example-frameworks.sh"; sourceTree = "<group>"; };
+		F9B2665814A007BB6B88FA844B890E4B /* AllDayEventView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AllDayEventView.swift; path = Sources/KVKCalendar/AllDayEventView.swift; sourceTree = "<group>"; };
+		FBB3620805746EEC2DCDD89E615AD89E /* WeekData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeekData.swift; path = Sources/KVKCalendar/WeekData.swift; sourceTree = "<group>"; };
+		FF1D58001744636E36C8E136A2091232 /* TimelineLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineLabel.swift; path = Sources/KVKCalendar/TimelineLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,13 +179,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0EB6A42D13E99C7C9CD554F58C30D0F /* Frameworks */ = {
+		9738D658C038EAA77655880EEDD96345 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AB5F896D779959653E7AD5286432B46 /* EventKit.framework in Frameworks */,
-				B9DBC73772DE7129AC943058E32A2D23 /* Foundation.framework in Frameworks */,
-				BAA9431D27091AB5ECD2706A2953F615 /* UIKit.framework in Frameworks */,
+				ABF3979BBE21772E29D338A06FF8C982 /* EventKit.framework in Frameworks */,
+				81265DDABD9C0F9157A8CC42F3B22126 /* Foundation.framework in Frameworks */,
+				4546D6EC5B460D9D0BCB3D501934DC74 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +198,14 @@
 				B4C903ADD737D2F5EDD398EFAF489D95 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29BF9430D28918C6B1ECC0BD574B4609 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FECF61416E0C85E5E404532A9A66351D /* KVKCalendar */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		366C4DF3EEEC213BFC0D3C182FA57ADC /* Pods-KVKCalendar_Tests */ = {
@@ -226,14 +234,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		599B8545E3FC8F824DEBEDD2F1A9E737 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AEA901EABCAAC30F882A9B5518A8752D /* KVKCalendar */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		5E45B92607957C641F51735AAC847CD8 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,83 +243,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		8C67CAA689947993ABD3DDC4A43F27EA /* Support Files */ = {
+		88753E4C0FD58CAFD2E3080484E91C88 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				101E3B4C5CDBC2588321448AF74769C4 /* KVKCalendar.modulemap */,
-				4156390BBF62FCCDDD0E7939667888E7 /* KVKCalendar-dummy.m */,
-				C3178112F6DC9E787B37268E14F9F5F8 /* KVKCalendar-Info.plist */,
-				8A21B7E9E63B94DA85E963CD1CAEA9B5 /* KVKCalendar-prefix.pch */,
-				9A9256FEBD74D5CD12784E82C592808B /* KVKCalendar-umbrella.h */,
-				8F26B406F0308685880FE9C3D6D186DC /* KVKCalendar.debug.xcconfig */,
-				05D39769BF1FB04597237FDE1A915CED /* KVKCalendar.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/KVKCalendar";
-			sourceTree = "<group>";
-		};
-		AA0B64611ABF298FAE0180C9F110FCAE /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				64D1C17C35447AD5A4424552446C810B /* KVKCalendar.podspec */,
-				25CB0CD38A02BD277418888E705D8F56 /* LICENSE.md */,
-				D587287A66438FCBB624B9B7FE8628DA /* README.md */,
+				DB9C1BC865C783CBBEC8BF154A21A11D /* KVKCalendar.podspec */,
+				2F509306C6D705C92D3925545559C74C /* LICENSE.md */,
+				229F21CD7108E8238C0A880C96DEAFA5 /* README.md */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		AEA901EABCAAC30F882A9B5518A8752D /* KVKCalendar */ = {
+		AFD46A92DC7797D8B81D2DBDC5493EF5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				778DFD3FBB832D6E4D23F25335FFBEF0 /* AllDayEventView.swift */,
-				DCBFA56F9C790AF87352E834A0D6D95D /* Calendar+Extension.swift */,
-				8A296C8DC2AC32446F7C661A876C043A /* CalendarData.swift */,
-				9DDDFB44C1E4A1CAC17F5959155FCA80 /* CalendarModel.swift */,
-				0AC1EFA39EACC49AC87CDD4DC127B85B /* CalendarView.swift */,
-				A95889043D19F567D2F068D3DF793D13 /* CalendarView+Extension.swift */,
-				7ED99FB8A745CDF19E67E51BEDB31728 /* CurrentLineView.swift */,
-				E0C12DDE8C694F5EAE4DCA3C5ABF45C2 /* Date+Extension.swift */,
-				CD2FEDB8B803BCED77D12A798EF2E282 /* DayCell.swift */,
-				C3ABA57A741ED998EDFDB563FD27D8EA /* DayData.swift */,
-				6B6179D20EE3F4E1B968A8E83351B79D /* DayPadCell.swift */,
-				AD144A2432F96A11EBF7681230A39D4F /* DayPhoneCell.swift */,
-				F68932F57BDD715B5D6BEEF06CC1FCD6 /* DayView.swift */,
-				5CEFB62CDF67CC0E16C3A884F1DD5A92 /* EventView.swift */,
-				924F44665CE9931525E1DDCAE1528C20 /* EventViewGeneral.swift */,
-				E186138F32B212B6BD0C18701928E448 /* EventViewList.swift */,
-				2C2EB1E0E191D6E063EB84FE8F69887C /* ListView.swift */,
-				C80A6E712A274C8991D5F26EA2E34A59 /* ListViewCell.swift */,
-				DAB1EDD0FEBE17BD65FDC346B3E3AEFE /* ListViewData.swift */,
-				B680BCD917ECF76AB806C6A47376868B /* ListViewHeader.swift */,
-				96098C6CF6C1BA70E1197BA7471FC51F /* MonthCell.swift */,
-				313894D26574F72BECD3DCB3780EC5D7 /* MonthData.swift */,
-				C79464A33D7791E1D9884CC4A2D618C2 /* MonthView.swift */,
-				A09F113E4975793648F12FDC38102325 /* ResizeEventView.swift */,
-				9C6BD3D738505E04F385039678777590 /* ScrollDayViewHeader.swift */,
-				68F3F3C241A7A9D06CEE389D078C4101 /* ShadowDayView.swift */,
-				7692433655FAF139DE62DFA36F5714C2 /* StubEventView.swift */,
-				31E06B9CF4650E81EA8DC557AE26BA59 /* StubStackView.swift */,
-				33229F7143326A36E5454B4CD8D88959 /* Style.swift */,
-				E83C36C28E583BC72A6335399BA7D538 /* Timeline+Extension.swift */,
-				F5DE8C41F2288BC883CEE2330603A683 /* TimelineContainerVC.swift */,
-				1EAE15B2BFBD550E89125280BB60FF03 /* TimelineLabel.swift */,
-				214D43029377B53F28149D55BC77B66C /* TimelineModel.swift */,
-				63EE0CA36DC0ABE75584606BE749F957 /* TimelinePageView.swift */,
-				1D3A26A4581F2BD9FBA6548A2CF518A5 /* TimelineView.swift */,
-				D5B9F168F53433DE04559DB38434F9A3 /* VerticalLineView.swift */,
-				97ACC5DCAE8C90FAB8DC57B176151933 /* WeekData.swift */,
-				835D1E92CB910DC79807F44B49CE9CFC /* WeekHeaderView.swift */,
-				25C43A385CAEAB40679E977A7DD01D1F /* WeekView.swift */,
-				7922F1FF5F9F47C465C052D105EF0E47 /* YearCell.swift */,
-				2EFE95869F11EF6CB11860ABC3888D57 /* YearData.swift */,
-				AD583DD1362817FC0C076C2BD05EFFEF /* YearHeaderView.swift */,
-				1F271F45FF8032AA5566305568867892 /* YearView.swift */,
-				AA0B64611ABF298FAE0180C9F110FCAE /* Pod */,
-				8C67CAA689947993ABD3DDC4A43F27EA /* Support Files */,
-				59D9B65326185653007B0EF8 /* CustomCalendarEventView.swift */,
+				785991DA17FD50CF7A8752BECB6EAE41 /* KVKCalendar.modulemap */,
+				75F0EEA9FD732C262A455CA9D2B61FF4 /* KVKCalendar-dummy.m */,
+				2EB76FAACEDC41B50527F2AEA0004493 /* KVKCalendar-Info.plist */,
+				5D8BD4D9DF9BCB967CFEE158844BF691 /* KVKCalendar-prefix.pch */,
+				9BB133C803618A564BDC35D0B44835FE /* KVKCalendar-umbrella.h */,
+				3681462634288ACD7480003796CE8D22 /* KVKCalendar.debug.xcconfig */,
+				7BB8AA7DA28D7332372E429A6C05A563 /* KVKCalendar.release.xcconfig */,
 			);
-			name = KVKCalendar;
-			path = ../..;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/KVKCalendar";
 			sourceTree = "<group>";
 		};
 		B4C903ADD737D2F5EDD398EFAF489D95 /* iOS */ = {
@@ -336,7 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				599B8545E3FC8F824DEBEDD2F1A9E737 /* Development Pods */,
+				29BF9430D28918C6B1ECC0BD574B4609 /* Development Pods */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				44D5FFCDAABC14371202827F9631A587 /* Products */,
 				5E45B92607957C641F51735AAC847CD8 /* Targets Support Files */,
@@ -360,17 +306,63 @@
 			path = "Target Support Files/Pods-KVKCalendar_Example";
 			sourceTree = "<group>";
 		};
+		FECF61416E0C85E5E404532A9A66351D /* KVKCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				F9B2665814A007BB6B88FA844B890E4B /* AllDayEventView.swift */,
+				27FB28398DB7D65665074982712E838A /* Calendar+Extension.swift */,
+				76E748FB7AA3634975243182681C3B4D /* CalendarData.swift */,
+				1C8D1A4E66465D85A6A4DBEA15B8A934 /* CalendarModel.swift */,
+				8B6563277B1E13D94BDE9CB98D99E916 /* CalendarView.swift */,
+				548C3ADA2F8B90D3AB9DD3C270CBE99A /* CalendarView+Extension.swift */,
+				59379CF3B2686B7877D4FA4EC222E49E /* CurrentLineView.swift */,
+				64F396EBFFF3843CF4F7B46653420BD0 /* CustomCalendarEventView.swift */,
+				51659970ABB7957A5AC5593D4EE5DC42 /* Date+Extension.swift */,
+				A2ADC9B2E59A4826A58F57C519230A09 /* DayCell.swift */,
+				B4A6A453B056FE96DF9F9596CDE83B97 /* DayData.swift */,
+				CECB4718B4229DC92E64BF2B93693BD0 /* DayPadCell.swift */,
+				E1CCC324DC946C2621AE0CBD7D59B393 /* DayPhoneCell.swift */,
+				68BF89EA9535C92F9B289952D1C20A26 /* DayView.swift */,
+				DFBB379D8E6FDFC52CD9B41E4F419C8B /* EventView.swift */,
+				8424FD4D2A75DB49AAE58DA065F3119A /* EventViewGeneral.swift */,
+				80D789EBBA86CA7EF826E8C6266F862D /* EventViewList.swift */,
+				60D432C91803BA08151491D4D827D067 /* ListView.swift */,
+				2D85CCC4AACB54EFD5A7506CFDBF83B4 /* ListViewCell.swift */,
+				F98824AE4E62557EAEB8611F3C2D10A4 /* ListViewData.swift */,
+				E3EA8E22B175743C8702D1C07E4133AE /* ListViewHeader.swift */,
+				456C42A406F9C4B2058638FB59C40D4D /* MonthCell.swift */,
+				AEC8883BE830F22D5A4E3BBEA8E7D07C /* MonthData.swift */,
+				3913F788DF00C854F3F84D0EDA896230 /* MonthView.swift */,
+				2D7F4B6028F9944244D0B16FC5D36A1A /* ResizeEventView.swift */,
+				D4082734D59C50EA47933C83ABA5BBAA /* ScrollDayViewHeader.swift */,
+				54DCB2B5A22402C986AE76B6A6C3FEFA /* ShadowDayView.swift */,
+				A6142540A8FE73450AB45FF3522BAE29 /* StubEventView.swift */,
+				397D73F8EF170246186233A2EE756153 /* StubStackView.swift */,
+				C22CF52E41E7E6C4E72E9CFF3967FD8A /* Style.swift */,
+				65C181EC96462BA0BAF7800D93E4E5AD /* Timeline+Extension.swift */,
+				862DA1FCE88C4A84457A48CA8A1ABADD /* TimelineContainerVC.swift */,
+				FF1D58001744636E36C8E136A2091232 /* TimelineLabel.swift */,
+				BC33A59E23C16923A8FB80BEE0648EB3 /* TimelineModel.swift */,
+				0B4A8956A02AB3683B92D15C2F6A0BFD /* TimelinePageView.swift */,
+				5CDCCE9E84C6FFAC855591AD54E39BBF /* TimelineView.swift */,
+				AB739461DD5AC4554D9E68AF213DC293 /* VerticalLineView.swift */,
+				FBB3620805746EEC2DCDD89E615AD89E /* WeekData.swift */,
+				7836C3998F129AB7D52352ECB559D5E9 /* WeekHeaderView.swift */,
+				9251A7C48BD73737EBD2F2758315A44D /* WeekView.swift */,
+				3ED53BCCBDE361669D1FE3049BC46791 /* YearCell.swift */,
+				BA88345F6BC8A0F2C9862C01965F1637 /* YearData.swift */,
+				B3C968981E6ED0D3B66A268B6C3EA829 /* YearHeaderView.swift */,
+				40FECC39ED28DBF3E4E52402C5F076B7 /* YearView.swift */,
+				88753E4C0FD58CAFD2E3080484E91C88 /* Pod */,
+				AFD46A92DC7797D8B81D2DBDC5493EF5 /* Support Files */,
+			);
+			name = KVKCalendar;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		36B9AFC69778DC14FA2E71807C7A4CC3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0AA613F595BF57BC6CF5B63E1DA0F31C /* KVKCalendar-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		48B501389510E88BFA40BBAE10045C27 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,6 +376,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F399DF87FAC3EDFEE89FCA84E5CE502 /* Pods-KVKCalendar_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F9FC0153BB03B2B2756CF4C550D05E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56EC20685D85DD05948A38589661E5BC /* KVKCalendar-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +402,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				DC4643B4E39660B6D6177EF9FC3E253E /* PBXTargetDependency */,
+				F035A1AEC67D26339EE510841309EBF0 /* PBXTargetDependency */,
 			);
 			name = "Pods-KVKCalendar_Example";
 			productName = "Pods-KVKCalendar_Example";
@@ -411,12 +411,12 @@
 		};
 		7C8627CB6D8E7BCF51A7504F548575BC /* KVKCalendar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDA5C72DBAA4D59A2DE0B13D99A18A7A /* Build configuration list for PBXNativeTarget "KVKCalendar" */;
+			buildConfigurationList = 673B49224048E1A4A526DA3C87C10627 /* Build configuration list for PBXNativeTarget "KVKCalendar" */;
 			buildPhases = (
-				36B9AFC69778DC14FA2E71807C7A4CC3 /* Headers */,
-				28E38465C207860662B924D2A091817C /* Sources */,
-				F0EB6A42D13E99C7C9CD554F58C30D0F /* Frameworks */,
-				7A8737A773D98109F017676339C7C30D /* Resources */,
+				D8F9FC0153BB03B2B2756CF4C550D05E /* Headers */,
+				35B2945CD17BFC70F1E0F02A931472EE /* Sources */,
+				9738D658C038EAA77655880EEDD96345 /* Frameworks */,
+				8A4F4C6CC2D48DB779C8CD28020E6C19 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -439,7 +439,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D2475388977AB823BBF4D63F11741D97 /* PBXTargetDependency */,
+				32A8A1BEA52B9707B75A7D7AED778B7D /* PBXTargetDependency */,
 			);
 			name = "Pods-KVKCalendar_Tests";
 			productName = "Pods-KVKCalendar_Tests";
@@ -483,7 +483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A8737A773D98109F017676339C7C30D /* Resources */ = {
+		8A4F4C6CC2D48DB779C8CD28020E6C19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,55 +500,55 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		28E38465C207860662B924D2A091817C /* Sources */ = {
+		35B2945CD17BFC70F1E0F02A931472EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67FF774F81829D25627A95523D121DCB /* AllDayEventView.swift in Sources */,
-				9ED826389916FA59E1F17001B1AAEC6E /* Calendar+Extension.swift in Sources */,
-				80F2D7EF1FD9A18404BA24798C596B10 /* CalendarData.swift in Sources */,
-				E7166AB631A1F363BEC98DB2BB114360 /* CalendarModel.swift in Sources */,
-				71F3B422C4D8488E7E4ADD2E2A52C94D /* CalendarView+Extension.swift in Sources */,
-				17BEAAC59928F37A39C7E34B5D385C0B /* CalendarView.swift in Sources */,
-				DE29FAA9F97EB2995F905ABC8B0B5944 /* CurrentLineView.swift in Sources */,
-				039DBEBA9DBEC27BC9CC0E0E64D8E0F1 /* Date+Extension.swift in Sources */,
-				57BF1D35A352DADF2DAF529D7499F7E5 /* DayCell.swift in Sources */,
-				876A6638692F4F9BB514AABF621BC0C6 /* DayData.swift in Sources */,
-				7B2B45BE5BD852E6BC3AAA9621F088CF /* DayPadCell.swift in Sources */,
-				BD9CD31D8BF663EAF9D3DD37FD330D42 /* DayPhoneCell.swift in Sources */,
-				A6389BA2A93A24D40BB15DDD11991ADE /* DayView.swift in Sources */,
-				09CAF424D1A4FD4B9FBCB85D1FDB1F0E /* EventView.swift in Sources */,
-				0994FFD97BE772178FBD3F135AA5255C /* EventViewGeneral.swift in Sources */,
-				9863CFB5A37B87FC740E7E77C86AA146 /* EventViewList.swift in Sources */,
-				681E095B5B26C2C43F3712DE60C0EE04 /* KVKCalendar-dummy.m in Sources */,
-				0DCE935431505BA2024E5E218AEE869E /* ListView.swift in Sources */,
-				150BDB4BC8B70F6119C80D54D6FD0347 /* ListViewCell.swift in Sources */,
-				DA496EFA5CE30E9399F0D977821FB24A /* ListViewData.swift in Sources */,
-				270E16D6FC2FE18948F6E2B10DF7DF02 /* ListViewHeader.swift in Sources */,
-				6F0D7E0034E08D9E007E126E021CEAFB /* MonthCell.swift in Sources */,
-				7E5134C9C2E7CDE8C290E0F8640157A1 /* MonthData.swift in Sources */,
-				48CD9B169BA2927973AAD803B9AF95B4 /* MonthView.swift in Sources */,
-				5613615B4F4903F1D68D9012D241FEDD /* ResizeEventView.swift in Sources */,
-				558493614AF9D59CC110094756FC5841 /* ScrollDayViewHeader.swift in Sources */,
-				675B181B34C4766A6B9FCAEE27E99777 /* ShadowDayView.swift in Sources */,
-				43A71B0C2D67DDAE6C0D4152B2977C07 /* StubEventView.swift in Sources */,
-				2D982E68A819D66622F6BD0FE6B13C2B /* StubStackView.swift in Sources */,
-				18E5875BD7D392E12CFD936351479DAE /* Style.swift in Sources */,
-				1854C4D2AAD2F8BFB7D5D885FC47C049 /* Timeline+Extension.swift in Sources */,
-				3FE8D0253ABE9B61C42F2322700FAFA0 /* TimelineContainerVC.swift in Sources */,
-				50DA4CC293A9226D0714437AACC4D56E /* TimelineLabel.swift in Sources */,
-				E1C90EFE7122604D8AF4C22238583017 /* TimelineModel.swift in Sources */,
-				9BEF9E81BF5DC17136FD762AC5A2BADA /* TimelinePageView.swift in Sources */,
-				17B97139898B1CE05B2505DBC30FFC65 /* TimelineView.swift in Sources */,
-				59D9B65426185653007B0EF8 /* CustomCalendarEventView.swift in Sources */,
-				AB96EF6BCB31ECE9776304B14095F45F /* VerticalLineView.swift in Sources */,
-				F6719C1224AF8A99C6B0A1AB7BAD7120 /* WeekData.swift in Sources */,
-				814FE555E71ACBDB821BF342A253E1F6 /* WeekHeaderView.swift in Sources */,
-				238A1F9D92A410F08F3775423AEDC423 /* WeekView.swift in Sources */,
-				3D65BBEE7F2C06C93A06751E3EA70FD9 /* YearCell.swift in Sources */,
-				F6A5BCF15DC6BAF6EDCE414F28B21D84 /* YearData.swift in Sources */,
-				0FB542A0D7F7E13C96F374C62F1120B3 /* YearHeaderView.swift in Sources */,
-				EDAD25FEDDE7ECB0288B2FDA7EF54719 /* YearView.swift in Sources */,
+				2239E3DEF97E7B2531D45CE4B2E6A5ED /* AllDayEventView.swift in Sources */,
+				2DF2C4BE342F7F372080D31B467EAA25 /* Calendar+Extension.swift in Sources */,
+				648DB758DFEB21D6EF88DF14CCF231F2 /* CalendarData.swift in Sources */,
+				25DCB3D75984D1A644A10F4461DC5759 /* CalendarModel.swift in Sources */,
+				85BE6E91B8FFB848DDD342FA00805CCD /* CalendarView+Extension.swift in Sources */,
+				FF1C17C0789BAA23D32BBB43568319E7 /* CalendarView.swift in Sources */,
+				9F24D293D63142D8CC678327E443FC41 /* CurrentLineView.swift in Sources */,
+				1E2D5D04523B5EC93AACCFEDE4AE3AD0 /* CustomCalendarEventView.swift in Sources */,
+				FAE9A73ABBC1CE17CCF32D9B2153E313 /* Date+Extension.swift in Sources */,
+				9B89F18F9A650BBA2D0B7410A0B9F25D /* DayCell.swift in Sources */,
+				640B02CF01D703E52D929A2B8C75EFAD /* DayData.swift in Sources */,
+				3BCF889FF7EC5649C9EE0E44922C0C0E /* DayPadCell.swift in Sources */,
+				56D99D4A01415E2FA77685655D51DB59 /* DayPhoneCell.swift in Sources */,
+				5FAEB3CAD27818E37DF4A88B4C93A874 /* DayView.swift in Sources */,
+				6DC1709FDE8D32DB51762420A26DF5EA /* EventView.swift in Sources */,
+				BC955A5ED4A88871FAFFE2E20246B99D /* EventViewGeneral.swift in Sources */,
+				BD87DA65A9F8E78734A3DB1D7C661FE7 /* EventViewList.swift in Sources */,
+				0832C3F2B4042AAADC3B63F7166EDE23 /* KVKCalendar-dummy.m in Sources */,
+				14F859D5E4D39DA3CFFFD0EAB1B8E913 /* ListView.swift in Sources */,
+				60CEEE3413AC94FD4B35159C49D0D9F1 /* ListViewCell.swift in Sources */,
+				5C773F39D01DB524FFC97733AB1A3B44 /* ListViewData.swift in Sources */,
+				D9BD44059DFBF6464DD669CCC9F76FB7 /* ListViewHeader.swift in Sources */,
+				69D66595CA3E4E59FEF9F2902DAD9160 /* MonthCell.swift in Sources */,
+				A2481D8E53409C985FBA9E46A3665D46 /* MonthData.swift in Sources */,
+				0881CFF594B3D3E7E622C7AA0ACE0218 /* MonthView.swift in Sources */,
+				7139F974941C957D045B9A3F8EE6D992 /* ResizeEventView.swift in Sources */,
+				BAADE89C157A45AD8ACD12178F25DEF1 /* ScrollDayViewHeader.swift in Sources */,
+				97864ACA96F0C151C5F5B4080307BA28 /* ShadowDayView.swift in Sources */,
+				63069510B95EA0DC58300C4F511B6ABA /* StubEventView.swift in Sources */,
+				F558DFE3714924041F54A324C6F03128 /* StubStackView.swift in Sources */,
+				7235231FC8CFA8407C6A684D8A477107 /* Style.swift in Sources */,
+				32502A1B646B8FC7DBC0F95A23322DD6 /* Timeline+Extension.swift in Sources */,
+				EC9B2DF38F5C619657708350A9A86268 /* TimelineContainerVC.swift in Sources */,
+				976FB63A1F758E1CC219EBA75B4FE6DC /* TimelineLabel.swift in Sources */,
+				722F5E2010DB40B9741B505EDEE44EF2 /* TimelineModel.swift in Sources */,
+				87E7462B96467C45E1DD4358DC797EE9 /* TimelinePageView.swift in Sources */,
+				896501F7DF305FCF28006853ECEC4A60 /* TimelineView.swift in Sources */,
+				48EFA136D6EA3D60B41169D363337BB1 /* VerticalLineView.swift in Sources */,
+				0A3F3383CEEEC49BBF89A3F7183E8239 /* WeekData.swift in Sources */,
+				7E7D028121FE0914C26286CE1F50433C /* WeekHeaderView.swift in Sources */,
+				7896EFCB5225BF3E2BB3A78BCC003110 /* WeekView.swift in Sources */,
+				794CFA7766835E4885AF9EBB89A90697 /* YearCell.swift in Sources */,
+				BEC4D16492F88B68F65E20CCF70A08AA /* YearData.swift in Sources */,
+				65E88323589F3795244A440490ED93F5 /* YearHeaderView.swift in Sources */,
+				C661B26444002D3F026C5281F1BF9184 /* YearView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,24 +571,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D2475388977AB823BBF4D63F11741D97 /* PBXTargetDependency */ = {
+		32A8A1BEA52B9707B75A7D7AED778B7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-KVKCalendar_Example";
 			target = 162FE0796A33CBA1CBE1F7C70ABD1E35 /* Pods-KVKCalendar_Example */;
-			targetProxy = 58BD99E2C5A8BEDD87A9EC47103F608D /* PBXContainerItemProxy */;
+			targetProxy = FC7D364D87A4C8139FAA3C123F180016 /* PBXContainerItemProxy */;
 		};
-		DC4643B4E39660B6D6177EF9FC3E253E /* PBXTargetDependency */ = {
+		F035A1AEC67D26339EE510841309EBF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = KVKCalendar;
 			target = 7C8627CB6D8E7BCF51A7504F548575BC /* KVKCalendar */;
-			targetProxy = 682FB71E96BA9E0C176473701F94C8F7 /* PBXContainerItemProxy */;
+			targetProxy = B8205DF424154ECC53490BBA1E403AC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		38BA035D5938C8021C1818B1A650813B /* Release */ = {
+		1A26335F4F294576E5DFFDE28D566630 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05D39769BF1FB04597237FDE1A915CED /* KVKCalendar.release.xcconfig */;
+			baseConfigurationReference = 7BB8AA7DA28D7332372E429A6C05A563 /* KVKCalendar.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -618,9 +618,9 @@
 			};
 			name = Release;
 		};
-		62C8914BAB869320DF673DCC63A907FC /* Debug */ = {
+		448BE31D99C6E744BE113AC019E4E067 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F26B406F0308685880FE9C3D6D186DC /* KVKCalendar.debug.xcconfig */;
+			baseConfigurationReference = 3681462634288ACD7480003796CE8D22 /* KVKCalendar.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -704,7 +704,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -922,20 +923,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		673B49224048E1A4A526DA3C87C10627 /* Build configuration list for PBXNativeTarget "KVKCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				448BE31D99C6E744BE113AC019E4E067 /* Debug */,
+				1A26335F4F294576E5DFFDE28D566630 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		82A9C0302CBDD2E43693798B61CC8391 /* Build configuration list for PBXNativeTarget "Pods-KVKCalendar_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E74B67E9FFF05337F91E3E9BAA360118 /* Debug */,
 				E7B95E17656DA3A59C5A2E0F6EC5DCCA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BDA5C72DBAA4D59A2DE0B13D99A18A7A /* Build configuration list for PBXNativeTarget "KVKCalendar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				62C8914BAB869320DF673DCC63A907FC /* Debug */,
-				38BA035D5938C8021C1818B1A650813B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

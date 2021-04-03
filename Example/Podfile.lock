@@ -1,5 +1,5 @@
 PODS:
-  - KVKCalendar (0.4.6)
+  - KVKCalendar (0.4.7)
 
 DEPENDENCIES:
   - KVKCalendar (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KVKCalendar: 3f514b2e684c1595a670a0e648eb76c7141b5624
+  KVKCalendar: 0161bf7e438422f4da5c6677875450d9e2e67fcb
 
 PODFILE CHECKSUM: cd2c6b494eec4d8d293bf0deac29fbac525b56f2
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
