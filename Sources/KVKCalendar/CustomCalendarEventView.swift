@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CustomCalendarEventView: EventViewGeneral {
+open class CustomCalendarEventView: EventViewGeneral {
     
     let lbTitle: UILabel = {
         let label = UILabel()
@@ -59,7 +59,7 @@ final class CustomCalendarEventView: EventViewGeneral {
         }
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
