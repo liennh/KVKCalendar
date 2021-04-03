@@ -530,6 +530,7 @@ extension TimelineView: EventDelegate {
         } else if let viewEvent = view as? CustomCalendarEventView {
             let eventView = CustomCalendarEventView(style: style, event: event, frame: frame)
             eventView.ivDots.image = viewEvent.ivDots.image
+            eventView.ivDots.setImageColor(color: event.backgroundColor)
             eventView.isUserInteractionEnabled = false
             viewTmp = eventView
             viewTmp.frame = viewFrame
@@ -710,5 +711,16 @@ extension TimelineView: CalendarSettingProtocol {
 extension TimelineView: AllDayEventDelegate {
     func didSelectAllDayEvent(_ event: Event, frame: CGRect?) {
         delegate?.didSelectEvent(event, frame: frame)
+    }
+}
+
+
+
+extension UIImageView {
+    func setImageColor(color: UIColor) {
+        let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+        self.image = templateImage
+        self.tintAdjustmentMode = .normal
+        self.tintColor = color
     }
 }
