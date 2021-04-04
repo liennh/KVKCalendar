@@ -207,10 +207,10 @@ extension ViewController: CalendarDataSource {
     }
     
     func willDisplayEventView(_ event: Event, frame: CGRect, date: Date?) -> EventViewGeneral? {
-        return nil
+   //     return nil
 //        guard event.ID == "2" else { return nil }
 //
-//        return CustomViewEvent(style: style, event: event, frame: frame)
+        return CustomCalendarEventView(style: style, event: event, frame: frame)
     }
     
     func dequeueNibCell<T>(date: Date?, type: CalendarType, view: T, indexPath: IndexPath, events: [Event]) -> KVKCalendarCellProtocol? where T : UIScrollView {

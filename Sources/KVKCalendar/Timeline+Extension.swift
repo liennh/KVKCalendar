@@ -453,7 +453,7 @@ extension TimelineView: ResizeEventViewDelegate {
             let offset = location.y + (eventResizePreview?.mainYOffset ?? 0) + style.timeline.offsetEvent
             let offsetY = (eventResizePreview?.frame.origin.y ?? 0) - location.y
             let endY = (eventResizePreview?.originalFrameEventView.height ?? 0) + (eventResizePreview?.originalFrameEventView.origin.y ?? 0)
-            guard endY - location.y > 70 else { return }
+            guard endY - location.y > 50 else { return }
             
             showChangingMinute(pointY: offset)
             eventResizePreview?.frame.origin.y = location.y
@@ -461,7 +461,7 @@ extension TimelineView: ResizeEventViewDelegate {
             eventResizePreview?.startTime = movingMinuteLabel.time
         case .bottom:
             let offset = location.y - (eventResizePreview?.mainYOffset ?? 0) + style.timeline.offsetEvent
-            guard (location.y - (eventResizePreview?.frame.origin.y ?? 0)) > 80 else { return }
+            guard (location.y - (eventResizePreview?.frame.origin.y ?? 0)) > 50 else { return }
             
             showChangingMinute(pointY: offset)
             eventResizePreview?.frame.size.height = location.y - (eventResizePreview?.frame.origin.y ?? 0)
@@ -515,8 +515,8 @@ extension TimelineView: EventDelegate {
         if viewFrame.width < 50 {
             viewFrame.size.width = 50
         }
-        if viewFrame.height < 60 {
-            viewFrame.size.height = 60
+        if viewFrame.height < 50 {
+            viewFrame.size.height = 50
         }
         
         let viewTmp: UIView
@@ -566,9 +566,22 @@ extension TimelineView: EventDelegate {
         eventPreview = nil
         
         if view is EventView {
-            eventPreviewSize = CGSize(width: 150, height: 40)
+            eventPreviewSize = view.frame.size
+            if let size = eventPreview?.frame.size {
+                eventPreviewSize = size
+            }
+            eventPreview?.frame.origin = CGPoint(x: location.x - eventPreviewXOffset, y: location.y - eventPreviewYOffset)
             eventPreview = EventView(event: event,
                                      style: style,
+                                     frame: CGRect(origin: CGPoint(x: location.x - eventPreviewXOffset, y: location.y - eventPreviewYOffset),
+                                                   size: eventPreviewSize))
+        } else if view is CustomCalendarEventView {
+            eventPreviewSize = view.frame.size
+            if let size = eventPreview?.frame.size {
+                eventPreviewSize = size
+            }
+            eventPreview?.frame.origin = CGPoint(x: location.x - eventPreviewXOffset, y: location.y - eventPreviewYOffset)
+            eventPreview = CustomCalendarEventView(style: style, event: event,
                                      frame: CGRect(origin: CGPoint(x: location.x - eventPreviewXOffset, y: location.y - eventPreviewYOffset),
                                                    size: eventPreviewSize))
         } else {
