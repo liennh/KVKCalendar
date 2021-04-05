@@ -70,7 +70,13 @@ final class WeekHeaderView: UIView {
             label.textAlignment = isFromYear ? style.year.weekDayAlignment : style.month.weekDayAlignment
             label.font = isFromYear ? style.year.weekFont : style.month.weekFont
             
-            if value.isWeekend {
+            if value.isSunday {
+                label.textColor = style.week.colorSunday
+                label.backgroundColor = style.week.colorWeekendBackground
+            } else if value.isSaturday {
+                label.textColor = style.week.colorStaturday
+                label.backgroundColor = style.week.colorWeekendBackground
+            } else if value.isWeekend {
                 label.textColor = style.week.colorWeekendDate
                 label.backgroundColor = style.week.colorWeekendBackground
             } else if value.isWeekday {

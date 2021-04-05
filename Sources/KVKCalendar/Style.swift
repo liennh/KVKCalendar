@@ -184,6 +184,8 @@ public struct WeekStyle {
     public var colorBackgroundSelectDate: UIColor = .black
     public var colorSelectDate: UIColor = .white
     public var colorWeekendDate: UIColor = .gray
+    public var colorStaturday: UIColor = .red
+    public var colorSunday: UIColor = .red
     public var colorWeekendBackground: UIColor = .clear
     public var colorWeekdayBackground: UIColor = .clear
     public var selectCalendarType: CalendarType = .day
