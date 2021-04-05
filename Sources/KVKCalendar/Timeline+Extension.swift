@@ -532,6 +532,7 @@ extension TimelineView: EventDelegate {
             eventView.ivDots.image = viewEvent.ivDots.image
             eventView.ivDots.setImageColor(color: event.backgroundColor)
             eventView.isUserInteractionEnabled = false
+            eventView.backgroundColor = event.backgroundColor
             viewTmp = eventView
             viewTmp.frame = viewFrame
         } else {
