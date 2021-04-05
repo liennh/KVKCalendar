@@ -75,7 +75,7 @@ final class WeekHeaderView: UIView {
                 label.backgroundColor = style.week.colorWeekendBackground
             } else if value.isSaturday {
                 label.textColor = style.week.colorStaturday
-                label.backgroundColor = style.week.colorWeekendBackground
+                label.backgroundColor = style.week.colorWeekendBackground   
             } else if value.isWeekend {
                 label.textColor = style.week.colorWeekendDate
                 label.backgroundColor = style.week.colorWeekendBackground
