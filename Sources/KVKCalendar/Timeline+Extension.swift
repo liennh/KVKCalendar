@@ -541,7 +541,6 @@ extension TimelineView: EventDelegate {
         }
         
         eventResizePreview = ResizeEventView(view: viewTmp, event: event, frame: viewTmp.frame, style: style)
-        eventResizePreview?.backgroundColor = event.backgroundColor
         eventResizePreview?.delegate = self
         if let resizeView = eventResizePreview {
             scrollView.addSubview(resizeView)
