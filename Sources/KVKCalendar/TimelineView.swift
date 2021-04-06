@@ -218,6 +218,7 @@ final class TimelineView: UIView, EventDateProtocol {
             
             let formatter = DateFormatter()
             formatter.dateFormat = self.timeHourSystem.format
+            formatter.locale = Locale(identifier: "en_GB")
             self.currentLineView.time = formatter.string(from: nextDate)
             self.currentLineView.date = nextDate
             
