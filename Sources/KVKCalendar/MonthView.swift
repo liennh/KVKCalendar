@@ -334,8 +334,9 @@ extension MonthView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
         let newDate = monthData.data.months[visibleIndex].date
         let oldDate = headerView.date
         headerView.date = newDate
-        guard style.month.isAutoSelectDateScrolling, oldDate?.month != newDate.month else { return }
         delegate?.monthChangee(newDate, type: .month)
+        guard style.month.isAutoSelectDateScrolling, oldDate?.month != newDate.month else { return }
+      
         monthData.date = newDate
         delegate?.didSelectDates([newDate], type: .month, frame: nil)
         collectionView?.reloadData()
