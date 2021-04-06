@@ -327,6 +327,9 @@ public extension CalendarDataSource {
 // MARK: - Delegate protocol
 
 public protocol CalendarDelegate: AnyObject {
+    
+    func monthChangee(_ date: Date?, type: CalendarType)
+    
     func sizeForHeader(_ date: Date?, type: CalendarType) -> CGSize?
     
     /// size cell for (month, year, list) view

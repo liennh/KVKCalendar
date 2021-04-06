@@ -127,6 +127,12 @@ final class ViewController: UIViewController {
 // MARK: - Calendar delegate
 
 extension ViewController: CalendarDelegate {
+    func monthChangee(_ date: Date?, type: CalendarType) {
+        
+    }
+    
+    
+    
     func didChangeEvent(_ event: Event, start: Date?, end: Date?) {
         var eventTemp = event
         guard let startTemp = start, let endTemp = end else { return }
