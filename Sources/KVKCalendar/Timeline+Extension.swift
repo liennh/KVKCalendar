@@ -512,8 +512,8 @@ extension TimelineView: EventDelegate {
         isResizeEnableMode = true
         
         var viewFrame = view.frame
-        if viewFrame.width < 50 {
-            viewFrame.size.width = 50
+        if viewFrame.width < 30 {
+            viewFrame.size.width = 30
         }
         if viewFrame.height < 50 {
             viewFrame.size.height = 50
