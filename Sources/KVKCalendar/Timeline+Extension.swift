@@ -320,7 +320,7 @@ extension TimelineView {
         let time = calculateChangingTime(pointY: point.y)
         var newEvent = Event(ID: Event.idForNewEvent)
         newEvent.text = style.event.textForNewEvent
-        let newEventPreview = getEventView(style: style, event: newEvent, frame: CGRect(origin: point, size: eventPreviewSize))
+        let newEventPreview = getEventView(style: style, event: newEvent, frame: CGRect(origin: point, size: CGSize(width: 150, height: 40)))
         newEventPreview.stateEvent = .move
         newEventPreview.delegate = self
         newEventPreview.editEvent(gesture: gesture)
@@ -530,7 +530,7 @@ extension TimelineView: EventDelegate {
         } else if let viewEvent = view as? CustomCalendarEventView {
             let eventView = CustomCalendarEventView(style: style, event: event, frame: frame)
             eventView.ivDots.image = viewEvent.ivDots.image
-            eventView.ivDots.setImageColor(color: event.backgroundColor)
+            eventView.ivDots.setImageColor(color: .white)
             eventView.isUserInteractionEnabled = false
             eventView.backgroundColor = event.backgroundColor
             viewTmp = eventView
@@ -541,6 +541,7 @@ extension TimelineView: EventDelegate {
         }
         
         eventResizePreview = ResizeEventView(view: viewTmp, event: event, frame: viewTmp.frame, style: style)
+        eventResizePreview?.backgroundColor = event.backgroundColor
         eventResizePreview?.delegate = self
         if let resizeView = eventResizePreview {
             scrollView.addSubview(resizeView)
