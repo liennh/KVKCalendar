@@ -150,6 +150,10 @@ extension Event {
     var hash: Int {
         return ID.hashValue
     }
+    
+    func clone() -> Event {
+        return self
+    }
 }
 
 public extension Event {
@@ -183,7 +187,100 @@ extension Event: EventProtocol {
     }
 }
 
+extension Calendar {
+    func numberOfDaysBetween(_ from: Date, and to: Date) -> Int {
+        let fromDate = startOfDay(for: from) // <1>
+        let toDate = startOfDay(for: to) // <2>
+        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate) // <3>
+        return numberOfDays.day!
+    }
+}
+
+extension Date {
+    func isLessThanDate(_ date: Date) -> Bool {
+        return (self.compare(date) == .orderedAscending) && date != self
+    }
+    func isGreaterThanDate(_ date: Date) -> Bool {
+        return (self.compare(date) == .orderedDescending) && date != self
+    }
+    var startOfDayOfDate: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+    var endOfDayOfDate: Date {
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        return Calendar.current.date(byAdding: components, to: self.startOfDayOfDate)!
+    }
+}
+
 extension Event {
+    /*
+     Tong quat event bat dau tu : a1 -> a2 loop every day
+     Ngay thu an: (an > a2) 1 end event + (an >= a2) (a2 - a1 -1) full day + 1 start
+     */
+    func updateListDateRepeatEveryDay(newDate: Date?, calendar: Calendar = Calendar.current) -> [Event]? {
+        guard let newDate = newDate, recurringType == .everyDay else {// chi tinh cho lap ngay
+            return [Event]()
+        }
+        if self.start.startOfDayOfDate.isGreaterThanDate(newDate.startOfDayOfDate) {// nhung ngay truoc do
+            return [Event]()
+        }
+        if calendar.numberOfDaysBetween(self.start.startOfDayOfDate, and: newDate.startOfDayOfDate) == 0 {// cung ngay bat dau
+            return [Event]()
+        }
+        var amongEvent = calendar.numberOfDaysBetween(self.start, and: self.end)
+        amongEvent = abs(amongEvent)
+        var result = [Event]()
+        var startComponents = DateComponents()
+        startComponents.year = newDate.year
+        startComponents.month = newDate.month
+        startComponents.hour = start.hour
+        startComponents.minute = start.minute
+        startComponents.day = newDate.day
+        
+        var endComponents = DateComponents()
+        endComponents.year = newDate.year
+        endComponents.month = newDate.month
+        endComponents.hour = end.hour
+        endComponents.minute = end.minute
+        endComponents.day = newDate.day
+        if amongEvent < 1 {// khong qua ngay hom sau
+            guard let newStart = calendar.date(from: startComponents), let newEnd = calendar.date(from: endComponents) else { return nil }
+            var newEvent = self
+            newEvent.start = newStart
+            newEvent.end = newEnd
+            return [newEvent]
+        }
+        if newDate.startOfDayOfDate.isGreaterThanDate(self.end.startOfDayOfDate) { //an > a2
+            var itemCopy = self.clone()
+            itemCopy.start = newDate.startOfDayOfDate
+            let newEnd = calendar.date(from: endComponents) ?? end
+            itemCopy.end = newEnd
+            result.append(itemCopy)
+        }
+        
+        if self.start.startOfDayOfDate.isLessThanDate(newDate.startOfDayOfDate) { // an >= a2
+            var amongDateReferNew = calendar.numberOfDaysBetween(self.start.startOfDayOfDate, and: newDate.startOfDayOfDate)
+            amongDateReferNew = amongDateReferNew > amongEvent ? amongEvent : amongDateReferNew
+            let needLoop = amongDateReferNew - 1
+            if needLoop > 0 {
+                for _ in 0..<needLoop {
+                    var itemCopy = self.clone()
+                    itemCopy.start = newDate.startOfDayOfDate
+                    itemCopy.end = newDate.endOfDayOfDate
+                    result.append(itemCopy)
+                }
+            }
+        }
+        var itemCopy = self.clone()
+        let newStart = calendar.date(from: startComponents) ?? start
+        itemCopy.start = newStart
+        itemCopy.end = newDate.endOfDayOfDate
+        result.append(itemCopy)
+        return result
+    }
+    
     func updateDate(newDate: Date?, calendar: Calendar = Calendar.current) -> Event? {
         var startComponents = DateComponents()
         startComponents.year = newDate?.year
@@ -454,3 +551,4 @@ extension UITableViewCell: KVKCalendarCellProtocol {}
 public protocol KVKCalendarHeaderProtocol: AnyObject {}
 
 extension UIView: KVKCalendarHeaderProtocol {}
+

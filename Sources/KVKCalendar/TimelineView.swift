@@ -362,14 +362,12 @@ final class TimelineView: UIView, EventDateProtocol {
             let recurringEventByDate: [Event]
             if !recurringEvents.isEmpty, let dt = date {
                 recurringEventByDate = recurringEvents.reduce([], { (acc, event) -> [Event] in
-                    guard !eventsByDate.contains(where: { $0.ID == event.ID })
-                            && dt.compare(event.start) == .orderedDescending else { return acc }
-                    
-                    guard let recurringEvent = event.updateDate(newDate: date, calendar: style.calendar) else {
+//                    guard !eventsByDate.contains(where: { $0.ID == event.ID })
+//                            && dt.compare(event.start) == .orderedDescending else { return acc }
+                    guard let recurringEvent = event.updateListDateRepeatEveryDay(newDate: dt, calendar: style.calendar) else {
                         return acc
                     }
-                    
-                    return acc + [recurringEvent]
+                    return acc + recurringEvent
                     
                 })
             } else {
@@ -416,7 +414,7 @@ final class TimelineView: UIView, EventDateProtocol {
 //                            else if let firstTimeLabel = getTimelineLabel(hour: startHour), !compareStartDate(date, with: event) {
 //                                newFrame.origin.y = calculatePointYByMinute(startHour, time: firstTimeLabel)
 //                            }
-//                            
+//
                             // calculate 'height' event
                             if let defaultHeight = event.style?.defaultHeight {
                                 newFrame.size.height = defaultHeight
@@ -531,3 +529,4 @@ final class TimelineView: UIView, EventDateProtocol {
         addStubInvisibleEvents()
     }
 }
+
