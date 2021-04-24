@@ -192,6 +192,21 @@ public extension UITableView {
         configure(view)
         return view
     }
+    
+    func dequeueNibCell<T: UITableViewCell>(id: String = T.identifier, indexPath: IndexPath, configure: (T) -> Void) -> T {
+        self.register(UINib(nibName: T.identifier, bundle: nil), forCellReuseIdentifier: T.identifier)
+        
+        let cell: T
+        if let dequeued = dequeueReusableCell(withIdentifier: id, for: indexPath) as? T {
+            cell = dequeued
+        } else {
+            cell = T(frame: .zero)
+        }
+        
+        configure(cell)
+        return cell
+    }
+    
 }
 
 public extension UICollectionView {
