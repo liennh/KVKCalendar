@@ -9,7 +9,7 @@ import UIKit
 
 final class ListViewHeader: UITableViewHeaderFooterView {
     
-    private let titleLabel: UILabel = {
+    public let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .medium)
         label.numberOfLines = 0
@@ -22,8 +22,28 @@ final class ListViewHeader: UITableViewHeaderFooterView {
         return button
     }()
     
+    private let lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        return view
+    } ()
+    
+    private let ivExpand: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "ic_expand")
+        return imageView
+    }()
+    
     var actionExplain: ((Bool) -> Void)?
-    var isExplain: Bool = false
+    var isExplain: Bool = false {
+        didSet {
+            if self.isExplain {
+                self.ivExpand.transform = CGAffineTransform(rotationAngle: 0)
+            } else {
+                self.ivExpand.transform = CGAffineTransform(rotationAngle: -.pi)
+            }
+        }
+    }
     
     var title: String? {
         didSet {
@@ -35,8 +55,12 @@ final class ListViewHeader: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubview(titleLabel)
         addSubview(btnExplain)
+        addSubview(ivExpand)
+        addSubview(lineView)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        btnExplain.translatesAutoresizingMaskIntoConstraints = false    
+        btnExplain.translatesAutoresizingMaskIntoConstraints = false
+        ivExpand.translatesAutoresizingMaskIntoConstraints = false
+        lineView.translatesAutoresizingMaskIntoConstraints = false
         let top = titleLabel.topAnchor.constraint(equalTo: topAnchor)
         let bottom = titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         let left = titleLabel.leftAnchor.constraint(equalTo: leftAnchor)
@@ -46,12 +70,24 @@ final class ListViewHeader: UITableViewHeaderFooterView {
         let bottomBtn = btnExplain.bottomAnchor.constraint(equalTo: bottomAnchor)
         let leftBtn = btnExplain.leftAnchor.constraint(equalTo: leftAnchor)
         let rightBtn = btnExplain.rightAnchor.constraint(equalTo: rightAnchor)
-       
+        
+        let ivExpandCenterY = ivExpand.centerYAnchor.constraint(equalTo: centerYAnchor)
+        let ivExpandWidth = ivExpand.widthAnchor.constraint(equalToConstant: 16)
+        let ivExpandHeight = ivExpand.heightAnchor.constraint(equalToConstant: 8)
+        let ivExpandRight = ivExpand.rightAnchor.constraint(equalTo: rightAnchor, constant: -8)
+      
+        let linViewBot = lineView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        let linViewHeight = lineView.heightAnchor.constraint(equalToConstant: 0.5)
+        let linViewleft = lineView.leftAnchor.constraint(equalTo: leftAnchor, constant: 15)
+        let linViewRight = lineView.rightAnchor.constraint(equalTo: rightAnchor)
+        
         left.constant = 15
         right.constant = -15
         
+        NSLayoutConstraint.activate([ivExpandCenterY, ivExpandWidth, ivExpandHeight, ivExpandRight])
         NSLayoutConstraint.activate([top, bottom, left, right])
         NSLayoutConstraint.activate([topBtn, bottomBtn, leftBtn, rightBtn])
+        NSLayoutConstraint.activate([linViewBot, linViewHeight, linViewleft, linViewRight])
         
     }
     
@@ -62,7 +98,9 @@ final class ListViewHeader: UITableViewHeaderFooterView {
     
     @objc func btnExplainDidTouched() {
         self.isExplain = !isExplain
+   
         self.actionExplain?(self.isExplain)
+        
     }
     
     required init?(coder: NSCoder) {

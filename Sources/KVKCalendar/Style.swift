@@ -384,8 +384,15 @@ public struct EventStyle {
 public struct ListViewStyle {
     public var fontBullet: UIFont = .boldSystemFont(ofSize: 50)
     public var fontTitle: UIFont = .systemFont(ofSize: 17)
-    public var heightHeaderView: CGFloat = 50
+    public var heightHeaderView: CGFloat = 40
     public var backgroundColor: UIColor = .white
+    public var titleListFormatter: DateFormatter = {
+        let format = DateFormatter()
+        format.dateFormat = "dd/MM/yyyy"
+        return format
+    }()
+    
+    public var headerColor: UIColor = .lightGray
 }
 
 extension StyleKVK {

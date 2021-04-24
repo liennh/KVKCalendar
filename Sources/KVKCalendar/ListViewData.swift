@@ -20,6 +20,7 @@ final class ListViewData {
     
     private var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyyy"
         formatter.dateStyle = .full
         return formatter
     }()
@@ -39,7 +40,11 @@ final class ListViewData {
             var accTemp = acc
             
             guard let idx = accTemp.firstIndex(where: { $0.date.year == event.start.year && $0.date.month == event.start.month && $0.date.day == event.start.day }) else {
-                accTemp += [SectionListView(date: event.start, events: [event], isExplain: false)]
+                var isExplain = false
+                if dateFormatter.string(from: date) == dateFormatter.string(from: event.start) {
+                    isExplain = true
+                }
+                accTemp += [SectionListView(date: event.start, events: [event], isExplain: isExplain)]
                 accTemp = accTemp.sorted(by: { $0.date < $1.date })
                 return accTemp
             }

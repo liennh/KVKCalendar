@@ -76,7 +76,6 @@ final class ListView: UIView, CalendarSettingProtocol {
                 let sectionRect = tableView.rect(forSection: idx)
                 tableView.scrollRectToVisible(sectionRect, animated: true)
             }
-           
         } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year }) {
             if tableView.numberOfRows(inSection: idx) > 0 {
                 tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
@@ -121,15 +120,22 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
             return headerView
         } else {
             return tableView.dequeueView { (view: ListViewHeader) in
-                view.title = params.data.titleOfHeader(section: section)
+                view.title = self.style.titleListFormatter.string(from: date)
+                view.backgroundColor = self.style.backgroundColor
+                view.titleLabel.font = self.style.fontTitle
                 view.setExplainButton()
+                
                 view.isExplain = params.data.sections[section].isExplain
                 view.actionExplain = { [weak self] isExplain in
                     guard let _self = self else {
                         return
                     }
                     _self.params.data.sections[section].isExplain = isExplain
-                    _self.tableView.reloadSections(IndexSet([section]), with: .fade)
+                    _self.tableView.beginUpdates()
+                    _self.tableView.reloadSections(IndexSet([section]), with: .automatic)
+                    _self.tableView.endUpdates()
+
+                 
                     
                 }
             }
