@@ -121,7 +121,10 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
         } else {
             return tableView.dequeueView { (view: ListViewHeader) in
                 view.title = self.style.titleListFormatter.string(from: date)
-                view.backgroundColor = self.style.backgroundColor
+               
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = self.style.backgroundColor
+                view.backgroundView = backgroundView
                 view.titleLabel.font = self.style.fontTitle
                 view.setExplainButton()
                 
