@@ -24,7 +24,7 @@ final class ListViewHeader: UITableViewHeaderFooterView {
     
     private let lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = .lightGray
         return view
     } ()
     
