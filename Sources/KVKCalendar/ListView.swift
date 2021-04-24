@@ -62,6 +62,8 @@ final class ListView: UIView, CalendarSettingProtocol {
         params.data.date = date
         
         if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month && $0.date.day == date.day }) {
+            params.data.sections[idx].isExplain = true
+            self.tableView.reloadData()
             if tableView.numberOfRows(inSection: idx) > 0 {
                 tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
             } else {
@@ -70,6 +72,8 @@ final class ListView: UIView, CalendarSettingProtocol {
             }
            
         } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month }) {
+            params.data.sections[idx].isExplain = true
+            self.tableView.reloadData()
             if tableView.numberOfRows(inSection: idx) > 0 {
                 tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
             } else {
@@ -77,6 +81,8 @@ final class ListView: UIView, CalendarSettingProtocol {
                 tableView.scrollRectToVisible(sectionRect, animated: true)
             }
         } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year }) {
+            params.data.sections[idx].isExplain = true
+            self.tableView.reloadData()
             if tableView.numberOfRows(inSection: idx) > 0 {
                 tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
             } else {
