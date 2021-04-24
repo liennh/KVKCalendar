@@ -38,9 +38,10 @@ final class ListViewHeader: UITableViewHeaderFooterView {
     var isExplain: Bool = false {
         didSet {
             if self.isExplain {
-                self.ivExpand.transform = CGAffineTransform(rotationAngle: 0)
-            } else {
                 self.ivExpand.transform = CGAffineTransform(rotationAngle: -.pi)
+                
+            } else {
+                self.ivExpand.transform = CGAffineTransform(rotationAngle: 0)
             }
         }
     }
