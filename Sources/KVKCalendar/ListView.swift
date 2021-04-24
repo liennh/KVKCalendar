@@ -62,11 +62,28 @@ final class ListView: UIView, CalendarSettingProtocol {
         params.data.date = date
         
         if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month && $0.date.day == date.day }) {
-            tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+            if tableView.numberOfRows(inSection: idx) > 0 {
+                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+            } else {
+                let sectionRect = tableView.rect(forSection: idx)
+                tableView.scrollRectToVisible(sectionRect, animated: true)
+            }
+           
         } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month }) {
-            tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+            if tableView.numberOfRows(inSection: idx) > 0 {
+                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+            } else {
+                let sectionRect = tableView.rect(forSection: idx)
+                tableView.scrollRectToVisible(sectionRect, animated: true)
+            }
+           
         } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year }) {
-            tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+            if tableView.numberOfRows(inSection: idx) > 0 {
+                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+            } else {
+                let sectionRect = tableView.rect(forSection: idx)
+                tableView.scrollRectToVisible(sectionRect, animated: true)
+            }
         }
     }
     
@@ -78,7 +95,10 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return params.data.numberOfItemsInSection(section)
+        if params.data.sections[section].isExplain == true {
+            return params.data.numberOfItemsInSection(section)
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,6 +122,16 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
         } else {
             return tableView.dequeueView { (view: ListViewHeader) in
                 view.title = params.data.titleOfHeader(section: section)
+                view.setExplainButton()
+                view.isExplain = params.data.sections[section].isExplain
+                view.actionExplain = { [weak self] isExplain in
+                    guard let _self = self else {
+                        return
+                    }
+                    _self.params.data.sections[section].isExplain = isExplain
+                    _self.tableView.reloadSections(IndexSet([section]), with: .fade)
+                    
+                }
             }
         }
     }

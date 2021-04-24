@@ -12,6 +12,7 @@ final class ListViewData {
     struct SectionListView {
         let date: Date
         var events: [Event]
+        var isExplain: Bool
     }
     
     var sections: [SectionListView]
@@ -38,7 +39,7 @@ final class ListViewData {
             var accTemp = acc
             
             guard let idx = accTemp.firstIndex(where: { $0.date.year == event.start.year && $0.date.month == event.start.month && $0.date.day == event.start.day }) else {
-                accTemp += [SectionListView(date: event.start, events: [event])]
+                accTemp += [SectionListView(date: event.start, events: [event], isExplain: false)]
                 accTemp = accTemp.sorted(by: { $0.date < $1.date })
                 return accTemp
             }
