@@ -132,12 +132,12 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newIndexPath = IndexPath(row: indexPath.row-1, section: indexPath.section)
         let event = params.data.event(indexPath: newIndexPath)
-        if let cell = params.dataSource?.dequeueNibCell(date: event.start, type: .list, view: tableView, indexPath: newIndexPath, events: [event]) as? UITableViewCell {
+        if let cell = params.dataSource?.dequeueNibCell(date: event.start, type: .list, view: tableView, indexPath: indexPath, events: [event]) as? UITableViewCell {
             return cell
-        } else if let cell = params.dataSource?.dequeueCell(date: event.start, type: .list, view: tableView, indexPath: newIndexPath, events: [event]) as? UITableViewCell {
+        } else if let cell = params.dataSource?.dequeueCell(date: event.start, type: .list, view: tableView, indexPath: indexPath, events: [event]) as? UITableViewCell {
             return cell
         } else {
-            return tableView.dequeueCell(indexPath: newIndexPath) { (cell: ListViewCell) in
+            return tableView.dequeueCell(indexPath: indexPath) { (cell: ListViewCell) in
                 cell.txt = event.textForList
                 cell.dotColor = event.color?.value
             }
@@ -150,7 +150,7 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return style.heightHeaderView
+            return UITableView.automaticDimension
         }
         let newIndexPath = IndexPath(row: indexPath.row-1, section: indexPath.section)
         let event = params.data.event(indexPath: newIndexPath)
@@ -162,12 +162,7 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let date = params.data.sections[section].date
-        if let height = params.delegate?.sizeForHeader(date, type: .list)?.height {
-            return height
-        } else {
-            return params.style.list.heightHeaderView
-        }
+        return 0.001
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
