@@ -44,6 +44,7 @@ final class ListView: UIView, CalendarSettingProtocol {
         backgroundColor = style.backgroundColor
         tableView.backgroundColor = style.backgroundColor
         tableView.frame = CGRect(origin: .zero, size: frame.size)
+        tableView.estimatedRowHeight = 60
         addSubview(tableView)
     }
     
