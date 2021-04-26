@@ -163,15 +163,15 @@ extension ExpyTableView: UITableViewDataSource {
 			return headerCell
 		}
 		
-		DispatchQueue.main.async {
-			if self.didExpand(indexPath.section) {
-				headerCellConformant.changeState(.willExpand, cellReuseStatus: true)
-				headerCellConformant.changeState(.didExpand, cellReuseStatus: true)
-			}else {
-				headerCellConformant.changeState(.willCollapse, cellReuseStatus: true)
-				headerCellConformant.changeState(.didCollapse, cellReuseStatus: true)
-			}
-		}
+//		DispatchQueue.main.async {
+//			if self.didExpand(indexPath.section) {
+//				headerCellConformant.changeState(.willExpand, cellReuseStatus: true)
+//				headerCellConformant.changeState(.didExpand, cellReuseStatus: true)
+//			}else {
+//				headerCellConformant.changeState(.willCollapse, cellReuseStatus: true)
+//				headerCellConformant.changeState(.didCollapse, cellReuseStatus: true)
+//			}
+//		}
 		return headerCell
 	}
 }

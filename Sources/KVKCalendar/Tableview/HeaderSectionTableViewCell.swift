@@ -48,7 +48,7 @@ class HeaderSectionTableViewCell: UITableViewCell {
         self.addSubview(lineView)
         self.selectionStyle = .none
         stackContent.addArrangedSubview(lbTitle)
-        stackContent.addSubview(btnAdd)
+        stackContent.addArrangedSubview(btnAdd)
         
      
         stackContent.translatesAutoresizingMaskIntoConstraints = false

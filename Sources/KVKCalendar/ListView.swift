@@ -155,14 +155,14 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return UITableView.automaticDimension
+            return 44
         }
         let newIndexPath = IndexPath(row: indexPath.row-1, section: indexPath.section)
         let event = params.data.event(indexPath: newIndexPath)
         if let height = params.delegate?.sizeForCell(event.start, type: .list)?.height {
             return height
         } else {
-            return UITableView.automaticDimension
+            return 60
         }
     }
     
