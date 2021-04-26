@@ -127,7 +127,7 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
         } else {
             return tableView.dequeueView { (view: ListViewHeader) in
                 view.title = self.style.titleListFormatter.string(from: date)
-               
+                
                 let backgroundView = UIView()
                 backgroundView.backgroundColor = self.style.backgroundColor
                 view.backgroundView = backgroundView
@@ -139,12 +139,29 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
                     guard let _self = self else {
                         return
                     }
+                    let rowCount = _self.params.data.sections[section].events.count
                     _self.params.data.sections[section].isExplain = isExplain
                     _self.tableView.beginUpdates()
-                    _self.tableView.reloadSections(IndexSet([section]), with: .automatic)
+                    _self.tableView.layer.removeAllAnimations()
+                    var indexInsers = [IndexPath]()
+                    for index in 0..<_self.params.data.sections[section].events.count {
+                        indexInsers.append(IndexPath(row: index, section: section))
+                    }
+                    if isExplain {
+                        if _self.tableView.numberOfRows(inSection: section) == 0 {
+                            _self.tableView.insertRows(at: indexInsers, with: .none)
+                        }
+                        
+                    } else {
+                        if _self.tableView.numberOfRows(inSection: section) == _self.params.data.sections[section].events.count  {
+                            _self.tableView.deleteRows(at: indexInsers, with: .none)
+                        }
+                    }
+                    
                     _self.tableView.endUpdates()
-
-                 
+                    if isExplain, rowCount > 0 {
+                        _self.tableView.scrollToRow(at: IndexPath(row: 0, section: section), at: .middle, animated: true)
+                    }
                     
                 }
             }
