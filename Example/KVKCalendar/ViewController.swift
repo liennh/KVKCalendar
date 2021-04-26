@@ -127,11 +127,13 @@ final class ViewController: UIViewController {
 // MARK: - Calendar delegate
 
 extension ViewController: CalendarDelegate {
-    func monthChangee(_ date: Date?, type: CalendarType) {
+    func didAddEventList(_ date: Date) {
         
     }
     
-    
+    func monthChangee(_ date: Date?, type: CalendarType) {
+        
+    }
     
     func didChangeEvent(_ event: Event, start: Date?, end: Date?) {
         var eventTemp = event
@@ -174,6 +176,8 @@ extension ViewController: CalendarDelegate {
     func didSelectMore(_ date: Date, frame: CGRect?) {
         print(date)
     }
+    
+
     
     func didChangeViewerFrame(_ frame: CGRect) {
         eventViewer.reloadFrame(frame: frame)

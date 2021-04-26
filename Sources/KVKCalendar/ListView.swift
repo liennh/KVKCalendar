@@ -19,7 +19,7 @@ final class ListView: UIView, CalendarSettingProtocol {
     private let params: Parameters
     
     private lazy var tableView: ExpyTableView = {
-        let table = ExpyTableView()
+        let table = ExpyTableView(frame: self.frame, style: .plain)
         table.tableFooterView = UIView()
         table.dataSource = self
         table.delegate = self
@@ -45,8 +45,10 @@ final class ListView: UIView, CalendarSettingProtocol {
         backgroundColor = style.backgroundColor
         tableView.backgroundColor = style.backgroundColor
         tableView.frame = CGRect(origin: .zero, size: frame.size)
-        tableView.estimatedRowHeight = 0
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(HeaderSectionTableViewCell.self, forCellReuseIdentifier: "HeaderSectionTableViewCell")
+        tableView.register(ListViewCell.self, forCellReuseIdentifier: "ListViewCell")
         addSubview(tableView)
     }
     
@@ -105,7 +107,7 @@ extension ListView: ExpyTableViewDataSource {
         }
         cell.actionAddDidTouched = { [weak self] in
             guard let _self = self else {return}
-            
+            _self.params.delegate?.didAddEventList(date)
         }
         
         return cell
@@ -125,7 +127,14 @@ extension ListView: ExpyTableViewDelegate {
     
 }
 
-extension ListView: UITableViewDataSource, UITableViewDelegate {
+extension ListView {
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 44
+        }
+        return 60
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return params.data.numberOfSection()
     }
@@ -142,34 +151,26 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
         } else if let cell = params.dataSource?.dequeueCell(date: event.start, type: .list, view: tableView, indexPath: indexPath, events: [event]) as? UITableViewCell {
             return cell
         } else {
-            return tableView.dequeueCell(indexPath: indexPath) { (cell: ListViewCell) in
-                cell.txt = event.textForList
-                cell.dotColor = event.color?.value
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ListViewCell", for: indexPath) as! ListViewCell
+            cell.txt = event.textForList
+            cell.dotColor = event.color?.value
+            return cell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 44
+            return UITableView.automaticDimension
         }
         let newIndexPath = IndexPath(row: indexPath.row-1, section: indexPath.section)
         let event = params.data.event(indexPath: newIndexPath)
         if let height = params.delegate?.sizeForCell(event.start, type: .list)?.height {
             return height
         } else {
-            return 60
+            return UITableView.automaticDimension
         }
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.001
-    }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             return

@@ -442,6 +442,8 @@ public protocol CalendarDelegate: AnyObject {
     /// get a selecting event
     func didSelectEvent(_ event: Event, type: CalendarType, frame: CGRect?)
     
+    func didAddEventList(_ date: Date)
+    
     /// tap on more fro month view
     func didSelectMore(_ date: Date, frame: CGRect?)
     

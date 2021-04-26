@@ -196,7 +196,9 @@ extension CalendarView: DisplayDelegate {
         delegate?.monthChangee(date, type: type)
     }
     
-
+    public func didAddEventList(_ date: Date) {
+        delegate?.didAddEventList(date)
+    }
     public func sizeForHeader(_ date: Date?, type: CalendarType) -> CGSize? {
         delegate?.sizeForHeader(date, type: type)
     }
