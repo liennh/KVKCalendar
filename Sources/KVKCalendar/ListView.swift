@@ -18,11 +18,12 @@ final class ListView: UIView, CalendarSettingProtocol {
     
     private let params: Parameters
     
-    private lazy var tableView: UITableView = {
-        let table = UITableView()
+    private lazy var tableView: ExpyTableView = {
+        let table = ExpyTableView()
         table.tableFooterView = UIView()
         table.dataSource = self
         table.delegate = self
+        
         return table
     }()
     
@@ -45,6 +46,7 @@ final class ListView: UIView, CalendarSettingProtocol {
         tableView.backgroundColor = style.backgroundColor
         tableView.frame = CGRect(origin: .zero, size: frame.size)
         tableView.estimatedRowHeight = 60
+        tableView.register(HeaderSectionTableViewCell.self, forCellReuseIdentifier: "HeaderSectionTableViewCell")
         addSubview(tableView)
     }
     
@@ -95,16 +97,27 @@ final class ListView: UIView, CalendarSettingProtocol {
     
 }
 
+
+extension ListView: ExpyTableViewDataSource {
+    func tableView(_ tableView: ExpyTableView, expandableCellForSection section: Int) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSectionTableViewCell") as! HeaderSectionTableViewCell
+        let date = params.data.sections[section].date
+        cell.lbTitle.text = self.style.titleListFormatter.string(from: date)
+        return cell
+    }
+    
+    func tableView(_ tableView: ExpyTableView, canExpandSection section: Int) -> Bool {
+        return ExpyTableViewDefaultValues.expandableStatus
+    }
+}
+
 extension ListView: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return params.data.numberOfSection()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if params.data.sections[section].isExplain == true {
-            return params.data.numberOfItemsInSection(section)
-        }
-        return 0
+        return params.data.numberOfItemsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -122,51 +135,7 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let date = params.data.sections[section].date
-        if let headerView = params.dataSource?.dequeueHeader(date: date, type: .list, view: tableView, indexPath: IndexPath(row: 0, section: section)) as? UIView {
-            return headerView
-        } else {
-            return tableView.dequeueView { (view: ListViewHeader) in
-                view.title = self.style.titleListFormatter.string(from: date)
-                
-                let backgroundView = UIView()
-                backgroundView.backgroundColor = self.style.backgroundColor
-                view.backgroundView = backgroundView
-                view.titleLabel.font = self.style.fontTitle
-                view.setExplainButton()
-                
-                view.isExplain = params.data.sections[section].isExplain
-                view.actionExplain = { [weak self] isExplain in
-                    guard let _self = self else {
-                        return
-                    }
-                    let rowCount = _self.params.data.sections[section].events.count
-                    _self.params.data.sections[section].isExplain = isExplain
-                    _self.tableView.beginUpdates()
-                    _self.tableView.layer.removeAllAnimations()
-                    var indexInsers = [IndexPath]()
-                    for index in 0..<_self.params.data.sections[section].events.count {
-                        indexInsers.append(IndexPath(row: index, section: section))
-                    }
-                    if isExplain {
-                        if _self.tableView.numberOfRows(inSection: section) == 0 {
-                            _self.tableView.insertRows(at: indexInsers, with: .none)
-                        }
-                        
-                    } else {
-                        if _self.tableView.numberOfRows(inSection: section) == _self.params.data.sections[section].events.count  {
-                            _self.tableView.deleteRows(at: indexInsers, with: .none)
-                        }
-                    }
-                    
-                    _self.tableView.endUpdates()
-                    if isExplain, rowCount > 0 {
-                        _self.tableView.scrollToRow(at: IndexPath(row: 0, section: section), at: .middle, animated: true)
-                    }
-                    
-                }
-            }
-        }
+        return UIView()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -183,7 +152,7 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
         if let height = params.delegate?.sizeForHeader(date, type: .list)?.height {
             return height
         } else {
-            return params.style.list.heightHeaderView
+            return 0.001
         }
     }
     
