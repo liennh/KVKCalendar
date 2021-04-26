@@ -59,6 +59,7 @@ class HeaderSectionTableViewCell: UITableViewCell {
         
         btnAdd.translatesAutoresizingMaskIntoConstraints = false
         btnAdd.widthAnchor.constraint(equalTo: btnAdd.heightAnchor).isActive = true
+        btnAdd.widthAnchor.constraint(equalToConstant: 30).isActive = true
         btnAdd.addTarget(self, action: #selector(self.btnAddDidTouched), for: .touchUpInside)
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
