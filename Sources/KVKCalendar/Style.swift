@@ -386,6 +386,7 @@ public struct ListViewStyle {
     public var fontTitle: UIFont = .systemFont(ofSize: 17)
     public var heightHeaderView: CGFloat = 40
     public var backgroundColor: UIColor = .white
+    public var imageAdd: UIImage?
     public var titleListFormatter: DateFormatter = {
         let format = DateFormatter()
         format.dateFormat = "dd/MM/yyyy"

@@ -45,7 +45,7 @@ final class ListView: UIView, CalendarSettingProtocol {
         backgroundColor = style.backgroundColor
         tableView.backgroundColor = style.backgroundColor
         tableView.frame = CGRect(origin: .zero, size: frame.size)
-        tableView.estimatedRowHeight = 60
+        tableView.estimatedRowHeight = 0
         tableView.register(HeaderSectionTableViewCell.self, forCellReuseIdentifier: "HeaderSectionTableViewCell")
         addSubview(tableView)
     }
@@ -100,6 +100,14 @@ extension ListView: ExpyTableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSectionTableViewCell") as! HeaderSectionTableViewCell
         let date = params.data.sections[section].date
         cell.lbTitle.text = self.style.titleListFormatter.string(from: date)
+        if let image = self.style.imageAdd {
+            cell.btnAdd.setImage(image, for: .normal)
+        }
+        cell.actionAddDidTouched = { [weak self] in
+            guard let _self = self else {return}
+            
+        }
+        
         return cell
     }
     

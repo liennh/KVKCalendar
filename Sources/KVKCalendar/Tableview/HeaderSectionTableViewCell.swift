@@ -20,12 +20,18 @@ class HeaderSectionTableViewCell: UITableViewCell {
         return label
     }()
     
-    
     var lineView: UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
         return view
     }()
+    
+    var btnAdd: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+    
+    var actionAddDidTouched: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,26 +40,40 @@ class HeaderSectionTableViewCell: UITableViewCell {
     }
     
     
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(stackContent)
         self.addSubview(lineView)
         self.selectionStyle = .none
         stackContent.addArrangedSubview(lbTitle)
+        stackContent.addSubview(btnAdd)
+        
+     
         stackContent.translatesAutoresizingMaskIntoConstraints = false
         stackContent.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         stackContent.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        stackContent.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        stackContent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        stackContent.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        stackContent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        
+        btnAdd.translatesAutoresizingMaskIntoConstraints = false
+        btnAdd.widthAnchor.constraint(equalTo: btnAdd.heightAnchor).isActive = true
+        btnAdd.addTarget(self, action: #selector(self.btnAddDidTouched), for: .touchUpInside)
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         lineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func btnAddDidTouched() {
+        self.actionAddDidTouched?()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
