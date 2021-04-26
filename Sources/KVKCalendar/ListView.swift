@@ -111,23 +111,33 @@ extension ListView: ExpyTableViewDataSource {
     }
 }
 
+extension ListView: ExpyTableViewDelegate {
+
+    func tableView(_ tableView: ExpyTableView, expyState state: ExpyState, changeForSection section: Int) {
+        print("Current state: \(state)")
+    }
+    
+    
+}
+
 extension ListView: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return params.data.numberOfSection()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return params.data.numberOfItemsInSection(section)
+        return params.data.numberOfItemsInSection(section) 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let event = params.data.event(indexPath: indexPath)
-        if let cell = params.dataSource?.dequeueNibCell(date: event.start, type: .list, view: tableView, indexPath: indexPath, events: [event]) as? UITableViewCell {
+        let newIndexPath = IndexPath(row: indexPath.row-1, section: indexPath.section)
+        let event = params.data.event(indexPath: newIndexPath)
+        if let cell = params.dataSource?.dequeueNibCell(date: event.start, type: .list, view: tableView, indexPath: newIndexPath, events: [event]) as? UITableViewCell {
             return cell
-        } else if let cell = params.dataSource?.dequeueCell(date: event.start, type: .list, view: tableView, indexPath: indexPath, events: [event]) as? UITableViewCell {
+        } else if let cell = params.dataSource?.dequeueCell(date: event.start, type: .list, view: tableView, indexPath: newIndexPath, events: [event]) as? UITableViewCell {
             return cell
         } else {
-            return tableView.dequeueCell(indexPath: indexPath) { (cell: ListViewCell) in
+            return tableView.dequeueCell(indexPath: newIndexPath) { (cell: ListViewCell) in
                 cell.txt = event.textForList
                 cell.dotColor = event.color?.value
             }
@@ -139,7 +149,11 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let event = params.data.event(indexPath: indexPath)
+        if indexPath.row == 0 {
+            return style.heightHeaderView
+        }
+        let newIndexPath = IndexPath(row: indexPath.row-1, section: indexPath.section)
+        let event = params.data.event(indexPath: newIndexPath)
         if let height = params.delegate?.sizeForCell(event.start, type: .list)?.height {
             return height
         } else {
@@ -152,15 +166,18 @@ extension ListView: UITableViewDataSource, UITableViewDelegate {
         if let height = params.delegate?.sizeForHeader(date, type: .list)?.height {
             return height
         } else {
-            return 0.001
+            return params.style.list.heightHeaderView
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            return
+        }
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let event = params.data.event(indexPath: indexPath)
-        let frameCell = tableView.cellForRow(at: indexPath)?.frame
+        let newIndexPath = IndexPath(row: indexPath.row-1, section: indexPath.section)
+        let event = params.data.event(indexPath: newIndexPath)
+        let frameCell = tableView.cellForRow(at: newIndexPath)?.frame
         params.delegate?.didSelectEvent(event, type: .list, frame: frameCell)
     }
 }

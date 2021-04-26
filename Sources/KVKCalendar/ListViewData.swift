@@ -56,6 +56,7 @@ final class ListViewData {
     }
     
     func event(indexPath: IndexPath) -> Event {
+      
         return sections[indexPath.section].events[indexPath.row]
     }
     
@@ -64,7 +65,7 @@ final class ListViewData {
     }
     
     func numberOfItemsInSection(_ section: Int) -> Int {
-        return sections[section].events.count
+        return sections[section].events.count + 1
     }
     
 }

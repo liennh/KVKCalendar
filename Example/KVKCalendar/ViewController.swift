@@ -89,12 +89,12 @@ final class ViewController: UIViewController {
         navigationItem.titleView = segmentedControl
         navigationItem.rightBarButtonItem = todayButton
                 
-//        loadEvents { (events) in
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-//                self?.events = events
-//                self?.calendarView.reloadData()
-//            }
-//        }
+        loadEvents { (events) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+                self?.events = events
+                self?.calendarView.reloadData()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -117,10 +117,10 @@ final class ViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        loadEvents { [weak self] (events) in
-//            self?.events = events
-//            self?.calendarView.reloadData()
-//        }
+        loadEvents { [weak self] (events) in
+            self?.events = events
+            self?.calendarView.reloadData()
+        }
     }
 }
 
