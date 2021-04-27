@@ -16,6 +16,7 @@ final class ListView: UIView, CalendarSettingProtocol {
         weak var delegate: DisplayDelegate?
     }
     
+    var isFirst: Bool = true
     private let params: Parameters
     
     private lazy var tableView: ExpyTableView = {
@@ -51,6 +52,7 @@ final class ListView: UIView, CalendarSettingProtocol {
         tableView.separatorStyle = .none
         tableView.register(ListViewCell.self, forCellReuseIdentifier: "ListViewCell")
         addSubview(tableView)
+      
     }
     
     func reloadFrame(_ frame: CGRect) {
@@ -61,37 +63,53 @@ final class ListView: UIView, CalendarSettingProtocol {
     func reloadData(_ events: [Event]) {
         params.data.reloadEvents(events)
         tableView.reloadData()
+
+       
     }
     
     func setDate(_ date: Date) {
         params.delegate?.didSelectDates([date], type: .list, frame: nil)
         params.data.date = date
         
+        scrollAndExpand(date: date)
+    }
+    
+    
+    func scrollAndExpand(date: Date) {
         if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month && $0.date.day == date.day }) {
+            tableView.expand(idx)
             if tableView.numberOfRows(inSection: idx) > 0 {
-                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .middle, animated: true)
             } else {
                 let sectionRect = tableView.rect(forSection: idx)
                 tableView.scrollRectToVisible(sectionRect, animated: true)
             }
-            tableView.expand(idx)
+            
            
-        } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month }) {
+        } else if let idMonth = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month }) {
+            var idx = idMonth
+            for index in 0..<params.data.sections.count {
+                let data =  params.data.sections[index]
+                if data.date.year == date.year, data.date.month == date.month, data.date.day < date.day {
+                    idx = index
+                }
+            }
+            tableView.expand(idx)
             if tableView.numberOfRows(inSection: idx) > 0 {
-                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .middle, animated: true)
             } else {
                 let sectionRect = tableView.rect(forSection: idx)
                 tableView.scrollRectToVisible(sectionRect, animated: true)
             }
-            tableView.expand(idx)
+            
         } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year }) {
+            tableView.expand(idx)
             if tableView.numberOfRows(inSection: idx) > 0 {
-                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .top, animated: true)
+                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .middle, animated: true)
             } else {
                 let sectionRect = tableView.rect(forSection: idx)
                 tableView.scrollRectToVisible(sectionRect, animated: true)
             }
-            tableView.expand(idx)
         }
     }
     
@@ -106,6 +124,7 @@ extension ListView: ExpyTableViewDataSource {
         cell.setUpButton()
         if let image = self.style.imageAdd {
             cell.btnAdd.setImage(image, for: .normal)
+            cell.btnAdd.imageView?.setImageColor(color: .gray)
         }
         cell.actionAddDidTouched = { [weak self] in
             guard let _self = self else {return}
@@ -142,7 +161,7 @@ extension ListView {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return params.data.numberOfItemsInSection(section) 
+        return params.data.numberOfItemsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
