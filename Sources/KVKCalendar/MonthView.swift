@@ -257,12 +257,8 @@ extension MonthView: UICollectionViewDataSource {
             return cell
         } else if day.type == .empty {
             return collectionView.dequeueCell(indexPath: index) { (cell: MonthCell) in
-                if (indexPath.row % monthData.rowsInPage) > 4 {
-                    cell.layer.borderWidth = 0
-                } else {
-                    cell.layer.borderWidth = style.month.widthSeparator
-                    cell.layer.borderColor = style.month.colorSeparator.cgColor
-                }
+                cell.layer.borderWidth = style.month.widthSeparator
+                cell.layer.borderColor = style.month.colorSeparator.cgColor
             }
         } else {
             return collectionView.dequeueCell(indexPath: index) { (cell: MonthCell) in

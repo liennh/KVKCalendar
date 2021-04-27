@@ -124,7 +124,7 @@ extension ListView: ExpyTableViewDataSource {
         cell.setUpButton()
         if let image = self.style.imageAdd {
             cell.btnAdd.setImage(image, for: .normal)
-            cell.btnAdd.imageView?.setImageColor(color: .gray)
+           // cell.btnAdd.imageView?.setImageColor(color: .gray)
         }
         cell.actionAddDidTouched = { [weak self] in
             guard let _self = self else {return}
