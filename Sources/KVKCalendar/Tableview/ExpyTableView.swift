@@ -180,9 +180,20 @@ extension ExpyTableView: UITableViewDelegate {
 	
 	open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		expyDelegate?.tableView?(tableView, didSelectRowAt: indexPath)
+        let rect = tableView.rectForRow(at: indexPath)
+        let tableViewMax = tableView.bounds.origin.y + tableView.frame.size.height - 100
+        if rect.origin.y >= tableViewMax {
+           
+            guard self.canExpand(indexPath.section), indexPath.row == 0 else { return }
+            self.didExpand(indexPath.section) ? self.collapse(indexPath.section) : self.expand(indexPath.section)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            }
+        } else {
+            guard canExpand(indexPath.section), indexPath.row == 0 else { return }
+            didExpand(indexPath.section) ? collapse(indexPath.section) : expand(indexPath.section)
+        }
 		
-		guard canExpand(indexPath.section), indexPath.row == 0 else { return }
-		didExpand(indexPath.section) ? collapse(indexPath.section) : expand(indexPath.section)
 	}
 }
 
