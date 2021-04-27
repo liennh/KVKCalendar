@@ -44,23 +44,21 @@ class HeaderSectionTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubview(stackContent)
-        self.addSubview(lineView)
+        self.contentView.addSubview(stackContent)
+        self.contentView.addSubview(lineView)
         self.selectionStyle = .none
         stackContent.addArrangedSubview(lbTitle)
         stackContent.addArrangedSubview(btnAdd)
         
-     
+        
         stackContent.translatesAutoresizingMaskIntoConstraints = false
         stackContent.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         stackContent.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        stackContent.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        stackContent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        stackContent.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
+        stackContent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
         
         btnAdd.translatesAutoresizingMaskIntoConstraints = false
         btnAdd.widthAnchor.constraint(equalTo: btnAdd.heightAnchor).isActive = true
-        btnAdd.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        btnAdd.addTarget(self, action: #selector(self.btnAddDidTouched), for: .touchUpInside)
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -68,6 +66,13 @@ class HeaderSectionTableViewCell: UITableViewCell {
         lineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
     }
+    
+    
+    func setUpButton() {
+        self.btnAdd.addTarget(self, action: #selector(btnAddDidTouched), for: .touchUpInside)
+    }
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -48,6 +48,7 @@ final class ListView: UIView, CalendarSettingProtocol {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(HeaderSectionTableViewCell.self, forCellReuseIdentifier: "HeaderSectionTableViewCell")
+        tableView.separatorStyle = .none
         tableView.register(ListViewCell.self, forCellReuseIdentifier: "ListViewCell")
         addSubview(tableView)
     }
@@ -102,6 +103,7 @@ extension ListView: ExpyTableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSectionTableViewCell") as! HeaderSectionTableViewCell
         let date = params.data.sections[section].date
         cell.lbTitle.text = self.style.titleListFormatter.string(from: date)
+        cell.setUpButton()
         if let image = self.style.imageAdd {
             cell.btnAdd.setImage(image, for: .normal)
         }
@@ -133,7 +135,7 @@ extension ListView {
         if indexPath.row == 0 {
             return 44
         }
-        return 60
+        return 70
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return params.data.numberOfSection()
