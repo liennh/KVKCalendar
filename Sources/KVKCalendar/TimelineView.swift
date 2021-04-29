@@ -379,7 +379,9 @@ final class TimelineView: UIView, EventDateProtocol {
             let sortedEventsByDate = (eventsByDate + filteredRecurringEvents).sorted(by: { $0.start < $1.start })
             
             // create an all day events
-            //createAllDayEvents(events: allDayEvents + filteredAllDayRecurringEvents, date: date, width: widthPage, originX: pointX)
+            if style.isShowSectionAllDay {
+                createAllDayEvents(events: allDayEvents + filteredAllDayRecurringEvents, date: date, width: widthPage, originX: pointX)
+            }
             
             // count event cross in one hour
             let crossEvents = calculateCrossEvents(sortedEventsByDate)

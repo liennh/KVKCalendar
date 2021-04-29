@@ -26,6 +26,7 @@ public struct StyleKVK {
     public var startWeekDay: StartDayType = .monday
     public var followInSystemTheme: Bool = true
     public var systemCalendars: Set<String> = []
+    public var isShowSectionAllDay: Bool = true
     
     public init() {}
 }
@@ -346,7 +347,7 @@ public struct AllDayStyle {
     public var isPinned: Bool = true
     public var eventCorners: UIRectCorner = .allCorners
     public var eventCornersRadius: CGSize = CGSize(width: 5, height: 5)
-    public var axis: AxisMode = .vertical
+    public var axis: AxisMode = .horizontal
     
     public enum AxisMode: Int {
         case horizontal, vertical
