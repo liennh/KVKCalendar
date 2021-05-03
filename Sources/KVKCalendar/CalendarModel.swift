@@ -93,6 +93,7 @@ public struct Event {
     
     /// unique identifier of Event
     public var ID: String
+    public var eventType: Int = 0 // support define: task, event, holiday, holiday is day off
     public var text: String = ""
     public var start: Date = Date()
     public var end: Date = Date()
