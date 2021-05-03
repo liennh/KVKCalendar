@@ -357,7 +357,9 @@ final class TimelineView: UIView, EventDateProtocol {
             let endOfDay = date?.endOfDay ?? Date()
             
             let eventsByDate = filteredEvents.filter({ (startOfDay...endOfDay).overlaps($0.start...$0.end) })
-            let allDayEvents = filteredAllDayEvents.filter({ (startOfDay...endOfDay).overlaps($0.start...$0.end) })
+            let allDayEvents = filteredAllDayEvents.filter({ (startOfDay...endOfDay).overlaps($0.start...$0.end) }).sorted(by: { (event1, event2) -> Bool in
+                return event1.eventType > event2.eventType
+            })
             
             let recurringEventByDate: [Event]
             if !recurringEvents.isEmpty, let dt = date {
