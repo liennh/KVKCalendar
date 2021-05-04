@@ -212,8 +212,9 @@ extension TimelineView {
     }
     
     func createAllDayEvents(events: [Event], date: Date?, width: CGFloat, originX: CGFloat) {
-        guard !events.isEmpty else { return }
-        
+        if events.isEmpty && type != .week {
+            return
+        }
         let pointY = style.allDay.isPinned ? 0 : -style.allDay.height
         let allDayHeight: CGFloat
         switch style.allDay.axis {
@@ -243,9 +244,9 @@ extension TimelineView {
                                                               width: style.timeline.widthTime + style.timeline.offsetTimeX + style.timeline.offsetLineLeft,
                                                               height: style.allDay.height),
                                                 style: style.allDay)
-        if type == .week {
-            allDayPlaceholder.setRoundCorners([.bottomRight], radius: .init(width: 5, height: 5))
-        }
+//        if type == .week {
+//            allDayPlaceholder.setRoundCorners([.bottomRight], radius: .init(width: 5, height: 5))
+//        }
         allDayPlaceholder.tag = tagAllDayPlaceholder
         if style.allDay.isPinned {
             addSubview(allDayPlaceholder)
