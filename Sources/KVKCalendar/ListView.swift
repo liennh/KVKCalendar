@@ -70,16 +70,15 @@ final class ListView: UIView, CalendarSettingProtocol {
     func setDate(_ date: Date) {
         params.delegate?.didSelectDates([date], type: .list, frame: nil)
         params.data.date = date
-        
         scrollAndExpand(date: date)
     }
     
     
     func scrollAndExpand(date: Date) {
         if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year && $0.date.month == date.month && $0.date.day == date.day }) {
-            tableView.expand(idx)
+           
             if tableView.numberOfRows(inSection: idx) > 0 {
-                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .middle, animated: true)
+                tableView.expand(idx, isScroll: true)
             } else {
                 let sectionRect = tableView.rect(forSection: idx)
                 tableView.scrollRectToVisible(sectionRect, animated: true)
@@ -94,18 +93,16 @@ final class ListView: UIView, CalendarSettingProtocol {
                     idx = index
                 }
             }
-            tableView.expand(idx)
             if tableView.numberOfRows(inSection: idx) > 0 {
-                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .middle, animated: true)
+                tableView.expand(idx, isScroll: true)
             } else {
                 let sectionRect = tableView.rect(forSection: idx)
                 tableView.scrollRectToVisible(sectionRect, animated: true)
             }
             
         } else if let idx = params.data.sections.firstIndex(where: { $0.date.year == date.year }) {
-            tableView.expand(idx)
             if tableView.numberOfRows(inSection: idx) > 0 {
-                tableView.scrollToRow(at: IndexPath(row: 0, section: idx), at: .middle, animated: true)
+                tableView.expand(idx, isScroll: true)
             } else {
                 let sectionRect = tableView.rect(forSection: idx)
                 tableView.scrollRectToVisible(sectionRect, animated: true)
