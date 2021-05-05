@@ -14,11 +14,58 @@ final class DayView: UIView {
     
     private var parameters: Parameters
     private let tagEventViewer = -10
+    public var widthViewTask: CGFloat = 98
+    public var layoutListTask: UIView = UIView()
+    public var didReloadEvent: (([Event]) -> Void)?
     
     struct Parameters {
         var style: StyleKVK
         var data: DayData
     }
+    
+    //Stack View
+    lazy var layoutDisplay: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis  = NSLayoutConstraint.Axis.horizontal
+        stackView.alignment = UIStackView.Alignment.fill
+        stackView.spacing = 2
+        var timelineFrame = frame
+        if !parameters.style.headerScroll.isHidden {
+            timelineFrame.origin.y = scrollHeaderDay.frame.height
+            timelineFrame.size.height -= scrollHeaderDay.frame.height
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation.isPortrait {
+                timelineFrame.size.width = UIScreen.main.bounds.width * 0.5
+            } else {
+                timelineFrame.size.width -= parameters.style.timeline.widthEventViewer ?? 0
+            }
+        }
+        stackView.frame = timelineFrame
+        return stackView
+    }()
+    
+    lazy var timelinePages: TimelinePageView = {
+        var timelineFrame = layoutDisplay.frame
+        if !parameters.style.headerScroll.isHidden {
+            timelineFrame.origin.y = 0
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation.isPortrait {
+                timelineFrame.size.width = UIScreen.main.bounds.width * 0.5
+            } else {
+                timelineFrame.size.width -= parameters.style.timeline.widthEventViewer ?? 0
+            }
+        }
+        timelineFrame.size.width -= self.widthViewTask
+        let timelineViews = Array(0..<parameters.style.timeline.maxLimitChachedPages).reduce([]) { (acc, _) -> [TimelineView] in
+            return acc + [createTimelineView(frame: timelineFrame)]
+        }
+        let page = TimelinePageView(maxLimit: parameters.style.timeline.maxLimitChachedPages,
+                                    pages: timelineViews,
+                                    frame: timelineFrame)
+        return page
+    }()
     
     lazy var scrollHeaderDay: ScrollDayHeaderView = {
         let heightView: CGFloat
@@ -66,31 +113,6 @@ final class DayView: UIView {
         }
         return view
     }
-    
-    lazy var timelinePages: TimelinePageView = {
-        var timelineFrame = frame
-        
-        if !parameters.style.headerScroll.isHidden {
-            timelineFrame.origin.y = scrollHeaderDay.frame.height
-            timelineFrame.size.height -= scrollHeaderDay.frame.height
-        }
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            if UIDevice.current.orientation.isPortrait {
-                timelineFrame.size.width = UIScreen.main.bounds.width * 0.5
-            } else {
-                timelineFrame.size.width -= parameters.style.timeline.widthEventViewer ?? 0
-            }
-        }
-        
-        let timelineViews = Array(0..<parameters.style.timeline.maxLimitChachedPages).reduce([]) { (acc, _) -> [TimelineView] in
-            return acc + [createTimelineView(frame: timelineFrame)]
-        }
-        let page = TimelinePageView(maxLimit: parameters.style.timeline.maxLimitChachedPages,
-                                    pages: timelineViews,
-                                    frame: timelineFrame)
-        return page
-    }()
     
     private lazy var topBackgroundView: UIView = {
         let heightView: CGFloat
@@ -278,45 +300,8 @@ extension DayView: TimelineDelegate {
 extension DayView: CalendarSettingProtocol {
     func reloadFrame(_ frame: CGRect) {
         self.frame = frame
-        var timelineFrame = timelinePages.frame
-        
-        if !parameters.style.headerScroll.isHidden {
-            topBackgroundView.frame.size.width = frame.width
-            scrollHeaderDay.reloadFrame(frame)
-            timelineFrame.size.height = frame.height - scrollHeaderDay.frame.height
-        } else {
-            timelineFrame.size.height = frame.height
-        }
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            if let defaultWidth = parameters.style.timeline.widthEventViewer {
-                timelineFrame.size.width = frame.width - defaultWidth
-                
-                if let idx = subviews.firstIndex(where: { $0.tag == tagEventViewer }) {
-                    subviews[idx].removeFromSuperview()
-                    var viewerFrame = timelineFrame
-                    
-                    let width: CGFloat
-                    if UIDevice.current.orientation.isPortrait {
-                        width = frame.width * 0.5
-                        timelineFrame.size.width = frame.width - width
-                    } else {
-                        width = defaultWidth
-                    }
-                    
-                    viewerFrame.size.width = width
-                    if let resultViewerFrame = updateEventViewer(frame: viewerFrame) {
-                        // notify when we did change the frame of viewer
-                        delegate?.didChangeViewerFrame(resultViewerFrame)
-                    }
-                }
-            } else {
-                timelineFrame.size.width = frame.width
-            }
-        } else {
-            timelineFrame.size.width = frame.width
-        }
-        
+        var timelineFrame = layoutDisplay.frame
+        timelineFrame.size.width -= self.widthViewTask
         timelinePages.frame = timelineFrame
         timelinePages.timelineView?.reloadFrame(CGRect(origin: .zero, size: timelineFrame.size))
         timelinePages.timelineView?.create(dates: [parameters.data.date], events: parameters.data.events, selectedDate: parameters.data.date)
@@ -338,6 +323,20 @@ extension DayView: CalendarSettingProtocol {
             addSubview(topBackgroundView)
             topBackgroundView.addSubview(scrollHeaderDay)
         }
-        addSubview(timelinePages)
+        addSubview(layoutDisplay)
+        self.layoutListTask.backgroundColor = .red
+        timelinePages.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
+        timelinePages.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 250), for: .horizontal)
+        layoutListTask.setContentHuggingPriority(UILayoutPriority(rawValue: 999), for: .horizontal)
+        layoutListTask.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 999), for: .horizontal)
+        layoutDisplay.addArrangedSubview(timelinePages)
+        
+        var listTaskFrame = layoutDisplay.frame
+        listTaskFrame.origin.x = UIScreen.main.bounds.width - self.widthViewTask
+        listTaskFrame.size.width = self.widthViewTask
+        layoutListTask.frame = listTaskFrame
+        addSubview(layoutListTask)
+        self.bringSubviewToFront(layoutListTask)
     }
 }
+

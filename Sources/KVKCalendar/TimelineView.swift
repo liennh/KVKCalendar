@@ -308,7 +308,14 @@ final class TimelineView: UIView, EventDateProtocol {
         let allEventsForDates = events.filter { (event) -> Bool in
             return (startDays...endDays).overlaps(event.start...event.end)
         }
-        let filteredEvents = allEventsForDates.filter({ !$0.isAllDay })
+        let isTypeDay = self.type == .day
+        let filteredEvents: [Event]
+        if isTypeDay {//loai bo event la task: enum CalendarEventType TASK == 1
+            filteredEvents = allEventsForDates.filter({ !$0.isAllDay && $0.eventType != 1 })
+        } else {
+            filteredEvents = allEventsForDates.filter({ !$0.isAllDay })
+        }
+        
         let filteredAllDayEvents = events.filter({ $0.isAllDay })
 
         // calculate a start hour
@@ -533,4 +540,5 @@ final class TimelineView: UIView, EventDateProtocol {
         addStubInvisibleEvents()
     }
 }
+
 

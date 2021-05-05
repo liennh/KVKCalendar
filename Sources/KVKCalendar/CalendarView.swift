@@ -50,6 +50,19 @@ public final class CalendarView: UIView {
         return day
     }()
     
+    public func addViewController(uiViewController: UIViewController) {
+        self.dayView.layoutListTask.addSubview(uiViewController.view)
+        uiViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        uiViewController.view.topAnchor.constraint(equalTo:  self.dayView.layoutListTask.topAnchor).isActive = true
+        uiViewController.view.bottomAnchor.constraint(equalTo:  self.dayView.layoutListTask.bottomAnchor).isActive = true
+        uiViewController.view.trailingAnchor.constraint(equalTo:  self.dayView.layoutListTask.trailingAnchor).isActive = true
+        uiViewController.view.leadingAnchor.constraint(equalTo:  self.dayView.layoutListTask.leadingAnchor).isActive = true
+    }
+    
+    public func hiddenViewListTask() {
+        self.dayView.layoutListTask.isHidden = true
+    }
+    
     private(set) lazy var weekView: WeekView = {
         let week = WeekView(data: weekData, frame: frame, style: style)
         week.delegate = self
@@ -103,3 +116,4 @@ public final class CalendarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
