@@ -95,10 +95,16 @@ extension ExpyTableView {
     }
     
     private func animate(with type: ExpyActionType, forSection section: Int, isScroll: Bool = true) {
-        guard canExpand(section) else { return }
         
+    
+        guard canExpand(section) else {
+            if isScroll {
+                self.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
+            }
+            return
+            
+        }
         let sectionIsExpanded = didExpand(section)
-        
         //If section is visible and action type is expand, OR, If section is not visible and action type is collapse, return.
         if ((type == .expand) && (sectionIsExpanded)) || ((type == .collapse) && (!sectionIsExpanded)) { return }
         
