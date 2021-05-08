@@ -46,15 +46,25 @@ final class DayView: UIView {
     }()
     
     lazy var timelinePages: TimelinePageView = {
-        var timelineFrame = layoutDisplay.frame
-        if parameters.style.isShowTaskList {
-            widthViewTask = UIScreen.main.bounds.width/4
-        } else {
-            widthViewTask = 0
-        }
+        var timelineFrame = frame
+        
         if !parameters.style.headerScroll.isHidden {
-            timelineFrame.origin.y = 0
+            timelineFrame.origin.y = scrollHeaderDay.frame.height
+            timelineFrame.size.height -= scrollHeaderDay.frame.height
         }
+        
+        if parameters.style.isShowTaskList {
+            timelineFrame = layoutDisplay.frame
+            if parameters.style.isShowTaskList {
+                widthViewTask = UIScreen.main.bounds.width/4
+            } else {
+                widthViewTask = 0
+            }
+            if !parameters.style.headerScroll.isHidden {
+                timelineFrame.origin.y = 0
+            }
+        }
+    
         if UIDevice.current.userInterfaceIdiom == .pad {
             if UIDevice.current.orientation.isPortrait {
                 timelineFrame.size.width = UIScreen.main.bounds.width * 0.5
@@ -71,6 +81,7 @@ final class DayView: UIView {
                                     frame: timelineFrame)
         return page
     }()
+    
     
     lazy var scrollHeaderDay: ScrollDayHeaderView = {
         let heightView: CGFloat
