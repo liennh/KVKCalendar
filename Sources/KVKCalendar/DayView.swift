@@ -310,8 +310,50 @@ extension DayView: CalendarSettingProtocol {
             widthViewTask = 0
         }
         self.frame = frame
-        var timelineFrame = layoutDisplay.frame
-        timelineFrame.size.width -= self.widthViewTask
+        var timelineFrame = timelinePages.frame
+        
+        if !parameters.style.headerScroll.isHidden {
+            topBackgroundView.frame.size.width = frame.width
+            scrollHeaderDay.reloadFrame(frame)
+            timelineFrame.size.height = frame.height - scrollHeaderDay.frame.height
+        } else {
+            timelineFrame.size.height = frame.height
+        }
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if let defaultWidth = parameters.style.timeline.widthEventViewer {
+                timelineFrame.size.width = frame.width - defaultWidth
+                
+                if let idx = subviews.firstIndex(where: { $0.tag == tagEventViewer }) {
+                    subviews[idx].removeFromSuperview()
+                    var viewerFrame = timelineFrame
+                    
+                    let width: CGFloat
+                    if UIDevice.current.orientation.isPortrait {
+                        width = frame.width * 0.5
+                        timelineFrame.size.width = frame.width - width
+                    } else {
+                        width = defaultWidth
+                    }
+                    
+                    viewerFrame.size.width = width
+                    if let resultViewerFrame = updateEventViewer(frame: viewerFrame) {
+                        // notify when we did change the frame of viewer
+                        delegate?.didChangeViewerFrame(resultViewerFrame)
+                    }
+                }
+            } else {
+                timelineFrame.size.width = frame.width
+            }
+        } else {
+            timelineFrame.size.width = frame.width
+        }
+        
+        if parameters.style.isShowTaskList {
+            timelineFrame = layoutDisplay.frame
+            timelineFrame.size.width -= self.widthViewTask
+        }
+        
         timelinePages.frame = timelineFrame
         timelinePages.timelineView?.reloadFrame(CGRect(origin: .zero, size: timelineFrame.size))
         timelinePages.timelineView?.create(dates: [parameters.data.date], events: parameters.data.events, selectedDate: parameters.data.date)
@@ -334,9 +376,6 @@ extension DayView: CalendarSettingProtocol {
             topBackgroundView.addSubview(scrollHeaderDay)
         }
        
-      
-     
-        
         if parameters.style.isShowTaskList {
             addSubview(layoutDisplay)
             timelinePages.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
