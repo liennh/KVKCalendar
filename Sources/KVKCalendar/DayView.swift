@@ -333,21 +333,26 @@ extension DayView: CalendarSettingProtocol {
             addSubview(topBackgroundView)
             topBackgroundView.addSubview(scrollHeaderDay)
         }
-        addSubview(layoutDisplay)
-        self.layoutListTask.backgroundColor = .red
-        timelinePages.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
-        timelinePages.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 250), for: .horizontal)
-        layoutListTask.setContentHuggingPriority(UILayoutPriority(rawValue: 999), for: .horizontal)
-        layoutListTask.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 999), for: .horizontal)
-        layoutDisplay.addArrangedSubview(timelinePages)
+       
+      
+     
         
         if parameters.style.isShowTaskList {
+            addSubview(layoutDisplay)
+            timelinePages.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
+            timelinePages.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 250), for: .horizontal)
+            layoutListTask.setContentHuggingPriority(UILayoutPriority(rawValue: 999), for: .horizontal)
+            layoutListTask.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 999), for: .horizontal)
+            layoutDisplay.addArrangedSubview(timelinePages)
+            self.layoutListTask.backgroundColor = .red
             var listTaskFrame = layoutDisplay.frame
             listTaskFrame.origin.x = UIScreen.main.bounds.width - self.widthViewTask
             listTaskFrame.size.width = self.widthViewTask
             layoutListTask.frame = listTaskFrame
             addSubview(layoutListTask)
             self.bringSubviewToFront(layoutListTask)
+        } else {
+            addSubview(timelinePages)
         }
       
     }
