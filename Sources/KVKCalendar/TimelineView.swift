@@ -310,7 +310,7 @@ final class TimelineView: UIView, EventDateProtocol {
         }
         let isTypeDay = self.type == .day
         let filteredEvents: [Event]
-        if isTypeDay {//loai bo event la task: enum CalendarEventType TASK == 1
+        if isTypeDay, style.isShowTaskList {//loai bo event la task: enum CalendarEventType TASK == 1
             filteredEvents = allEventsForDates.filter({ !$0.isAllDay && $0.eventType != 1 })
         } else {
             filteredEvents = allEventsForDates.filter({ !$0.isAllDay })

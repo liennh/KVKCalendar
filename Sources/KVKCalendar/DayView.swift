@@ -47,6 +47,11 @@ final class DayView: UIView {
     
     lazy var timelinePages: TimelinePageView = {
         var timelineFrame = layoutDisplay.frame
+        if parameters.style.isShowTaskList {
+            widthViewTask = UIScreen.main.bounds.width/4
+        } else {
+            widthViewTask = 0
+        }
         if !parameters.style.headerScroll.isHidden {
             timelineFrame.origin.y = 0
         }
@@ -299,6 +304,11 @@ extension DayView: TimelineDelegate {
 
 extension DayView: CalendarSettingProtocol {
     func reloadFrame(_ frame: CGRect) {
+        if parameters.style.isShowTaskList {
+            widthViewTask = UIScreen.main.bounds.width/4
+        } else {
+            widthViewTask = 0
+        }
         self.frame = frame
         var timelineFrame = layoutDisplay.frame
         timelineFrame.size.width -= self.widthViewTask
@@ -331,12 +341,15 @@ extension DayView: CalendarSettingProtocol {
         layoutListTask.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 999), for: .horizontal)
         layoutDisplay.addArrangedSubview(timelinePages)
         
-        var listTaskFrame = layoutDisplay.frame
-        listTaskFrame.origin.x = UIScreen.main.bounds.width - self.widthViewTask
-        listTaskFrame.size.width = self.widthViewTask
-        layoutListTask.frame = listTaskFrame
-        addSubview(layoutListTask)
-        self.bringSubviewToFront(layoutListTask)
+        if parameters.style.isShowTaskList {
+            var listTaskFrame = layoutDisplay.frame
+            listTaskFrame.origin.x = UIScreen.main.bounds.width - self.widthViewTask
+            listTaskFrame.size.width = self.widthViewTask
+            layoutListTask.frame = listTaskFrame
+            addSubview(layoutListTask)
+            self.bringSubviewToFront(layoutListTask)
+        }
+      
     }
 }
 
