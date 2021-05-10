@@ -366,7 +366,7 @@ final class TimelineView: UIView, EventDateProtocol {
                 return event1.eventType > event2.eventType
             })
             
-            let recurringEventByDate: [Event]
+            var recurringEventByDate: [Event] = [Event]()
             if self.style.isShowRepeat {
                 if !recurringEvents.isEmpty, let dt = date {
                     recurringEventByDate = recurringEvents.reduce([], { (acc, event) -> [Event] in
