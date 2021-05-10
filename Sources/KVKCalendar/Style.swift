@@ -28,6 +28,7 @@ public struct StyleKVK {
     public var systemCalendars: Set<String> = []
     public var isShowSectionAllDay: Bool = true
     public var isShowTaskList: Bool = false
+    public var isShowRepeat: Bool = false
     public init() {}
 }
 

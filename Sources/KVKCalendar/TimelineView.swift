@@ -20,6 +20,7 @@ final class TimelineView: UIView, EventDateProtocol {
     var eventPreviewSize = CGSize(width: 150, height: 40)
     var isResizeEnableMode = false
     var isFirst: Bool = true
+    
     private(set) var tagCurrentHourLine = -10
     private(set) var tagEventPagePreview = -20
     private(set) var tagVerticalLine = -30
@@ -154,11 +155,8 @@ final class TimelineView: UIView, EventDateProtocol {
             if sectionDate == nil {
                 sectionDate = event.start...event.end
             }
-            
-            
-            
+
             var crossEventNew = CrossEvent(eventTime: EventTime(start: start, end: end))
-            
             let endCalculated: TimeInterval = crossEventNew.eventTime.end - TimeInterval(style.timeline.offsetEvent)
             let eventsFiltered = events.filter({ (item) in
                 let itemEnd = item.end.timeIntervalSince1970 - TimeInterval(style.timeline.offsetEvent)
@@ -369,20 +367,22 @@ final class TimelineView: UIView, EventDateProtocol {
             })
             
             let recurringEventByDate: [Event]
-            if !recurringEvents.isEmpty, let dt = date {
-                recurringEventByDate = recurringEvents.reduce([], { (acc, event) -> [Event] in
-//                    guard !eventsByDate.contains(where: { $0.ID == event.ID })
-//                            && dt.compare(event.start) == .orderedDescending else { return acc }
-                    guard let recurringEvent = event.updateListDateRepeatEveryDay(newDate: dt, calendar: style.calendar) else {
-                        return acc
-                    }
-                    return acc + recurringEvent
-                    
-                })
-            } else {
-                recurringEventByDate = []
+            if self.style.isShowRepeat {
+                if !recurringEvents.isEmpty, let dt = date {
+                    recurringEventByDate = recurringEvents.reduce([], { (acc, event) -> [Event] in
+    //                    guard !eventsByDate.contains(where: { $0.ID == event.ID })
+    //                            && dt.compare(event.start) == .orderedDescending else { return acc }
+                        guard let recurringEvent = event.updateListDateRepeatEveryDay(newDate: dt, calendar: style.calendar) else {
+                            return acc
+                        }
+                        return acc + recurringEvent
+                        
+                    })
+                } else {
+                    recurringEventByDate = []
+                }
             }
-            
+       
             let filteredRecurringEvents = recurringEventByDate.filter({ !$0.isAllDay })
             let filteredAllDayRecurringEvents = recurringEventByDate.filter({ $0.isAllDay })
             let sortedEventsByDate = (eventsByDate + filteredRecurringEvents).sorted(by: { $0.start < $1.start })
