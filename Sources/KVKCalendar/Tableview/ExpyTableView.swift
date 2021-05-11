@@ -99,11 +99,7 @@ extension ExpyTableView {
     
         guard canExpand(section) else {
             if isScroll {
-                    if self.indexPathsForVisibleRows?.contains(IndexPath(row: 0, section: section)) == false {
-                        DispatchQueue.main.async {
-                            self.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
-                        }
-                    }
+                checkScrollToIndexPath(indexPath: IndexPath(row: 0, section: section))
             }
             return
             
@@ -112,11 +108,7 @@ extension ExpyTableView {
         //If section is visible and action type is expand, OR, If section is not visible and action type is collapse, return.
         if ((type == .expand) && (sectionIsExpanded)) || ((type == .collapse) && (!sectionIsExpanded)) {
             if isScroll {
-                if self.indexPathsForVisibleRows?.contains(IndexPath(row: 0, section: section)) == false {
-                    DispatchQueue.main.async {
-                        self.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
-                    }
-                }
+                checkScrollToIndexPath(indexPath: IndexPath(row: 0, section: section))
             }
             return
             
@@ -124,6 +116,23 @@ extension ExpyTableView {
         
         assign(section, asExpanded: (type == .expand))
         startAnimating(self, with: type, forSection: section, isScroll: isScroll)
+    }
+    
+    
+    func checkScrollToIndexPath(indexPath: IndexPath) {
+        if self.indexPathsForVisibleRows?.contains(indexPath) == false {
+            DispatchQueue.main.async {
+                self.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        } else {
+            let rect = self.rectForRow(at: indexPath)
+            let tableViewMax = self.bounds.origin.y + self.frame.size.height - 100
+            if rect.origin.y >= tableViewMax {
+                DispatchQueue.main.async {
+                    self.scrollToRow(at: indexPath, at: .top, animated: true)
+                }
+            }
+        }
     }
     
     private func startAnimating(_ tableView: ExpyTableView, with type: ExpyActionType, forSection section: Int, isScroll: Bool = false) {
