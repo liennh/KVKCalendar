@@ -99,7 +99,11 @@ extension ExpyTableView {
     
         guard canExpand(section) else {
             if isScroll {
-                self.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
+                    if self.indexPathsForVisibleRows?.contains(IndexPath(row: 0, section: section)) == false {
+                        DispatchQueue.main.async {
+                            self.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
+                        }
+                    }
             }
             return
             
@@ -108,7 +112,11 @@ extension ExpyTableView {
         //If section is visible and action type is expand, OR, If section is not visible and action type is collapse, return.
         if ((type == .expand) && (sectionIsExpanded)) || ((type == .collapse) && (!sectionIsExpanded)) {
             if isScroll {
-                self.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
+                if self.indexPathsForVisibleRows?.contains(IndexPath(row: 0, section: section)) == false {
+                    DispatchQueue.main.async {
+                        self.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
+                    }
+                }
             }
             return
             
@@ -137,7 +145,10 @@ extension ExpyTableView {
             self.expyDelegate?.tableView(tableView, expyState: (type == .expand ? .didExpand : .didCollapse), changeForSection: section)
             headerCell?.isUserInteractionEnabled = true
             if isScroll, type == .expand {
-                self.scrollToRow(at: IndexPath(row: 0, section: section), at: self.scrollType, animated: true)
+                DispatchQueue.main.async {
+                    self.scrollToRow(at: IndexPath(row: 0, section: section), at: self.scrollType, animated: true)
+                }
+               
             } else {
                 let rect = tableView.rectForRow(at: IndexPath(row: 0, section: section))
                 let tableViewMax = tableView.bounds.origin.y + tableView.frame.size.height - 100
