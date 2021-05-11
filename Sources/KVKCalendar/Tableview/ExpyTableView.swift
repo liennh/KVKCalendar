@@ -120,19 +120,15 @@ extension ExpyTableView {
     
     
     func checkScrollToIndexPath(indexPath: IndexPath) {
-        if self.indexPathsForVisibleRows?.contains(indexPath) == false {
-            DispatchQueue.main.async {
+        let rect = self.rectForRow(at: indexPath)
+        DispatchQueue.main.async {
+            if rect.origin.y > self.bounds.origin.y - 5, rect.origin.y < self.bounds.origin.y + 10 {
+                // cell is top
+            } else {
                 self.scrollToRow(at: indexPath, at: .top, animated: true)
             }
-        } else {
-            let rect = self.rectForRow(at: indexPath)
-            let tableViewMax = self.bounds.origin.y + self.frame.size.height - 100
-            if rect.origin.y >= tableViewMax {
-                DispatchQueue.main.async {
-                    self.scrollToRow(at: indexPath, at: .top, animated: true)
-                }
-            }
         }
+
     }
     
     private func startAnimating(_ tableView: ExpyTableView, with type: ExpyActionType, forSection section: Int, isScroll: Bool = false) {
@@ -147,22 +143,21 @@ extension ExpyTableView {
         headerCellConformant?.changeState((type == .expand ? .willExpand : .willCollapse), cellReuseStatus: false)
         expyDelegate?.tableView(tableView, expyState: (type == .expand ? .willExpand : .willCollapse), changeForSection: section)
 
-        CATransaction.setCompletionBlock {
+        CATransaction.setCompletionBlock { [weak self] in
+            guard let _self = self else {return}
             //Inform the delegates here.
             headerCellConformant?.changeState((type == .expand ? .didExpand : .didCollapse), cellReuseStatus: false)
             
-            self.expyDelegate?.tableView(tableView, expyState: (type == .expand ? .didExpand : .didCollapse), changeForSection: section)
+            _self.expyDelegate?.tableView(tableView, expyState: (type == .expand ? .didExpand : .didCollapse), changeForSection: section)
             headerCell?.isUserInteractionEnabled = true
             if isScroll, type == .expand {
-                DispatchQueue.main.async {
-                    self.scrollToRow(at: IndexPath(row: 0, section: section), at: self.scrollType, animated: true)
-                }
-               
+                _self.checkScrollToIndexPath(indexPath: IndexPath(row: 0, section: section))
+
             } else {
                 let rect = tableView.rectForRow(at: IndexPath(row: 0, section: section))
                 let tableViewMax = tableView.bounds.origin.y + tableView.frame.size.height - 100
                 if rect.origin.y >= tableViewMax {
-                    self.scrollToRow(at: IndexPath(row: 0, section: section), at: self.scrollType, animated: true)
+                    _self.scrollToRow(at: IndexPath(row: 0, section: section), at: _self.scrollType, animated: true)
                 }
             }
         }
