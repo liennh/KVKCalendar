@@ -67,6 +67,11 @@ final class TimelineView: UIView, EventDateProtocol {
         let scroll = UIScrollView()
         scroll.delegate = self
         scroll.backgroundColor = style.timeline.backgroundColor
+        if #available(iOS 11.0, *) {
+            scroll.contentInset.bottom = 49 + 28 + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
+        } else {
+            // Fallback on earlier versions
+        }
         return scroll
     }()
     
@@ -179,7 +184,11 @@ final class TimelineView: UIView, EventDateProtocol {
         if !subviews.filter({ $0 is AllDayTitleView }).isEmpty || !scrollView.subviews.filter({ $0 is AllDayTitleView }).isEmpty {
             offsetY = style.allDay.height
         }
-        scrollView.contentInset = UIEdgeInsets(top: offsetY, left: 0, bottom: 0, right: 0)
+        if #available(iOS 11.0, *) {
+            scrollView.contentInset = UIEdgeInsets(top: offsetY, left: 0, bottom: 49 + 28 + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0), right: 0)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     private func getTimelineLabel(hour: Int) -> TimelineLabel? {
