@@ -7,6 +7,8 @@
 
 import UIKit
 
+let isInTabbarKey = "isInTabbarKey"
+
 private enum AssociatedKeys {
     static var timer: UInt8 = 0
 }

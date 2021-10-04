@@ -68,7 +68,13 @@ final class TimelineView: UIView, EventDateProtocol {
         scroll.delegate = self
         scroll.backgroundColor = style.timeline.backgroundColor
         if #available(iOS 11.0, *) {
-            scroll.contentInset.bottom = 49 + 28 + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
+            let isInTabbar = UserDefaults.standard.bool(forKey: isInTabbarKey)
+            if isInTabbar {
+                scroll.contentInset.bottom = 49 + 28 + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
+            } else {
+                scroll.contentInset.bottom = (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
+            }
+            
         } else {
             // Fallback on earlier versions
         }
