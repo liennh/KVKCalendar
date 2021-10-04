@@ -191,7 +191,12 @@ final class TimelineView: UIView, EventDateProtocol {
             offsetY = style.allDay.height
         }
         if #available(iOS 11.0, *) {
-            scrollView.contentInset = UIEdgeInsets(top: offsetY, left: 0, bottom: 49 + 28 + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0), right: 0)
+            let isInTabbar = UserDefaults.standard.bool(forKey: isInTabbarKey)
+            if isInTabbar {
+                scrollView.contentInset = UIEdgeInsets(top: offsetY, left: 0, bottom: 49 + 28 + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0), right: 0)
+            } else {
+                scrollView.contentInset = UIEdgeInsets(top: offsetY, left: 0, bottom: (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0), right: 0)
+            }
         } else {
             // Fallback on earlier versions
         }
